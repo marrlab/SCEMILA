@@ -28,7 +28,7 @@ def process_label(row):
     lbl_out = row.bag_label
 
     # alternative labelling, e.g. by sex:
-    # lbl_out = ['male', 'female'][int(row.sex_1m_2f)]
+    # lbl_out = ['male', 'female'][int(row.sex_1m_2f)-1]
 
     return lbl_out
 

@@ -16,30 +16,30 @@ from model_train import *   # model training function
 
 # 1: Setup. Source Folder is parent folder for both mll_data_master and the /data folder
 TARGET_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/code/results'
-SOURCE_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/'
+SOURCE_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/'                 # results will be stored here
 
 # get arguments from parser, set up folder
 ##### parse arguments
 parser = ap.ArgumentParser()
 
 ########## Algorithm / training parameters
-parser.add_argument('--fold', help='use folds', required=False, default=0)                                                  # shift folds for cross validation. Increasing by 1 moves all folds by 1.
-parser.add_argument('--lr', help='used learning rate', required=False, default=0.00005)                                       # learning rate
+parser.add_argument('--fold', help='offset for cross-validation (1-5). Change to cross-validate', required=False, default=0)# shift folds for cross validation. Increasing by 1 moves all folds by 1.
+parser.add_argument('--lr', help='used learning rate', required=False, default=0.00005)                                     # learning rate
 parser.add_argument('--ep', help='max. amount after which training should stop', required=False, default=150)               # epochs to train
 parser.add_argument('--es', help='early stopping if no decrease in loss for x epochs', required=False, default=10)          # epochs without improvement, after which training should stop.
-parser.add_argument('--multi_c', help='use multicolumn approach', required=False, default=1)                                # use multiple attention values if 1
+parser.add_argument('--multi_att', help='use multi-attention approach', required=False, default=1)                          # use multiple attention values if 1
 
 ########## Data parameters: Modify the dataset
-parser.add_argument('--prefix', help='define which set of features shall be used', required=False, default='fnl34_')         # define feature source to use (from different CNNs)
-parser.add_argument('--filter_nv', help='filter by amount of uncommon myeloid. Passed int count as percent.', default=20)   # -1 if only non-matched and bad quality should be excluded, -2 if *nothing* should be excluded
+parser.add_argument('--prefix', help='define which set of features shall be used', required=False, default='fnl34_')        # define feature source to use (from different CNNs)
+parser.add_argument('--filter_diff', help='Filters AML patients with less or equal to this perc. of MYB.', default=20)      # pass -1, if no filtering acc to peripheral blood differential count should be done
 
 ########## Output parameters
-parser.add_argument('--custom_string', help='store folder with custom name', required=True)                                # custom output folder name
+parser.add_argument('--result_folder', help='store folder with custom name', required=True)                                 # custom output folder name
 parser.add_argument('--save_model', help='choose wether model should be saved', required=False, default=1)                  # store model parameters if 1
 args = parser.parse_args()
 
 # store results in target folder
-TARGET_FOLDER = os.path.join(TARGET_FOLDER, args.custom_string)
+TARGET_FOLDER = os.path.join(TARGET_FOLDER, args.result_folder)
 if not os.path.exists(TARGET_FOLDER):
     os.mkdir(TARGET_FOLDER)
 start = time.time()
@@ -55,7 +55,7 @@ print('Initialize datasets...')
 label_conv_obj = label_converter.label_converter()
 set_dataset_path(SOURCE_FOLDER)
 define_dataset(num_folds = 5, prefix_in = args.prefix, 
-                label_converter_in=label_conv_obj, filter_diff_count=int(args.filter_nv))
+                label_converter_in=label_conv_obj, filter_diff_count=int(args.filter_diff))
 datasets = {}
 
 ##### set up folds for cross validation
@@ -106,7 +106,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 ngpu = torch.cuda.device_count()
 print("Found device: ", ngpu, "x ", device)
 
-model = AMiL(class_count=class_count, multicolumn=int(args.multi_c), device=device)
+model = AMiL(class_count=class_count, multicolumn=int(args.multi_att), device=device)
 
 if(ngpu > 1):
     model = torch.nn.DataParallel(model)
