@@ -32,8 +32,8 @@ class trainer:
 
         for ep in range(self.epochs):
             # perform train/val iteration
-            loss, acc, conf_matrix, att = self.dataset_to_model(ep, 'train')
-            loss, acc, conf_matrix, att = self.dataset_to_model(ep, 'val')
+            loss, acc, conf_matrix, data_obj = self.dataset_to_model(ep, 'train')
+            loss, acc, conf_matrix, data_obj = self.dataset_to_model(ep, 'val')
             no_improvement_for += 1
 
             loss = loss.cpu().numpy()
@@ -58,8 +58,8 @@ class trainer:
 
         # load best performing model, and launch on test set
         self.model.load_state_dict(best_model)
-        loss, acc, conf_matrix, att = self.dataset_to_model(ep, 'test')
-        return self.model, conf_matrix, att
+        loss, acc, conf_matrix, data_obj = self.dataset_to_model(ep, 'test')
+        return self.model, conf_matrix, data_obj
 
 
     def dataset_to_model(self, epoch, split, backprop_every=20):
@@ -81,7 +81,7 @@ class trainer:
         train_loss = 0.
         time_pre_epoch = time.time()
         confusion_matrix = np.zeros((self.class_count, self.class_count), np.int16)
-        att_matrix = attention_matrix()
+        data_obj = data_matrix()
 
         self.optimizer.zero_grad()
         backprop_counter = 0
@@ -120,7 +120,7 @@ class trainer:
             label_groundtruth = label[0].item()
             
             # store patient information for potential later analysis
-            att_matrix.add_patient(label_groundtruth, path_full[0], att_raw, att_softmax, label_prediction, F.softmax(prediction, dim=1), loss_out, bag_feature_stack)
+            data_obj.add_patient(label_groundtruth, path_full[0], att_raw, att_softmax, label_prediction, F.softmax(prediction, dim=1), loss_out, bag_feature_stack)
 
             # store predictions accordingly in confusion matrix
             if(label_prediction == label_groundtruth):
@@ -138,24 +138,24 @@ class trainer:
             epoch+1, self.epochs, train_loss.cpu().numpy(), 
             accuracy, int(time.time()-time_pre_epoch), split))
 
-        return train_loss, accuracy, confusion_matrix, att_matrix.return_data()
+        return train_loss, accuracy, confusion_matrix, data_obj.return_data()
 
 
-class attention_matrix():
+class data_matrix():
     '''stores all information about attention, predicted values, attention-pooled feature vectors, loss, ...
     Great to be pickelized later.'''
     
     def __init__(self):
-        self.matrix = dict()
+        self.data_dict = dict()
 
     def add_patient(self, entity, path_full, attention_raw, attention, prediction, prediction_vector, loss, out_features):
         '''stores all data including attention, predicted label, prediction probabilities, loss.
         Object is later saved in pickle.'''
 
-        if not (entity in self.matrix):
-            self.matrix[entity] = dict()
-        self.matrix[entity][path_full] = (attention_raw.detach().cpu().numpy(), attention.detach().cpu().numpy(), prediction, 
+        if not (entity in self.data_dict):
+            self.data_dict[entity] = dict()
+        self.data_dict[entity][path_full] = (attention_raw.detach().cpu().numpy(), attention.detach().cpu().numpy(), prediction, 
                                     prediction_vector.data.cpu().numpy(), float(loss.data.cpu()), out_features.detach().cpu().numpy())
 
     def return_data(self):
-        return self.matrix
+        return self.data_dict

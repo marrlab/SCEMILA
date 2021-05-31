@@ -9,28 +9,28 @@ torch.multiprocessing.set_sharing_strategy('file_system')
 
 # import from other, own modules
 import label_converter      # makes conversion from string label to one-hot encoding easier
-from mil_dataset import *   # dataset
+from dataset import *   # dataset
 from model import *         # actual MIL model
 from model_train import *   # model training function
 
 
-# 1: Setup
-TARGET_FOLDER = '/storage/groups/qscd01/projects/aml_mil_hehr/results_rework/210407_final_results'
-SOURCE_FOLDER = '../../data'
-# get arguments from parser, set up folder
+# 1: Setup. Source Folder is parent folder for both mll_data_master and the /data folder
+TARGET_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/code/results'
+SOURCE_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/'
 
+# get arguments from parser, set up folder
 ##### parse arguments
 parser = ap.ArgumentParser()
 
 ########## Algorithm / training parameters
 parser.add_argument('--fold', help='use folds', required=False, default=0)                                                  # shift folds for cross validation. Increasing by 1 moves all folds by 1.
-parser.add_argument('--lr', help='used learning rate', required=False, default=0.001)                                       # learning rate
+parser.add_argument('--lr', help='used learning rate', required=False, default=0.00005)                                       # learning rate
 parser.add_argument('--ep', help='max. amount after which training should stop', required=False, default=150)               # epochs to train
 parser.add_argument('--es', help='early stopping if no decrease in loss for x epochs', required=False, default=10)          # epochs without improvement, after which training should stop.
 parser.add_argument('--multi_c', help='use multicolumn approach', required=False, default=1)                                # use multiple attention values if 1
 
 ########## Data parameters: Modify the dataset
-parser.add_argument('--prefix', help='define which set of features shall be used', required=False, default='sa34_')         # define feature source to use (from different CNNs)
+parser.add_argument('--prefix', help='define which set of features shall be used', required=False, default='fnl34_')         # define feature source to use (from different CNNs)
 parser.add_argument('--filter_nv', help='filter by amount of uncommon myeloid. Passed int count as percent.', default=20)   # -1 if only non-matched and bad quality should be excluded, -2 if *nothing* should be excluded
 
 ########## Output parameters
@@ -50,12 +50,12 @@ start = time.time()
 
 # 2: Dataset
 # Initialize datasets, dataloaders, ...
-
+print("")
 print('Initialize datasets...')
-label_converter = label_converter.label_converter()
+label_conv_obj = label_converter.label_converter()
 set_dataset_path(SOURCE_FOLDER)
-define_dataset(exclude_elements=['non-AML', 'AML-other', 'excl'], num_folds = 5, prefix_in = args.prefix, 
-                label_converter_in=label_converter, filter_nonvisible=int(args.filter_nv))
+define_dataset(num_folds = 5, prefix_in = args.prefix, 
+                label_converter_in=label_conv_obj, filter_diff_count=int(args.filter_nv))
 datasets = {}
 
 ##### set up folds for cross validation
@@ -68,9 +68,10 @@ datasets['val'] = dataset(folds=folds['val'], aug_im_order=False, split='val')
 datasets['test'] = dataset(folds=folds['test'], aug_im_order=False, split='test')
 
 ##### store conversion from true string labels to artificial numbers for one-hot encoding
-df = label_converter.df
+df = label_conv_obj.df
 df.to_csv(os.path.join(TARGET_FOLDER, "class_conversion.csv"), index=False)
 class_count = len(df)
+print("Data distribution: ")
 print(df)
 
 ##### Initialize dataloaders
@@ -78,9 +79,9 @@ print("Initialize dataloaders...")
 dataloaders= {}
 
 # ensure balanced sampling
-class_sizes = list(df.size_tot)
-label_freq = [class_sizes[c]/sum(class_sizes) for c in range(class_count)]
-individual_sampling_prob = [(1/class_count)*(1/label_freq[c]) for c in range(class_count)]
+class_sizes = list(df.size_tot)                                                             # get total sample sizes
+label_freq = [class_sizes[c]/sum(class_sizes) for c in range(class_count)]                  # calculate label frequencies
+individual_sampling_prob = [(1/class_count)*(1/label_freq[c]) for c in range(class_count)]  # balance sampling frequencies for equal sampling
 
 idx_sampling_freq_train = torch.tensor(individual_sampling_prob)[datasets['train'].labels]
 idx_sampling_freq_val = torch.tensor(individual_sampling_prob)[datasets['val'].labels]
@@ -120,16 +121,16 @@ scheduler = None
 ##### launch training
 train_obj = trainer(model=model, dataloaders=dataloaders, epochs=int(args.ep), optimizer = optimizer,
                     scheduler=scheduler, class_count=class_count, early_stop=int(args.es), device=device)
-model, conf_matrix, att = train_obj.launch_training()
+model, conf_matrix, data_obj = train_obj.launch_training()
 
 
 
 
 # 4: aftermath
-# save confusion matrix from test set, all the data (attention.py), model, print parameters
+# save confusion matrix from test set, all the data , model, print parameters
 
 np.save(os.path.join(TARGET_FOLDER, 'test_conf_matrix.npy'), conf_matrix)
-pickle.dump(att, open(os.path.join(TARGET_FOLDER, 'attention.pkl'), "wb"))
+pickle.dump(data_obj, open(os.path.join(TARGET_FOLDER, 'testing_data.pkl'), "wb"))
 
 if(int(args.save_model)):
     torch.save(model, os.path.join(TARGET_FOLDER, 'model.pt'))
@@ -144,6 +145,6 @@ print("")
 print("------------------------Final report--------------------------")
 print('prefix', args.prefix)
 print('Runtime', time_str)
-print('Epochs', args.ep)
+print('max. Epochs', args.ep)
 print('Learning rate', args.lr)
 

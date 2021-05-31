@@ -19,19 +19,18 @@ import pandas as pd
 ##### Path to pickle objects for quicker data loading
 dataset_defined = False                                                                 # used to make sure define_dataset is called before creating new dataset object
 
-def process_label(str_in, pat_id):
-    '''This function allows to change string labels, e.g. sum up different classes in one
-    major class. If str_in is returned, the default class will be used.
+def process_label(row):
+    ''' This function receives the patient row from the mll_data_master, and 
+    computes the patient label. If it returns None, the patient is left out
+    --> this can be used for additional filtering.
     '''
 
-    # three class
-    # if str_in in ['AML-INV16', 'AML-NPM1', 'AML-PML-RARA', 'AML-t(8;21)', 'AML-other']:
-    #     return 'AML'
-    # else:
-    #     return str_in
+    lbl_out = row.bag_label
 
-    # regular full-class classification
-    return str_in
+    # alternative labelling, e.g. by sex:
+    # lbl_out = ['male', 'female'][int(row.sex_1m_2f)]
+
+    return lbl_out
 
 def set_dataset_path(path):
     ''' Pass on path to locate the data '''
@@ -41,18 +40,15 @@ def set_dataset_path(path):
 
 ##### Load and filter dataset according to custom criteria, before Dataset initialization
 def define_dataset(num_folds = 5, prefix_in=None, label_converter_in=None,
-                    filter_nonvisible=-1):
+                    filter_diff_count=-1, filter_quality_assessment=True):
         '''function needs to be called before constructing datasets. Gets an overview over the entire dataset, does filtering
         according to parameters / exclusion criteria, and splits the data automatically.
         - num_folds: split dataset into n folds
         - prefix_in: choose different set of extracted features, by adapting here
-        - label_converter_in: needs label_converter created in launcher.py to function and convert string to integer labels
-        - filter_nonvisible:filter by myeloblast fraction in patients. Filters patients with less or equal (<=) myeloblast fraction!
-                            A few special values: 
-                                if set to (-2), no filtering happens at all
-                                if set to (-1), no filtering happens due to myeloblast count, but due to exclusion for other reasons
-                                from (0) on, filtering kicks in.
-        - exclude_below: exclude class, if it has less than n patients'''
+        - label_converter_in: needs label_converter created in run_pipeline.py to convert string to integer labels
+        - filter_diff_count: filter if patient has less than this amount (e.g. '19' for 19%) myeloblasts. 
+            Set to -1, if no filtering should be applied here.
+        - filter_quality_assessment: include manual quality assessment filter criterion'''
         
         global dataset_defined, prefix, mil_distribution, mil_mutations, label_conv_obj
 
@@ -62,69 +58,48 @@ def define_dataset(num_folds = 5, prefix_in=None, label_converter_in=None,
         # load patient data
         df_data_master = pd.read_csv('{}/mll_data_master_pseudo.csv'.format(path_data)).set_index('pseudonym')
 
+        print("")
+        print("Filtering the dataset...")
+        print("")
+
         # iterate over all patients in the df_data_master sheet
         merge_dict_processed = {}
-        for idx, r in df_data_master.iterrows():
+        for idx, row in df_data_master.iterrows():
 
+            
+            # filter if patient has not enough malign cells (only if an AML patient)
             # define filter criterion by which to filter the patients by annotation
             annotations_exclude_by = ['pb_myeloblast']
-                
-            # iterate over every patient
-            for pat in val:
-                pat_id = os.path.basename(pat)
+            annotate_exclude_by = sum(row[annotations_exclude_by].values)
+            if annotate_exclude_by < filter_diff_count and (not row['bag_label'] == 'SCD'):
+                print("Not enough malign cells, exclude: ", row.name, " with ", annotations_exclude_by, " malign cells ")
+                continue
 
-                # allow for filtering deactivation
-                if not (filter_nonvisible == -2):
-
-                    # filter if patient not found
-                    id_loc = mll_diff_annotation[mll_diff_annotation['ID'] == id_truncated]
-                    if len(id_loc) == 0:
-                        print("Pat not found: ", pat_id)
-                        continue
-
-                    # filter if annotation data for the patient is not found
-                    is_annotated = id_loc['Pb Total'] > 0
-                    annotate_exclude_by = sum(sum(id_loc[annotations_exclude_by].values))
-                    if not is_annotated.all():
-                        print("No annotation: ", pat_id)
-                        continue
+            # filter if manual assessment revealed flaws. If this cell contains N/A, then we don't exclude
+            keep_row = pd.isnull(row['examine_exclude'])
                         
-                    # filter if patient has not enough cells (only if an AML patient)
-                    if annotate_exclude_by <= filter_nonvisible and (not key in ['stem cell donor', 'non-AML']):
-                        print("Not enough malign cells, exclude: ", annotate_exclude_by, " ", pat_id)
-                        continue
-
-                    # filter if manual assessment revealed flaws
-                    quality_exclude = mll_data_assessment_exclude[mll_data_assessment_exclude['PatID'] == id_truncated]
-                    ##### first: not found in file - filter in the future, if all patients have been assessed
-                    if not len(quality_exclude) == 0:
-                        # print("AGAIN_Pat. not found: ", pat_id)
-                        # continue
-                        
-                        ##### second: if in hard_exclude_criteria: 
-                        if not pd.isna(quality_exclude.cat_exclude_quality.iloc[0]):
-                            print("Bad slide quality, exclude: ", pat_id)
-                            continue
-
-                        ##### third: if in optional_exclude_criteria: 
-                        # if not pd.isna(quality_exclude.cat_optional_takeout.iloc[0]):
-                        #     print("Bad slide quality, exclude: ", pat_id)
-                        #     continue
+            # filter if the patient has known bad sample quality
+            if not keep_row and filter_quality_assessment:
+                print("Bad slide quality, exclude: ", row.name, " ")
+                continue
 
 
-                # enter patient into label converter
-                label = process_label(key, pat_id)
-                if label is None:
-                    continue
+            # enter patient into label converter
+            label = process_label(row)
+            if label is None:
+                continue
                 
-                # store patient for later loading
-                if not label in merge_dict_processed.keys():
-                    merge_dict_processed[label] = []
-                merge_dict_processed[label].append(pat)
+            # store patient for later loading
+            if not label in merge_dict_processed.keys():
+                merge_dict_processed[label] = []
+            patient_path = os.path.join(path_data, 'data', row['bag_label'], row.name)
+            merge_dict_processed[label].append(patient_path)
             
         # split dataset
         dataset_defined = True
         data_split.split_in_folds(merge_dict_processed, num_folds)
+        print("Data filtering complete.")
+        print("")
 
 
 ##### Actual dataset class
@@ -147,10 +122,9 @@ class dataset(Dataset):
 
         ##### grab data split for corresponding folds
         self.data = data_split.return_folds(folds)
-        self.paths = []
-        self.labels = []
+        self.paths, self.labels = [], []
 
-        # reduce the hard drive burden by storing features in a dictionary in RAM, once they have been loaded later
+        # reduce the hard drive burden by storing features in a dictionary in RAM, as they will be used again
         self.features_loaded = {}
         
         # enter paths and corresponding labels in self.data
