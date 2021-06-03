@@ -26,7 +26,7 @@ parser = ap.ArgumentParser()
 parser.add_argument('--fold', help='offset for cross-validation (1-5). Change to cross-validate', required=False, default=0)# shift folds for cross validation. Increasing by 1 moves all folds by 1.
 parser.add_argument('--lr', help='used learning rate', required=False, default=0.00005)                                     # learning rate
 parser.add_argument('--ep', help='max. amount after which training should stop', required=False, default=150)               # epochs to train
-parser.add_argument('--es', help='early stopping if no decrease in loss for x epochs', required=False, default=10)          # epochs without improvement, after which training should stop.
+parser.add_argument('--es', help='early stopping if no decrease in loss for x epochs', required=False, default=20)          # epochs without improvement, after which training should stop.
 parser.add_argument('--multi_att', help='use multi-attention approach', required=False, default=1)                          # use multiple attention values if 1
 
 ########## Data parameters: Modify the dataset

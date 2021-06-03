@@ -155,7 +155,7 @@ class data_matrix():
         if not (entity in self.data_dict):
             self.data_dict[entity] = dict()
         self.data_dict[entity][path_full] = (attention_raw.detach().cpu().numpy(), attention.detach().cpu().numpy(), prediction, 
-                                    prediction_vector.data.cpu().numpy(), float(loss.data.cpu()), out_features.detach().cpu().numpy())
+                                    prediction_vector.data.cpu().numpy()[0], float(loss.data.cpu()), out_features.detach().cpu().numpy())
 
     def return_data(self):
         return self.data_dict

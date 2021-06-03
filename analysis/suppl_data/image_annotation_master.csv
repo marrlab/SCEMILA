@@ -1,0 +1,2472 @@
+,mll_annotation,prediction,ID,im_tiffname
+0,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,103.TIF
+1,typical lymphocyte,typical lymphocyte,UGU,079.TIF
+2,myeloblast,myeloblast,SBY,058.TIF
+3,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,189.TIF
+4,typical lymphocyte,typical lymphocyte,BHS,215.TIF
+5,typical lymphocyte,typical lymphocyte,SBY,335.TIF
+6,typical lymphocyte,typical lymphocyte,BHS,445.TIF
+7,atypical promyelocyte,atypical promyelocyte,PKC,045.TIF
+8,reactive lymphocyte,myeloblast,UGU,357.TIF
+9,myeloblast,myeloblast,SBY,465.TIF
+10,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,140.TIF
+11,typical lymphocyte,typical lymphocyte,UVT,349.TIF
+12,myeloblast,myeloblast,SBY,001.TIF
+13,myeloblast,myeloblast,SBY,017.TIF
+14,monocyte,monocyte,UVT,299.TIF
+15,reactive lymphocyte,myeloblast,SBY,326.TIF
+16,typical lymphocyte,typical lymphocyte,SBY,243.TIF
+17,promyelocyte,atypical promyelocyte,PKC,255.TIF
+18,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,095.TIF
+19,atypical promyelocyte,myeloblast,PKC,035.TIF
+20,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,459.TIF
+21,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,101.TIF
+22,typical lymphocyte,typical lymphocyte,UVT,314.TIF
+23,other,smudge cell,UVT,168.TIF
+24,myeloblast,myeloblast,SBY,086.TIF
+25,reactive lymphocyte,metamyelocyte,PKC,373.TIF
+26,other,normo,PKC,424.TIF
+27,typical lymphocyte,typical lymphocyte,PKC,300.TIF
+28,atypical promyelocyte,basophil granulocyte,PKC,076.TIF
+29,reactive lymphocyte,typical lymphocyte,UGU,205.TIF
+30,reactive lymphocyte,large granulated lymphocyte,UGU,481.TIF
+31,atypical promyelocyte,atypical promyelocyte,BHS,482.TIF
+32,atypical promyelocyte,atypical promyelocyte,BHS,431.TIF
+33,atypical promyelocyte,atypical promyelocyte,PKC,269.TIF
+34,myeloblast,myeloblast,UVT,004.TIF
+35,other,atypical promyelocyte,BHS,267.TIF
+36,typical lymphocyte,typical lymphocyte,SBY,130.TIF
+37,other,neutrophil granulocyte (segmented),BHS,112.TIF
+38,other,large granulated lymphocyte,UGU,047.TIF
+39,other,other,BHS,211.TIF
+40,typical lymphocyte,typical lymphocyte,UGU,045.TIF
+41,monocyte,neutrophil granulocyte (band),PKC,030.TIF
+42,large granulated lymphocyte,large granulated lymphocyte,UGU,191.TIF
+43,neutrophil granulocyte (band),neutrophil granulocyte (segmented),PKC,277.TIF
+44,myeloblast,myeloblast,PKC,258.TIF
+45,reactive lymphocyte,typical lymphocyte,UGU,414.TIF
+46,atypical promyelocyte,atypical promyelocyte,BHS,193.TIF
+47,other,smudge cell,UVT,209.TIF
+48,myeloblast,mononucleosis,SBY,172.TIF
+49,other,smudge cell,BHS,486.TIF
+50,myeloblast,myeloblast,UVT,446.TIF
+51,typical lymphocyte,typical lymphocyte,UGU,184.TIF
+52,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,080.TIF
+53,atypical promyelocyte,atypical promyelocyte,PKC,283.TIF
+54,reactive lymphocyte,typical lymphocyte,UVT,123.TIF
+55,monocyte,monocyte,UVT,301.TIF
+56,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,420.TIF
+57,myeloblast,myeloblast,SBY,403.TIF
+58,myeloblast,myeloblast,SBY,271.TIF
+59,myeloblast,mononucleosis,UVT,242.TIF
+60,promyelocyte,atypical promyelocyte,PKC,220.TIF
+61,large granulated lymphocyte,large granulated lymphocyte,UVT,382.TIF
+62,myeloblast,myeloblast,UVT,334.TIF
+63,typical lymphocyte,typical lymphocyte,UVT,126.TIF
+64,monocyte,metamyelocyte,PKC,019.TIF
+65,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,468.TIF
+66,atypical promyelocyte,atypical promyelocyte,BHS,091.TIF
+67,large granulated lymphocyte,large granulated lymphocyte,UGU,490.TIF
+68,typical lymphocyte,typical lymphocyte,SBY,330.TIF
+69,monocyte,reactive lymphocyte,UGU,040.TIF
+70,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,311.TIF
+71,monocyte,monocyte,SBY,035.TIF
+72,typical lymphocyte,plasma cell,BHS,479.TIF
+73,metamyelocyte,neutrophil granulocyte (band),PKC,395.TIF
+74,monocyte,monocyte,PKC,495.TIF
+75,other,other,SBY,384.TIF
+76,myeloblast with long auer rod,myeloblast,UGU,302.TIF
+77,typical lymphocyte,typical lymphocyte,SBY,419.TIF
+78,myeloblast,myeloblast,UVT,371.TIF
+79,other,other,PKC,085.TIF
+80,reactive lymphocyte,myeloblast,UGU,437.TIF
+81,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,451.TIF
+82,myeloblast,myeloblast,SBY,475.TIF
+83,myeloblast,myeloblast,SBY,201.TIF
+84,cup-like blast,myeloblast,SBY,055.TIF
+85,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,072.TIF
+86,myeloblast,myeloblast,UVT,411.TIF
+87,typical lymphocyte,typical lymphocyte,BHS,004.TIF
+88,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,354.TIF
+89,myeloblast,atypical promyelocyte,BHS,363.TIF
+90,typical lymphocyte,typical lymphocyte,SBY,398.TIF
+91,normo,normo,PKC,452.TIF
+92,other,basophil granulocyte,SBY,405.TIF
+93,large granulated lymphocyte,large granulated lymphocyte,UGU,487.TIF
+94,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,423.TIF
+95,other,other,UVT,376.TIF
+96,atypical promyelocyte,atypical promyelocyte,BHS,275.TIF
+97,myeloblast,atypical promyelocyte,BHS,374.TIF
+98,myeloblast,atypical promyelocyte,BHS,178.TIF
+99,other,basophil granulocyte,UGU,325.TIF
+100,monocyte,myeloblast,UVT,496.TIF
+101,typical lymphocyte,typical lymphocyte,UVT,008.TIF
+102,large granulated lymphocyte,other,BHS,168.TIF
+103,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,242.TIF
+104,atypical promyelocyte,atypical promyelocyte,BHS,099.TIF
+105,myeloblast,myeloblast,SBY,262.TIF
+106,typical lymphocyte,other,BHS,387.TIF
+107,normo,normo,UVT,426.TIF
+108,atypical promyelocyte,atypical promyelocyte,PKC,331.TIF
+109,neutrophil granulocyte (segmented),basophil granulocyte,UGU,144.TIF
+110,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,003.TIF
+111,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,371.TIF
+112,myeloblast,neoplastic lymphocyte,SBY,313.TIF
+113,other,smudge cell,UVT,033.TIF
+114,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,170.TIF
+115,other,other,UVT,061.TIF
+116,other,normo,PKC,260.TIF
+117,myeloblast,myeloblast,SBY,350.TIF
+118,monocyte,atypical promyelocyte,SBY,483.TIF
+119,other,promyelocyte,PKC,213.TIF
+120,monocyte,plasma cell,BHS,274.TIF
+121,typical lymphocyte,typical lymphocyte,SBY,168.TIF
+122,other,smudge cell,SBY,183.TIF
+123,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,063.TIF
+124,myeloblast,myeloblast,UGU,450.TIF
+125,cup-like blast,myeloblast,BHS,104.TIF
+126,"atypical promyelocyte, bilobed",reactive lymphocyte,SBY,393.TIF
+127,myeloblast,myeloblast,SBY,238.TIF
+128,myeloblast,myeloblast,UGU,385.TIF
+129,"atypical promyelocyte, bilobed",mononucleosis,SBY,028.TIF
+130,myeloblast,mononucleosis,UVT,469.TIF
+131,reactive lymphocyte,typical lymphocyte,UGU,173.TIF
+132,myeloblast,myeloblast,UGU,495.TIF
+133,myeloblast,myeloblast,UGU,175.TIF
+134,myeloblast,myeloblast,UGU,067.TIF
+135,ambiguous,myeloblast,SBY,240.TIF
+136,neutrophil granulocyte (band),neutrophil granulocyte (segmented),UGU,412.TIF
+137,monocyte,monocyte,PKC,493.TIF
+138,atypical promyelocyte,myeloblast,UVT,048.TIF
+139,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,357.TIF
+140,normo,normo,PKC,201.TIF
+141,other,smudge cell,SBY,103.TIF
+142,myeloblast,myeloblast,UVT,142.TIF
+143,ambiguous,large granulated lymphocyte,SBY,071.TIF
+144,myeloblast,atypical promyelocyte,BHS,009.TIF
+145,myeloblast,myeloblast,UVT,067.TIF
+146,other,metamyelocyte,BHS,010.TIF
+147,myeloblast,atypical promyelocyte,SBY,041.TIF
+148,other,neutrophil granulocyte (segmented),UGU,427.TIF
+149,ambiguous,eosinophil granulocyte,SBY,022.TIF
+150,monocyte,neutrophil granulocyte (band),PKC,438.TIF
+151,large granulated lymphocyte,large granulated lymphocyte,UGU,109.TIF
+152,myeloblast,myeloblast,SBY,421.TIF
+153,myeloblast,myeloblast,UVT,441.TIF
+154,ambiguous,myeloblast,SBY,442.TIF
+155,atypical promyelocyte,basophil granulocyte,PKC,274.TIF
+156,typical lymphocyte,typical lymphocyte,SBY,401.TIF
+157,myeloblast,myeloblast,UGU,433.TIF
+158,myeloblast,myeloblast,UGU,110.TIF
+159,other,other,PKC,215.TIF
+160,other,smudge cell,UVT,174.TIF
+161,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,442.TIF
+162,normo,normo,PKC,221.TIF
+163,myeloblast,myeloblast,UVT,196.TIF
+164,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,308.TIF
+165,faggot cell,atypical promyelocyte,BHS,200.TIF
+166,myeloblast,myeloblast,SBY,014.TIF
+167,other,other,UGU,016.TIF
+168,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,153.TIF
+169,atypical promyelocyte,basophil granulocyte,PKC,132.TIF
+170,other,normo,PKC,016.TIF
+171,atypical promyelocyte,atypical promyelocyte,BHS,049.TIF
+172,other,other,BHS,236.TIF
+173,monocyte,large granulated lymphocyte,UGU,262.TIF
+174,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,334.TIF
+175,monocyte,monocyte,PKC,104.TIF
+176,ambiguous,myeloblast,UVT,491.TIF
+177,other,typical lymphocyte,BHS,436.TIF
+178,ambiguous,myeloblast,SBY,415.TIF
+179,ambiguous,myeloblast,SBY,141.TIF
+180,myeloblast,mononucleosis,SBY,118.TIF
+181,myeloblast,myeloblast,SBY,444.TIF
+182,other,other,UVT,444.TIF
+183,reactive lymphocyte,typical lymphocyte,UGU,378.TIF
+184,myeloblast,myeloblast,SBY,406.TIF
+185,monocyte,typical lymphocyte,UGU,049.TIF
+186,myeloblast,myeloblast,SBY,013.TIF
+187,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,378.TIF
+188,typical lymphocyte,typical lymphocyte,SBY,300.TIF
+189,myeloblast,myeloblast,SBY,145.TIF
+190,myeloblast,myeloblast,SBY,192.TIF
+191,other,other,BHS,126.TIF
+192,other,metamyelocyte,BHS,072.TIF
+193,other,other,PKC,257.TIF
+194,typical lymphocyte,typical lymphocyte,UGU,178.TIF
+195,atypical promyelocyte,atypical promyelocyte,PKC,352.TIF
+196,other,other,PKC,095.TIF
+197,myeloblast,myeloblast,UVT,345.TIF
+198,myeloblast,myeloblast,UVT,435.TIF
+199,typical lymphocyte,typical lymphocyte,UVT,259.TIF
+200,other,smudge cell,UVT,178.TIF
+201,other,smudge cell,UVT,363.TIF
+202,atypical promyelocyte,atypical promyelocyte,BHS,272.TIF
+203,other,other,PKC,087.TIF
+204,other,plasma cell,BHS,206.TIF
+205,monocyte,monocyte,PKC,008.TIF
+206,other,smudge cell,BHS,318.TIF
+207,typical lymphocyte,typical lymphocyte,BHS,352.TIF
+208,myeloblast,myeloblast,UVT,294.TIF
+209,reactive lymphocyte,large granulated lymphocyte,UGU,236.TIF
+210,typical lymphocyte,typical lymphocyte,UGU,065.TIF
+211,neutrophil granulocyte (band),neutrophil granulocyte (band),BHS,195.TIF
+212,typical lymphocyte,typical lymphocyte,SBY,288.TIF
+213,other,other,UGU,410.TIF
+214,atypical promyelocyte,atypical promyelocyte,BHS,333.TIF
+215,normo,normo,SBY,178.TIF
+216,myeloblast,myeloblast,SBY,189.TIF
+217,other,smudge cell,UVT,261.TIF
+218,myeloblast,typical lymphocyte,SBY,248.TIF
+219,neutrophil granulocyte (segmented),large granulated lymphocyte,UGU,285.TIF
+220,myeloblast,myeloblast,UVT,044.TIF
+221,other,smudge cell,UVT,312.TIF
+222,typical lymphocyte,typical lymphocyte,UGU,078.TIF
+223,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,098.TIF
+224,typical lymphocyte,metamyelocyte,BHS,074.TIF
+225,typical lymphocyte,typical lymphocyte,UVT,386.TIF
+226,myeloblast,myeloblast,UGU,252.TIF
+227,other,metamyelocyte,PKC,349.TIF
+228,monocyte,atypical promyelocyte,BHS,306.TIF
+229,monocyte,myeloblast,UVT,041.TIF
+230,cup-like blast,myeloblast,UVT,266.TIF
+231,large granulated lymphocyte,typical lymphocyte,SBY,024.TIF
+232,monocyte,other,BHS,119.TIF
+233,other,smudge cell,BHS,061.TIF
+234,promonocyte,mononucleosis,UVT,042.TIF
+235,other,myeloblast,UVT,218.TIF
+236,monocyte,monocyte,BHS,143.TIF
+237,monocyte,monocyte,SBY,416.TIF
+238,other,smudge cell,UGU,297.TIF
+239,typical lymphocyte,typical lymphocyte,UGU,390.TIF
+240,other,smudge cell,UVT,360.TIF
+241,monocyte,typical lymphocyte,UGU,177.TIF
+242,other,smudge cell,PKC,111.TIF
+243,"atypical promyelocyte, bilobed",atypical promyelocyte,PKC,286.TIF
+244,metamyelocyte,typical lymphocyte,UGU,353.TIF
+245,myeloblast,myeloblast,UGU,417.TIF
+246,typical lymphocyte,typical lymphocyte,BHS,183.TIF
+247,myeloblast,myeloblast,SBY,364.TIF
+248,monocyte,large granulated lymphocyte,UGU,232.TIF
+249,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,036.TIF
+250,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,230.TIF
+251,myeloblast,typical lymphocyte,UGU,284.TIF
+252,other,other,PKC,239.TIF
+253,large granulated lymphocyte,large granulated lymphocyte,BHS,118.TIF
+254,myeloblast,myeloblast,SBY,129.TIF
+255,myeloblast,atypical promyelocyte,BHS,212.TIF
+256,other,other,PKC,265.TIF
+257,neutrophil granulocyte (band),neutrophil granulocyte (band),BHS,345.TIF
+258,typical lymphocyte,typical lymphocyte,UGU,114.TIF
+259,monocyte,other,BHS,378.TIF
+260,other,other,UGU,103.TIF
+261,atypical promyelocyte,atypical promyelocyte,BHS,152.TIF
+262,other,other,BHS,422.TIF
+263,atypical promyelocyte,atypical promyelocyte,BHS,125.TIF
+264,myeloblast,myeloblast,UGU,471.TIF
+265,monocyte,mononucleosis,SBY,395.TIF
+266,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,043.TIF
+267,atypical promyelocyte,atypical promyelocyte,BHS,466.TIF
+268,typical lymphocyte,basophil granulocyte,BHS,415.TIF
+269,monocyte,neutrophil granulocyte (band),BHS,213.TIF
+270,monocyte,neutrophil granulocyte (segmented),UGU,318.TIF
+271,monocyte,basophil granulocyte,BHS,135.TIF
+272,monocyte,large granulated lymphocyte,BHS,023.TIF
+273,monocyte,monocyte,SBY,084.TIF
+274,ambiguous,myeloblast,SBY,210.TIF
+275,myeloblast,atypical promyelocyte,SBY,311.TIF
+276,myeloblast,myeloblast,SBY,203.TIF
+277,typical lymphocyte,typical lymphocyte,UGU,324.TIF
+278,other,smudge cell,UVT,211.TIF
+279,myeloblast,myeloblast,UVT,422.TIF
+280,monocyte,large granulated lymphocyte,UGU,455.TIF
+281,cup-like blast,myeloblast,SBY,369.TIF
+282,monocyte,neutrophil granulocyte (band),SBY,032.TIF
+283,other,other,SBY,198.TIF
+284,monocyte,myeloblast,SBY,278.TIF
+285,neutrophil granulocyte (band),neutrophil granulocyte (segmented),UGU,389.TIF
+286,other,smudge cell,BHS,307.TIF
+287,large granulated lymphocyte,large granulated lymphocyte,UGU,240.TIF
+288,myeloblast,myeloblast,SBY,413.TIF
+289,normo,normo,PKC,225.TIF
+290,myeloblast,myeloblast,SBY,432.TIF
+291,monocyte,other,BHS,299.TIF
+292,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,249.TIF
+293,myeloblast,atypical promyelocyte,BHS,115.TIF
+294,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,494.TIF
+295,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,469.TIF
+296,typical lymphocyte,typical lymphocyte,SBY,323.TIF
+297,myeloblast,myeloblast,SBY,153.TIF
+298,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,116.TIF
+299,atypical promyelocyte,atypical promyelocyte,BHS,375.TIF
+300,atypical promyelocyte,atypical promyelocyte,PKC,304.TIF
+301,typical lymphocyte,typical lymphocyte,PKC,368.TIF
+302,neutrophil granulocyte (segmented),neutrophil granulocyte (band),UGU,131.TIF
+303,other,other,SBY,222.TIF
+304,other,smudge cell,UVT,387.TIF
+305,myeloblast,myeloblast,UVT,480.TIF
+306,typical lymphocyte,typical lymphocyte,SBY,194.TIF
+307,monocyte,mononucleosis,SBY,221.TIF
+308,neutrophil granulocyte (segmented),neutrophil granulocyte (band),BHS,065.TIF
+309,other,other,PKC,244.TIF
+310,other,smudge cell,BHS,264.TIF
+311,myeloblast,myeloblast,UGU,176.TIF
+312,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,021.TIF
+313,promonocyte,myeloblast,SBY,236.TIF
+314,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,235.TIF
+315,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,476.TIF
+316,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,099.TIF
+317,other,smudge cell,UVT,455.TIF
+318,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,405.TIF
+319,other,other,UVT,096.TIF
+320,ambiguous,myeloblast,UVT,073.TIF
+321,monocyte,metamyelocyte,BHS,245.TIF
+322,atypical promyelocyte,atypical promyelocyte,PKC,316.TIF
+323,typical lymphocyte,typical lymphocyte,UVT,352.TIF
+324,myeloblast,myeloblast,SBY,334.TIF
+325,atypical promyelocyte,atypical promyelocyte,BHS,364.TIF
+326,neutrophil granulocyte (band),neutrophil granulocyte (segmented),BHS,366.TIF
+327,myeloblast,mononucleosis,SBY,186.TIF
+328,other,other,BHS,282.TIF
+329,other,smudge cell,UVT,488.TIF
+330,typical lymphocyte,typical lymphocyte,UGU,306.TIF
+331,other,smudge cell,UVT,246.TIF
+332,normo,normo,UVT,417.TIF
+333,atypical promyelocyte,atypical promyelocyte,PKC,204.TIF
+334,normo,normo,UVT,129.TIF
+335,typical lymphocyte,other,BHS,252.TIF
+336,other,other,BHS,121.TIF
+337,myeloblast,myeloblast,UVT,404.TIF
+338,typical lymphocyte,typical lymphocyte,UGU,260.TIF
+339,other,smudge cell,PKC,494.TIF
+340,myeloblast,myeloblast,UVT,077.TIF
+341,typical lymphocyte,typical lymphocyte,SBY,376.TIF
+342,monocyte,monocyte,BHS,402.TIF
+343,myeloblast,myeloblast,SBY,059.TIF
+344,myeloblast,myeloblast,SBY,115.TIF
+345,myeloblast,myeloblast,UVT,176.TIF
+346,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,085.TIF
+347,other,basophil granulocyte,BHS,148.TIF
+348,myeloblast,myeloblast,UGU,166.TIF
+349,normo,normo,UVT,448.TIF
+350,other,other,BHS,033.TIF
+351,monocyte,atypical promyelocyte,PKC,317.TIF
+352,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,211.TIF
+353,myeloblast,myeloblast,SBY,140.TIF
+354,reactive lymphocyte,large granulated lymphocyte,UGU,221.TIF
+355,monocyte,basophil granulocyte,UVT,336.TIF
+356,myeloblast,myeloblast,UVT,128.TIF
+357,myeloblast,myeloblast,SBY,358.TIF
+358,myeloblast,myeloblast,SBY,426.TIF
+359,myeloblast,atypical promyelocyte,BHS,037.TIF
+360,myeloblast,mononucleosis,UGU,210.TIF
+361,other,other,BHS,062.TIF
+362,other,other,PKC,448.TIF
+363,atypical promyelocyte,atypical promyelocyte,BHS,251.TIF
+364,promonocyte,myeloblast,UVT,040.TIF
+365,promonocyte,mononucleosis,UGU,352.TIF
+366,myeloblast,myeloblast,UVT,228.TIF
+367,normo,normo,UVT,131.TIF
+368,monocyte,monocyte,SBY,354.TIF
+369,other,other,SBY,424.TIF
+370,typical lymphocyte,typical lymphocyte,UVT,390.TIF
+371,myeloblast,myeloblast,UVT,421.TIF
+372,other,normo,SBY,255.TIF
+373,other,other,BHS,287.TIF
+374,monocyte,typical lymphocyte,UVT,190.TIF
+375,monocyte,other,BHS,463.TIF
+376,monocyte,metamyelocyte,BHS,255.TIF
+377,monocyte,monocyte,SBY,368.TIF
+378,other,metamyelocyte,PKC,143.TIF
+379,typical lymphocyte,myeloblast,SBY,359.TIF
+380,monocyte,myeloblast,PKC,341.TIF
+381,"atypical promyelocyte, bilobed",myeloblast,SBY,462.TIF
+382,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,286.TIF
+383,myeloblast,myeloblast,UGU,062.TIF
+384,monocyte,other,BHS,160.TIF
+385,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,415.TIF
+386,other,other,SBY,276.TIF
+387,myeloblast,myeloblast,SBY,404.TIF
+388,neutrophil granulocyte (segmented),neutrophil granulocyte (band),BHS,070.TIF
+389,other,other,PKC,092.TIF
+390,myeloblast,myeloblast,UVT,285.TIF
+391,metamyelocyte,metamyelocyte,UGU,380.TIF
+392,myeloblast,myeloblast,SBY,044.TIF
+393,typical lymphocyte,typical lymphocyte,UGU,095.TIF
+394,other,other,BHS,189.TIF
+395,monocyte,atypical promyelocyte,BHS,230.TIF
+396,atypical promyelocyte,atypical promyelocyte,BHS,412.TIF
+397,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,188.TIF
+398,monocyte,other,BHS,309.TIF
+399,other,other,PKC,227.TIF
+400,other,smudge cell,UVT,359.TIF
+401,monocyte,atypical promyelocyte,UGU,225.TIF
+402,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,461.TIF
+403,myeloblast,myeloblast,UVT,449.TIF
+404,monocyte,large granulated lymphocyte,UGU,280.TIF
+405,monocyte,mononucleosis,SBY,003.TIF
+406,myeloblast with auer rod,atypical promyelocyte,BHS,120.TIF
+407,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,034.TIF
+408,large granulated lymphocyte,typical lymphocyte,UVT,460.TIF
+409,monocyte,basophil granulocyte,BHS,017.TIF
+410,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,224.TIF
+411,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,400.TIF
+412,myeloblast,atypical promyelocyte,PKC,180.TIF
+413,promonocyte,myeloblast,SBY,344.TIF
+414,neutrophil granulocyte (band),metamyelocyte,UGU,314.TIF
+415,myeloblast,atypical promyelocyte,BHS,015.TIF
+416,large granulated lymphocyte,large granulated lymphocyte,UGU,000.TIF
+417,myeloblast,myeloblast,UVT,160.TIF
+418,reactive lymphocyte,mononucleosis,UGU,161.TIF
+419,reactive lymphocyte,large granulated lymphocyte,UGU,294.TIF
+420,other,other,PKC,197.TIF
+421,typical lymphocyte,typical lymphocyte,UGU,401.TIF
+422,myeloblast,myeloblast,SBY,257.TIF
+423,other,typical lymphocyte,UGU,238.TIF
+424,neutrophil granulocyte (segmented),neutrophil granulocyte (band),PKC,142.TIF
+425,myeloblast,myeloblast,UGU,452.TIF
+426,myeloblast,myeloblast,PKC,482.TIF
+427,other,other,UVT,305.TIF
+428,atypical promyelocyte,atypical promyelocyte,BHS,327.TIF
+429,ambiguous,myeloblast,SBY,249.TIF
+430,other,other,BHS,222.TIF
+431,typical lymphocyte,typical lymphocyte,BHS,314.TIF
+432,myeloblast,myeloblast,UGU,438.TIF
+433,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,088.TIF
+434,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,015.TIF
+435,other,other,BHS,484.TIF
+436,myeloblast,typical lymphocyte,UVT,289.TIF
+437,normo,normo,PKC,113.TIF
+438,other,other,PKC,305.TIF
+439,other,neutrophil granulocyte (segmented),UVT,198.TIF
+440,other,neutrophil granulocyte (segmented),UGU,253.TIF
+441,myeloblast,myeloblast,UVT,112.TIF
+442,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,476.TIF
+443,other,atypical promyelocyte,BHS,228.TIF
+444,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,315.TIF
+445,other,other,PKC,323.TIF
+446,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,356.TIF
+447,other,other,UVT,320.TIF
+448,atypical promyelocyte,atypical promyelocyte,BHS,457.TIF
+449,reactive lymphocyte,typical lymphocyte,UGU,028.TIF
+450,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,268.TIF
+451,cup-like blast,myeloblast,UGU,322.TIF
+452,promonocyte,myeloblast,SBY,050.TIF
+453,myeloblast,mononucleosis,UVT,457.TIF
+454,myeloblast,myeloblast,SBY,136.TIF
+455,reactive lymphocyte,typical lymphocyte,UVT,479.TIF
+456,ambiguous,myeloblast,UVT,064.TIF
+457,other,other,PKC,248.TIF
+458,other,other,UVT,224.TIF
+459,other,atypical promyelocyte,PKC,234.TIF
+460,other,myelocyte,PKC,262.TIF
+461,atypical promyelocyte,myeloblast,UVT,407.TIF
+462,myeloblast,myeloblast,SBY,069.TIF
+463,monocyte,other,BHS,265.TIF
+464,normo,normo,UVT,304.TIF
+465,promonocyte,myeloblast,UVT,372.TIF
+466,myeloblast,myeloblast,PKC,067.TIF
+467,monocyte,basophil granulocyte,BHS,354.TIF
+468,myeloblast,myeloblast,SBY,387.TIF
+469,other,monocyte,UGU,373.TIF
+470,myeloblast,myeloblast,SBY,034.TIF
+471,typical lymphocyte,typical lymphocyte,SBY,371.TIF
+472,myeloblast,myeloblast,SBY,151.TIF
+473,monocyte,monocyte,SBY,386.TIF
+474,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,127.TIF
+475,myeloblast,myeloblast,SBY,325.TIF
+476,myeloblast,atypical promyelocyte,BHS,455.TIF
+477,myeloblast,myeloblast,UGU,097.TIF
+478,myeloblast,atypical promyelocyte,BHS,188.TIF
+479,typical lymphocyte,typical lymphocyte,SBY,195.TIF
+480,myeloblast,myeloblast,UVT,492.TIF
+481,monocyte,metamyelocyte,BHS,139.TIF
+482,monocyte,myeloblast,SBY,361.TIF
+483,myeloblast,atypical promyelocyte,PKC,397.TIF
+484,other,other,UVT,127.TIF
+485,atypical promyelocyte,atypical promyelocyte,BHS,024.TIF
+486,"atypical promyelocyte, bilobed",atypical promyelocyte,PKC,046.TIF
+487,other,other,BHS,441.TIF
+488,myeloblast,atypical promyelocyte,BHS,182.TIF
+489,monocyte,metamyelocyte,PKC,470.TIF
+490,monocyte,other,BHS,097.TIF
+491,atypical promyelocyte,atypical promyelocyte,BHS,331.TIF
+492,monocyte,monocyte,SBY,122.TIF
+493,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,473.TIF
+494,other,other,UVT,001.TIF
+495,myeloblast,myeloblast,UVT,069.TIF
+496,other,smudge cell,UVT,206.TIF
+497,myeloblast,atypical promyelocyte,BHS,417.TIF
+498,reactive lymphocyte,mononucleosis,UGU,432.TIF
+499,other,other,BHS,263.TIF
+500,neutrophil granulocyte (band),neutrophil granulocyte (segmented),UVT,284.TIF
+501,cup-like blast,myeloblast,UVT,220.TIF
+502,monocyte,typical lymphocyte,UGU,071.TIF
+503,other,smudge cell,SBY,469.TIF
+504,atypical promyelocyte,myeloblast,UVT,034.TIF
+505,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,337.TIF
+506,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,107.TIF
+507,neutrophil granulocyte (band),neutrophil granulocyte (band),BHS,022.TIF
+508,myeloblast,myeloblast,SBY,156.TIF
+509,other,large granulated lymphocyte,UGU,208.TIF
+510,promonocyte,myeloblast,SBY,245.TIF
+511,other,smudge cell,UGU,212.TIF
+512,metamyelocyte,neutrophil granulocyte (band),UGU,491.TIF
+513,other,other,BHS,138.TIF
+514,other,other,SBY,287.TIF
+515,typical lymphocyte,typical lymphocyte,UGU,406.TIF
+516,myeloblast,myeloblast,UGU,059.TIF
+517,atypical promyelocyte,atypical promyelocyte,PKC,391.TIF
+518,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,229.TIF
+519,other,normo,PKC,282.TIF
+520,typical lymphocyte,typical lymphocyte,BHS,045.TIF
+521,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,136.TIF
+522,promonocyte,myeloblast,SBY,291.TIF
+523,monocyte,monocyte,UGU,458.TIF
+524,"atypical promyelocyte, bilobed",neutrophil granulocyte (band),PKC,388.TIF
+525,monocyte,large granulated lymphocyte,UGU,150.TIF
+526,monocyte,reactive lymphocyte,UGU,334.TIF
+527,faggot cell,atypical promyelocyte,BHS,365.TIF
+528,other,other,UVT,222.TIF
+529,myeloblast,myeloblast,SBY,461.TIF
+530,myeloblast,myeloblast,SBY,411.TIF
+531,myeloblast,myeloblast,SBY,362.TIF
+532,myeloblast,myeloblast,PKC,157.TIF
+533,reactive lymphocyte,typical lymphocyte,SBY,023.TIF
+534,myeloblast with auer rod,atypical promyelocyte,BHS,399.TIF
+535,other,smudge cell,UVT,182.TIF
+536,other,other,PKC,049.TIF
+537,typical lymphocyte,typical lymphocyte,SBY,142.TIF
+538,other,other,PKC,050.TIF
+539,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,381.TIF
+540,monocyte,basophil granulocyte,BHS,369.TIF
+541,myeloblast,myeloblast,PKC,366.TIF
+542,neutrophil granulocyte (band),neutrophil granulocyte (band),BHS,087.TIF
+543,myeloblast,myeloblast,SBY,027.TIF
+544,other,monocyte,BHS,426.TIF
+545,monocyte,typical lymphocyte,BHS,246.TIF
+546,neutrophil granulocyte (segmented),neutrophil granulocyte (band),BHS,361.TIF
+547,atypical promyelocyte,atypical promyelocyte,BHS,001.TIF
+548,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,369.TIF
+549,myeloblast,myeloblast,UVT,021.TIF
+550,monocyte,typical lymphocyte,SBY,148.TIF
+551,monocyte,monocyte,UVT,138.TIF
+552,other,other,PKC,039.TIF
+553,reactive lymphocyte,large granulated lymphocyte,UGU,379.TIF
+554,other,other,PKC,060.TIF
+555,myeloblast,myeloblast,SBY,445.TIF
+556,other,smudge cell,UVT,124.TIF
+557,monocyte,atypical promyelocyte,BHS,064.TIF
+558,typical lymphocyte,typical lymphocyte,UGU,477.TIF
+559,myeloblast,myeloblast,SBY,339.TIF
+560,reactive lymphocyte,large granulated lymphocyte,SBY,021.TIF
+561,other,smudge cell,BHS,048.TIF
+562,other,smudge cell,UGU,088.TIF
+563,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,460.TIF
+564,monocyte,monocyte,SBY,124.TIF
+565,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,329.TIF
+566,other,smudge cell,UGU,104.TIF
+567,myeloblast,myeloblast,UVT,442.TIF
+568,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,241.TIF
+569,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,106.TIF
+570,promonocyte,myeloblast,SBY,420.TIF
+571,reactive lymphocyte,typical lymphocyte,UGU,363.TIF
+572,myeloblast,myeloblast,SBY,082.TIF
+573,monocyte,monocyte,UGU,105.TIF
+574,myeloblast with long auer rod,myeloblast,UGU,484.TIF
+575,reactive lymphocyte,myeloblast,UGU,313.TIF
+576,promonocyte,monocyte,UVT,274.TIF
+577,typical lymphocyte,typical lymphocyte,SBY,133.TIF
+578,typical lymphocyte,typical lymphocyte,UGU,376.TIF
+579,large granulated lymphocyte,large granulated lymphocyte,UGU,149.TIF
+580,promonocyte,reactive lymphocyte,SBY,220.TIF
+581,myeloblast,myeloblast,UVT,318.TIF
+582,myeloblast with long auer rod,myeloblast,UGU,074.TIF
+583,myeloblast with auer rod,atypical promyelocyte,UGU,197.TIF
+584,myeloblast,myeloblast,UVT,287.TIF
+585,myeloblast,neoplastic lymphocyte,SBY,128.TIF
+586,promonocyte,mononucleosis,SBY,433.TIF
+587,myeloblast,myeloblast,SBY,374.TIF
+588,other,other,UVT,175.TIF
+589,myeloblast,myeloblast,SBY,476.TIF
+590,monocyte,monocyte,UVT,240.TIF
+591,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,217.TIF
+592,other,myeloblast,UVT,255.TIF
+593,myeloblast,myeloblast,SBY,254.TIF
+594,other,other,UVT,346.TIF
+595,reactive lymphocyte,mononucleosis,SBY,061.TIF
+596,other,other,BHS,054.TIF
+597,"atypical promyelocyte, bilobed",atypical promyelocyte,PKC,428.TIF
+598,other,atypical promyelocyte,BHS,027.TIF
+599,ambiguous,typical lymphocyte,UVT,147.TIF
+600,myeloblast,myeloblast,UVT,113.TIF
+601,atypical promyelocyte,atypical promyelocyte,BHS,227.TIF
+602,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,461.TIF
+603,other,large granulated lymphocyte,UGU,328.TIF
+604,monocyte,typical lymphocyte,UGU,081.TIF
+605,myeloblast,myeloblast,SBY,329.TIF
+606,myeloblast,myeloblast,UGU,199.TIF
+607,monocyte,mononucleosis,PKC,427.TIF
+608,myeloblast,myeloblast,UVT,437.TIF
+609,other,typical lymphocyte,BHS,085.TIF
+610,other,other,PKC,333.TIF
+611,typical lymphocyte,typical lymphocyte,UVT,402.TIF
+612,atypical promyelocyte,metamyelocyte,PKC,040.TIF
+613,typical lymphocyte,typical lymphocyte,UGU,090.TIF
+614,other,other,SBY,264.TIF
+615,monocyte,neutrophil granulocyte (band),BHS,380.TIF
+616,other,smudge cell,UVT,172.TIF
+617,other,other,PKC,226.TIF
+618,typical lymphocyte,plasma cell,BHS,256.TIF
+619,typical lymphocyte,typical lymphocyte,UVT,243.TIF
+620,monocyte,monocyte,SBY,070.TIF
+621,typical lymphocyte,typical lymphocyte,UGU,333.TIF
+622,monocyte,neutrophil granulocyte (band),UGU,080.TIF
+623,atypical promyelocyte,atypical promyelocyte,BHS,428.TIF
+624,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,052.TIF
+625,eosinophil granulocyte,eosinophil granulocyte,UVT,140.TIF
+626,monocyte,mononucleosis,SBY,134.TIF
+627,reactive lymphocyte,large granulated lymphocyte,UGU,203.TIF
+628,myeloblast with long auer rod,myeloblast,UGU,052.TIF
+629,myeloblast,myeloblast,UVT,370.TIF
+630,atypical promyelocyte,myelocyte,PKC,096.TIF
+631,monocyte,myeloblast,SBY,314.TIF
+632,typical lymphocyte,typical lymphocyte,SBY,116.TIF
+633,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,313.TIF
+634,"atypical promyelocyte, bilobed",neutrophil granulocyte (band),PKC,214.TIF
+635,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,134.TIF
+636,atypical promyelocyte,basophil granulocyte,SBY,237.TIF
+637,reactive lymphocyte,typical lymphocyte,SBY,256.TIF
+638,reactive lymphocyte,typical lymphocyte,PKC,301.TIF
+639,promonocyte,myeloblast,SBY,081.TIF
+640,myeloblast,myeloblast,UVT,440.TIF
+641,monocyte,atypical promyelocyte,BHS,454.TIF
+642,atypical promyelocyte,atypical promyelocyte,BHS,243.TIF
+643,atypical promyelocyte,atypical promyelocyte,BHS,373.TIF
+644,myeloblast,mononucleosis,UVT,493.TIF
+645,myeloblast,myeloblast,SBY,075.TIF
+646,neutrophil granulocyte (segmented),neutrophil granulocyte (band),PKC,240.TIF
+647,other,typical lymphocyte,BHS,169.TIF
+648,neutrophil granulocyte (band),neutrophil granulocyte (band),UGU,350.TIF
+649,typical lymphocyte,typical lymphocyte,PKC,472.TIF
+650,myeloblast,myeloblast,SBY,108.TIF
+651,other,basophil granulocyte,BHS,157.TIF
+652,other,smudge cell,UVT,014.TIF
+653,myeloblast,myeloblast,SBY,298.TIF
+654,typical lymphocyte,typical lymphocyte,SBY,281.TIF
+655,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,356.TIF
+656,typical lymphocyte,plasma cell,BHS,344.TIF
+657,monocyte,myeloblast,UGU,069.TIF
+658,typical lymphocyte,typical lymphocyte,SBY,107.TIF
+659,other,other,PKC,064.TIF
+660,cup-like blast,myeloblast,UVT,450.TIF
+661,typical lymphocyte,typical lymphocyte,UGU,267.TIF
+662,myeloblast,myeloblast,UGU,124.TIF
+663,myeloblast,myeloblast,SBY,067.TIF
+664,myeloblast,myeloblast,UVT,438.TIF
+665,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,401.TIF
+666,promonocyte,myeloblast,SBY,182.TIF
+667,faggot cell,basophil granulocyte,BHS,196.TIF
+668,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,431.TIF
+669,myeloblast,myeloblast,SBY,306.TIF
+670,promonocyte,monocyte,BHS,219.TIF
+671,ambiguous,myeloblast,SBY,102.TIF
+672,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,185.TIF
+673,other,smudge cell,UVT,026.TIF
+674,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,018.TIF
+675,ambiguous,myeloblast,SBY,261.TIF
+676,other,large granulated lymphocyte,UGU,273.TIF
+677,monocyte,monocyte,SBY,451.TIF
+678,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,273.TIF
+679,typical lymphocyte,other,BHS,095.TIF
+680,myeloblast,myeloblast,UVT,212.TIF
+681,other,neutrophil granulocyte (segmented),UGU,214.TIF
+682,other,monocyte,SBY,397.TIF
+683,monocyte,monocyte,SBY,000.TIF
+684,typical lymphocyte,typical lymphocyte,UGU,396.TIF
+685,other,metamyelocyte,PKC,384.TIF
+686,typical lymphocyte,typical lymphocyte,UGU,207.TIF
+687,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,249.TIF
+688,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,121.TIF
+689,typical lymphocyte,typical lymphocyte,SBY,154.TIF
+690,promonocyte,bilobed M3v,SBY,258.TIF
+691,atypical promyelocyte,atypical promyelocyte,PKC,190.TIF
+692,neutrophil granulocyte (segmented),other,PKC,312.TIF
+693,typical lymphocyte,typical lymphocyte,UGU,292.TIF
+694,monocyte,mononucleosis,UGU,012.TIF
+695,atypical promyelocyte,atypical promyelocyte,BHS,144.TIF
+696,myeloblast,myeloblast,UGU,336.TIF
+697,other,smudge cell,UVT,030.TIF
+698,large granulated lymphocyte,large granulated lymphocyte,UGU,064.TIF
+699,myeloblast,mononucleosis,UVT,456.TIF
+700,monocyte,typical lymphocyte,UGU,326.TIF
+701,myeloblast,mononucleosis,SBY,390.TIF
+702,other,other,UVT,173.TIF
+703,other,large granulated lymphocyte,UGU,424.TIF
+704,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,419.TIF
+705,monocyte,other,BHS,395.TIF
+706,myeloblast,myeloblast,SBY,170.TIF
+707,promonocyte,neoplastic lymphocyte,UVT,214.TIF
+708,promonocyte,monocyte,SBY,110.TIF
+709,atypical promyelocyte,atypical promyelocyte,BHS,337.TIF
+710,other,other,SBY,464.TIF
+711,other,other,BHS,342.TIF
+712,typical lymphocyte,typical lymphocyte,UGU,446.TIF
+713,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,287.TIF
+714,ambiguous,neutrophil granulocyte (segmented),UGU,138.TIF
+715,other,typical lymphocyte,UGU,407.TIF
+716,other,other,PKC,207.TIF
+717,atypical promyelocyte,atypical promyelocyte,BHS,346.TIF
+718,myeloblast,myeloblast,SBY,455.TIF
+719,monocyte,monocyte,SBY,452.TIF
+720,atypical promyelocyte with auer rod,atypical promyelocyte,BHS,289.TIF
+721,atypical promyelocyte,atypical promyelocyte,BHS,381.TIF
+722,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,194.TIF
+723,myeloblast,myeloblast,SBY,213.TIF
+724,normo,normo,PKC,136.TIF
+725,myeloblast,promyelocyte,SBY,157.TIF
+726,monocyte,myeloblast,SBY,169.TIF
+727,other,other,UVT,368.TIF
+728,myeloblast,myeloblast,UVT,065.TIF
+729,other,other,PKC,236.TIF
+730,myeloblast,myeloblast,UGU,475.TIF
+731,myeloblast,myeloblast,SBY,196.TIF
+732,monocyte,plasma cell,BHS,176.TIF
+733,myeloblast,myeloblast,SBY,155.TIF
+734,monocyte,neoplastic lymphocyte,UVT,413.TIF
+735,typical lymphocyte,typical lymphocyte,SBY,435.TIF
+736,myeloblast,myeloblast,SBY,352.TIF
+737,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,351.TIF
+738,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,321.TIF
+739,other,basophil granulocyte,BHS,461.TIF
+740,myeloblast,atypical promyelocyte,UVT,120.TIF
+741,atypical promyelocyte,atypical promyelocyte,PKC,478.TIF
+742,myeloblast,myeloblast,UGU,216.TIF
+743,promonocyte,monocyte,UVT,132.TIF
+744,reactive lymphocyte,typical lymphocyte,UVT,111.TIF
+745,large granulated lymphocyte,large granulated lymphocyte,UGU,449.TIF
+746,promonocyte,myeloblast,SBY,381.TIF
+747,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,179.TIF
+748,other,smudge cell,UVT,425.TIF
+749,myeloblast,myeloblast,SBY,045.TIF
+750,typical lymphocyte,typical lymphocyte,UGU,473.TIF
+751,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,122.TIF
+752,other,other,PKC,106.TIF
+753,myeloblast,mononucleosis,UVT,415.TIF
+754,monocyte,plasma cell,BHS,393.TIF
+755,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,281.TIF
+756,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,058.TIF
+757,large granulated lymphocyte,large granulated lymphocyte,UVT,003.TIF
+758,typical lymphocyte,myeloblast,SBY,180.TIF
+759,myeloblast,myeloblast,UVT,392.TIF
+760,other,smudge cell,SBY,320.TIF
+761,reactive lymphocyte,large granulated lymphocyte,UVT,400.TIF
+762,myeloblast,myeloblast,UVT,088.TIF
+763,myeloblast,myeloblast,UVT,197.TIF
+764,ambiguous,myeloblast,SBY,197.TIF
+765,large granulated lymphocyte,typical lymphocyte,UGU,366.TIF
+766,myeloblast,myeloblast,UVT,254.TIF
+767,myeloblast,myeloblast,PKC,342.TIF
+768,typical lymphocyte,typical lymphocyte,UGU,340.TIF
+769,normo,normo,UVT,097.TIF
+770,monocyte,myeloblast,UGU,171.TIF
+771,other,other,BHS,057.TIF
+772,monocyte,myeloblast,UGU,247.TIF
+773,other,smudge cell,SBY,188.TIF
+774,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,075.TIF
+775,monocyte,monocyte,UVT,135.TIF
+776,cup-like blast,myeloblast,UVT,166.TIF
+777,large granulated lymphocyte,large granulated lymphocyte,UGU,168.TIF
+778,atypical promyelocyte with auer rod,metamyelocyte,BHS,069.TIF
+779,other,large granulated lymphocyte,BHS,450.TIF
+780,other,typical lymphocyte,UGU,204.TIF
+781,typical lymphocyte,typical lymphocyte,SBY,012.TIF
+782,other,neutrophil granulocyte (segmented),PKC,154.TIF
+783,atypical promyelocyte,atypical promyelocyte,BHS,330.TIF
+784,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,151.TIF
+785,other,other,PKC,162.TIF
+786,other,neutrophil granulocyte (segmented),PKC,491.TIF
+787,other,other,PKC,090.TIF
+788,myeloblast,atypical promyelocyte,SBY,010.TIF
+789,myeloblast,myeloblast,UVT,313.TIF
+790,atypical promyelocyte,atypical promyelocyte,PKC,105.TIF
+791,other,other,PKC,314.TIF
+792,atypical promyelocyte,atypical promyelocyte,PKC,089.TIF
+793,typical lymphocyte,typical lymphocyte,UGU,060.TIF
+794,monocyte,typical lymphocyte,SBY,064.TIF
+795,myeloblast,basophil granulocyte,PKC,017.TIF
+796,myeloblast,myeloblast,PKC,155.TIF
+797,monocyte,monocyte,SBY,109.TIF
+798,myeloblast,myeloblast,SBY,085.TIF
+799,other,other,BHS,077.TIF
+800,myeloblast,myeloblast,SBY,125.TIF
+801,myeloblast,myeloblast,SBY,235.TIF
+802,other,typical lymphocyte,UGU,317.TIF
+803,monocyte,mononucleosis,SBY,095.TIF
+804,typical lymphocyte,myeloblast,SBY,399.TIF
+805,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,208.TIF
+806,eosinophil granulocyte,eosinophil granulocyte,SBY,104.TIF
+807,myeloblast,myeloblast,SBY,310.TIF
+808,"atypical promyelocyte, bilobed",myeloblast,SBY,009.TIF
+809,other,other,UGU,418.TIF
+810,erythroblast,normo,SBY,302.TIF
+811,monocyte,monocyte,SBY,113.TIF
+812,typical lymphocyte,typical lymphocyte,UGU,482.TIF
+813,other,myelocyte,PKC,256.TIF
+814,typical lymphocyte,typical lymphocyte,UGU,456.TIF
+815,monocyte,large granulated lymphocyte,UGU,362.TIF
+816,metamyelocyte,neutrophil granulocyte (band),PKC,306.TIF
+817,myeloblast,myeloblast,SBY,425.TIF
+818,monocyte,monocyte,UGU,086.TIF
+819,other,basophil granulocyte,PKC,459.TIF
+820,typical lymphocyte,typical lymphocyte,SBY,117.TIF
+821,typical lymphocyte,typical lymphocyte,SBY,191.TIF
+822,neutrophil granulocyte (band),neutrophil granulocyte (band),UGU,053.TIF
+823,typical lymphocyte,typical lymphocyte,BHS,078.TIF
+824,other,atypical promyelocyte,BHS,172.TIF
+825,other,smudge cell,UVT,398.TIF
+826,myeloblast,myeloblast,BHS,341.TIF
+827,other,other,BHS,226.TIF
+828,eosinophil granulocyte,eosinophil granulocyte,UGU,278.TIF
+829,monocyte,myeloblast,UGU,338.TIF
+830,other,atypical promyelocyte,BHS,317.TIF
+831,other,smudge cell,UVT,015.TIF
+832,monocyte,monocyte,SBY,234.TIF
+833,normo,normo,UVT,094.TIF
+834,other,other,PKC,467.TIF
+835,other,smudge cell,UGU,072.TIF
+836,cup-like blast,myeloblast,UVT,323.TIF
+837,myeloblast,typical lymphocyte,SBY,231.TIF
+838,myeloblast,atypical promyelocyte,SBY,472.TIF
+839,myeloblast,neoplastic lymphocyte,SBY,272.TIF
+840,faggot cell,atypical promyelocyte,BHS,090.TIF
+841,atypical promyelocyte,atypical promyelocyte,BHS,370.TIF
+842,large granulated lymphocyte,large granulated lymphocyte,UGU,360.TIF
+843,other,smudge cell,UVT,119.TIF
+844,other,other,PKC,439.TIF
+845,myeloblast,myeloblast,UVT,260.TIF
+846,myeloblast,myeloblast,UVT,179.TIF
+847,monocyte,myeloblast,SBY,312.TIF
+848,atypical promyelocyte,atypical promyelocyte,BHS,021.TIF
+849,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,367.TIF
+850,typical lymphocyte,typical lymphocyte,UGU,008.TIF
+851,atypical promyelocyte,atypical promyelocyte,PKC,398.TIF
+852,other,typical lymphocyte,BHS,427.TIF
+853,myeloblast,myeloblast,SBY,378.TIF
+854,other,smudge cell,UVT,191.TIF
+855,other,other,BHS,414.TIF
+856,other,smudge cell,UVT,264.TIF
+857,reactive lymphocyte,large granulated lymphocyte,UGU,002.TIF
+858,large granulated lymphocyte,large granulated lymphocyte,UGU,268.TIF
+859,other,other,UVT,133.TIF
+860,myeloblast,myeloblast,SBY,342.TIF
+861,atypical promyelocyte with auer rod,atypical promyelocyte,BHS,470.TIF
+862,other,other,UGU,270.TIF
+863,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,293.TIF
+864,monocyte,neutrophil granulocyte (band),UGU,135.TIF
+865,large granulated lymphocyte,large granulated lymphocyte,UGU,163.TIF
+866,other,smudge cell,UVT,268.TIF
+867,reactive lymphocyte,typical lymphocyte,UGU,312.TIF
+868,myeloblast,myeloblast,SBY,315.TIF
+869,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,337.TIF
+870,neutrophil granulocyte (band),neutrophil granulocyte (segmented),PKC,196.TIF
+871,other,normo,PKC,365.TIF
+872,promonocyte,myeloblast,SBY,263.TIF
+873,cup-like blast,myeloblast,UGU,259.TIF
+874,other,smudge cell,UVT,155.TIF
+875,ambiguous,reactive lymphocyte,UVT,145.TIF
+876,other,other,PKC,057.TIF
+877,typical lymphocyte,typical lymphocyte,SBY,328.TIF
+878,other,typical lymphocyte,BHS,132.TIF
+879,myeloblast,atypical promyelocyte,BHS,179.TIF
+880,atypical promyelocyte,atypical promyelocyte,PKC,421.TIF
+881,typical lymphocyte,typical lymphocyte,PKC,460.TIF
+882,monocyte,monocyte,PKC,021.TIF
+883,reactive lymphocyte,typical lymphocyte,UGU,036.TIF
+884,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,041.TIF
+885,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,279.TIF
+886,typical lymphocyte,typical lymphocyte,UGU,162.TIF
+887,myeloblast,myeloblast,UVT,447.TIF
+888,myeloblast,typical lymphocyte,PKC,294.TIF
+889,myeloblast,myeloblast,UGU,129.TIF
+890,normo,normo,PKC,496.TIF
+891,myeloblast,mononucleosis,UVT,235.TIF
+892,other,mononucleosis,UVT,416.TIF
+893,atypical promyelocyte,atypical promyelocyte,BHS,209.TIF
+894,myeloblast,atypical promyelocyte,BHS,007.TIF
+895,other,metamyelocyte,BHS,056.TIF
+896,myeloblast,myeloblast,UVT,381.TIF
+897,other,other,BHS,404.TIF
+898,other,smudge cell,UVT,324.TIF
+899,monocyte,plasma cell,BHS,046.TIF
+900,atypical promyelocyte,myeloblast,SBY,456.TIF
+901,myeloblast,typical lymphocyte,SBY,360.TIF
+902,other,other,PKC,051.TIF
+903,typical lymphocyte,typical lymphocyte,UGU,132.TIF
+904,atypical promyelocyte,myelocyte,PKC,119.TIF
+905,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,383.TIF
+906,typical lymphocyte,typical lymphocyte,SBY,043.TIF
+907,myeloblast,myeloblast,SBY,297.TIF
+908,ambiguous,myeloblast,SBY,100.TIF
+909,other,normo,SBY,177.TIF
+910,myeloblast with auer rod,atypical promyelocyte,BHS,353.TIF
+911,other,typical lymphocyte,BHS,116.TIF
+912,other,other,UVT,290.TIF
+913,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,285.TIF
+914,monocyte,large granulated lymphocyte,UVT,130.TIF
+915,myeloblast,myeloblast,UGU,345.TIF
+916,typical lymphocyte,typical lymphocyte,UGU,128.TIF
+917,typical lymphocyte,typical lymphocyte,BHS,452.TIF
+918,normo,normo,PKC,133.TIF
+919,myeloblast,myeloblast,UVT,262.TIF
+920,large granulated lymphocyte,large granulated lymphocyte,UGU,136.TIF
+921,normo,normo,UVT,252.TIF
+922,typical lymphocyte,typical lymphocyte,UGU,094.TIF
+923,myeloblast,myeloblast,SBY,218.TIF
+924,other,atypical promyelocyte,BHS,083.TIF
+925,monocyte,metamyelocyte,PKC,202.TIF
+926,myeloblast,myeloblast,SBY,016.TIF
+927,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,229.TIF
+928,myeloblast,myeloblast,UGU,356.TIF
+929,large granulated lymphocyte,large granulated lymphocyte,UGU,272.TIF
+930,myeloblast with auer rod,myeloblast,BHS,159.TIF
+931,monocyte,atypical promyelocyte,BHS,053.TIF
+932,cup-like blast,myeloblast,UVT,201.TIF
+933,myeloblast,myeloblast,SBY,308.TIF
+934,myeloblast,atypical promyelocyte,SBY,149.TIF
+935,other,neoplastic lymphocyte,SBY,033.TIF
+936,other,myeloblast,UGU,165.TIF
+937,atypical promyelocyte,atypical promyelocyte,BHS,332.TIF
+938,monocyte,myeloblast,UGU,394.TIF
+939,metamyelocyte,typical lymphocyte,UGU,024.TIF
+940,myeloblast,myeloblast,SBY,163.TIF
+941,reactive lymphocyte,reactive lymphocyte,UGU,282.TIF
+942,other,neutrophil granulocyte (segmented),BHS,349.TIF
+943,other,plasma cell,BHS,464.TIF
+944,other,other,BHS,429.TIF
+945,atypical promyelocyte,atypical promyelocyte,BHS,385.TIF
+946,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,220.TIF
+947,monocyte,monocyte,SBY,282.TIF
+948,atypical promyelocyte,atypical promyelocyte,PKC,276.TIF
+949,typical lymphocyte,typical lymphocyte,UVT,105.TIF
+950,monocyte,myeloblast,UGU,330.TIF
+951,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,232.TIF
+952,myeloblast,myeloblast,SBY,307.TIF
+953,myeloblast,myeloblast,UVT,022.TIF
+954,other,other,BHS,071.TIF
+955,other,monocyte,BHS,410.TIF
+956,monocyte,monocyte,SBY,295.TIF
+957,myeloblast,mononucleosis,UVT,016.TIF
+958,other,smudge cell,UVT,006.TIF
+959,monocyte,metamyelocyte,PKC,402.TIF
+960,typical lymphocyte,myeloblast,SBY,365.TIF
+961,myeloblast,myeloblast,SBY,083.TIF
+962,large granulated lymphocyte,large granulated lymphocyte,UGU,219.TIF
+963,myeloblast,mononucleosis,SBY,036.TIF
+964,normo,normo,PKC,455.TIF
+965,myeloblast with auer rod,myeloblast,UGU,160.TIF
+966,other,smudge cell,UGU,411.TIF
+967,ambiguous,atypical promyelocyte,PKC,231.TIF
+968,typical lymphocyte,typical lymphocyte,UGU,377.TIF
+969,typical lymphocyte,typical lymphocyte,UGU,198.TIF
+970,myeloblast,typical lymphocyte,SBY,304.TIF
+971,typical lymphocyte,typical lymphocyte,SBY,347.TIF
+972,normo,normo,PKC,222.TIF
+973,other,other,UVT,463.TIF
+974,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,185.TIF
+975,cup-like blast,myeloblast,UVT,203.TIF
+976,typical lymphocyte,typical lymphocyte,UGU,172.TIF
+977,ambiguous,typical lymphocyte,SBY,463.TIF
+978,other,neutrophil granulocyte (segmented),PKC,082.TIF
+979,atypical promyelocyte,atypical promyelocyte,PKC,170.TIF
+980,monocyte,mononucleosis,SBY,293.TIF
+981,other,neutrophil granulocyte (segmented),PKC,140.TIF
+982,myeloblast,myeloblast,SBY,273.TIF
+983,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,350.TIF
+984,myeloblast,myeloblast,SBY,158.TIF
+985,typical lymphocyte,typical lymphocyte,SBY,266.TIF
+986,metamyelocyte,neutrophil granulocyte (segmented),UGU,011.TIF
+987,atypical promyelocyte,atypical promyelocyte,BHS,439.TIF
+988,typical lymphocyte,typical lymphocyte,PKC,338.TIF
+989,other,typical lymphocyte,BHS,231.TIF
+990,other,smudge cell,SBY,056.TIF
+991,other,other,BHS,285.TIF
+992,ambiguous,myeloblast,UVT,181.TIF
+993,other,atypical promyelocyte,BHS,117.TIF
+994,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,376.TIF
+995,other,other,UVT,229.TIF
+996,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,377.TIF
+997,other,smudge cell,SBY,029.TIF
+998,monocyte,basophil granulocyte,BHS,110.TIF
+999,typical lymphocyte,typical lymphocyte,SBY,322.TIF
+1000,myeloblast,myeloblast,SBY,410.TIF
+1001,myeloblast,myeloblast,SBY,030.TIF
+1002,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,125.TIF
+1003,other,other,UVT,427.TIF
+1004,other,typical lymphocyte,BHS,217.TIF
+1005,other,other,PKC,031.TIF
+1006,myeloblast,myeloblast,UVT,000.TIF
+1007,other,smudge cell,UVT,315.TIF
+1008,reactive lymphocyte,reactive lymphocyte,UVT,226.TIF
+1009,other,typical lymphocyte,BHS,319.TIF
+1010,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,126.TIF
+1011,other,metamyelocyte,BHS,294.TIF
+1012,monocyte,mononucleosis,SBY,092.TIF
+1013,other,hair cell,UGU,116.TIF
+1014,"atypical promyelocyte, bilobed",atypical promyelocyte,PKC,250.TIF
+1015,myeloblast,myeloblast,SBY,301.TIF
+1016,promonocyte,monocyte,UVT,078.TIF
+1017,neutrophil granulocyte (band),basophil granulocyte,UVT,333.TIF
+1018,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,271.TIF
+1019,monocyte,myeloblast,UGU,467.TIF
+1020,myeloblast,myeloblast,SBY,252.TIF
+1021,monocyte,neutrophil granulocyte (band),PKC,406.TIF
+1022,monocyte,typical lymphocyte,BHS,362.TIF
+1023,monocyte,large granulated lymphocyte,UGU,348.TIF
+1024,typical lymphocyte,typical lymphocyte,UGU,415.TIF
+1025,monocyte,typical lymphocyte,UGU,493.TIF
+1026,other,smudge cell,UVT,005.TIF
+1027,myeloblast,myeloblast,UVT,177.TIF
+1028,other,other,PKC,275.TIF
+1029,faggot cell,atypical promyelocyte,BHS,197.TIF
+1030,monocyte,monocyte,UGU,483.TIF
+1031,myeloblast,myeloblast,SBY,309.TIF
+1032,other,smudge cell,UVT,071.TIF
+1033,typical lymphocyte,plasma cell,UGU,457.TIF
+1034,ambiguous,atypical promyelocyte,BHS,137.TIF
+1035,other,myelocyte,PKC,483.TIF
+1036,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,300.TIF
+1037,other,other,PKC,278.TIF
+1038,monocyte,large granulated lymphocyte,UGU,271.TIF
+1039,other,other,UGU,056.TIF
+1040,normo,normo,PKC,386.TIF
+1041,monocyte,metamyelocyte,PKC,152.TIF
+1042,monocyte,typical lymphocyte,BHS,194.TIF
+1043,other,smudge cell,UVT,403.TIF
+1044,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,328.TIF
+1045,normo,normo,PKC,440.TIF
+1046,atypical promyelocyte,atypical promyelocyte,PKC,206.TIF
+1047,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,359.TIF
+1048,atypical promyelocyte,atypical promyelocyte,BHS,467.TIF
+1049,atypical promyelocyte,atypical promyelocyte,PKC,436.TIF
+1050,myeloblast,myeloblast,SBY,054.TIF
+1051,typical lymphocyte,basophil granulocyte,BHS,440.TIF
+1052,myeloblast,myeloblast,SBY,080.TIF
+1053,myeloblast with auer rod,myeloblast,UGU,147.TIF
+1054,myeloblast,myeloblast,SBY,457.TIF
+1055,large granulated lymphocyte,large granulated lymphocyte,UGU,050.TIF
+1056,myeloblast,myeloblast,SBY,239.TIF
+1057,other,atypical promyelocyte,PKC,115.TIF
+1058,typical lymphocyte,plasma cell,UGU,189.TIF
+1059,myeloblast,myeloblast,UVT,195.TIF
+1060,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,075.TIF
+1061,myeloblast,myeloblast,UGU,339.TIF
+1062,typical lymphocyte,typical lymphocyte,BHS,134.TIF
+1063,myeloblast,atypical promyelocyte,BHS,303.TIF
+1064,monocyte,neutrophil granulocyte (segmented),UGU,354.TIF
+1065,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,418.TIF
+1066,typical lymphocyte,typical lymphocyte,BHS,150.TIF
+1067,myeloblast,myeloblast,UGU,151.TIF
+1068,typical lymphocyte,typical lymphocyte,UGU,019.TIF
+1069,monocyte,myeloblast,UGU,187.TIF
+1070,monocyte,monocyte,SBY,289.TIF
+1071,monocyte,monocyte,PKC,334.TIF
+1072,promonocyte,myeloblast,UVT,091.TIF
+1073,myeloblast,mononucleosis,SBY,466.TIF
+1074,promonocyte,myeloblast,UVT,306.TIF
+1075,myeloblast,myeloblast,SBY,409.TIF
+1076,myeloblast,myeloblast,UVT,258.TIF
+1077,myeloblast,myeloblast,SBY,373.TIF
+1078,atypical promyelocyte,atypical promyelocyte,BHS,088.TIF
+1079,typical lymphocyte,typical lymphocyte,UGU,181.TIF
+1080,large granulated lymphocyte,large granulated lymphocyte,UGU,046.TIF
+1081,atypical promyelocyte,atypical promyelocyte,PKC,437.TIF
+1082,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,223.TIF
+1083,other,large granulated lymphocyte,UGU,066.TIF
+1084,other,other,SBY,211.TIF
+1085,monocyte,neutrophil granulocyte (segmented),PKC,430.TIF
+1086,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,170.TIF
+1087,myeloblast,atypical promyelocyte,SBY,478.TIF
+1088,other,large granulated lymphocyte,UGU,397.TIF
+1089,myeloblast,myeloblast,UGU,332.TIF
+1090,myeloblast,myeloblast,SBY,171.TIF
+1091,myeloblast,myeloblast,UVT,107.TIF
+1092,faggot cell,atypical promyelocyte,BHS,107.TIF
+1093,atypical promyelocyte,atypical promyelocyte,PKC,055.TIF
+1094,cup-like blast,typical lymphocyte,SBY,481.TIF
+1095,myeloblast,bilobed M3v,SBY,181.TIF
+1096,other,normo,PKC,175.TIF
+1097,other,other,BHS,487.TIF
+1098,atypical promyelocyte,atypical promyelocyte,PKC,245.TIF
+1099,neutrophil granulocyte (band),neutrophil granulocyte (band),BHS,030.TIF
+1100,monocyte,large granulated lymphocyte,UGU,224.TIF
+1101,normo,normo,UVT,269.TIF
+1102,neutrophil granulocyte (segmented),other,BHS,225.TIF
+1103,other,atypical promyelocyte,BHS,357.TIF
+1104,monocyte,monocyte,SBY,340.TIF
+1105,typical lymphocyte,other,BHS,266.TIF
+1106,myeloblast,myeloblast,SBY,025.TIF
+1107,myeloblast,myeloblast,UVT,436.TIF
+1108,monocyte,large granulated lymphocyte,UGU,370.TIF
+1109,cup-like blast,myeloblast,UVT,494.TIF
+1110,other,typical lymphocyte,UGU,319.TIF
+1111,normo,normo,BHS,477.TIF
+1112,myeloblast,myeloblast,SBY,121.TIF
+1113,myeloblast,mononucleosis,SBY,324.TIF
+1114,myeloblast,myeloblast,SBY,331.TIF
+1115,atypical promyelocyte,atypical promyelocyte,BHS,420.TIF
+1116,atypical promyelocyte,atypical promyelocyte,BHS,257.TIF
+1117,monocyte,mononucleosis,SBY,247.TIF
+1118,other,other,PKC,195.TIF
+1119,other,basophil granulocyte,BHS,103.TIF
+1120,monocyte,metamyelocyte,BHS,043.TIF
+1121,typical lymphocyte,typical lymphocyte,SBY,026.TIF
+1122,monocyte,myeloblast,UGU,478.TIF
+1123,large granulated lymphocyte,large granulated lymphocyte,UGU,248.TIF
+1124,other,other,BHS,250.TIF
+1125,other,typical lymphocyte,BHS,388.TIF
+1126,typical lymphocyte,typical lymphocyte,SBY,126.TIF
+1127,other,other,PKC,327.TIF
+1128,myeloblast,atypical promyelocyte,BHS,124.TIF
+1129,monocyte,neutrophil granulocyte (segmented),UGU,293.TIF
+1130,cup-like blast,myeloblast,UVT,012.TIF
+1131,other,other,PKC,264.TIF
+1132,myeloblast,myeloblast,UVT,049.TIF
+1133,typical lymphocyte,typical lymphocyte,PKC,254.TIF
+1134,other,other,BHS,483.TIF
+1135,other,neutrophil granulocyte (segmented),PKC,422.TIF
+1136,reactive lymphocyte,mononucleosis,SBY,206.TIF
+1137,myeloblast,myeloblast,SBY,094.TIF
+1138,atypical promyelocyte,promyelocyte,SBY,265.TIF
+1139,other,metamyelocyte,BHS,067.TIF
+1140,other,smudge cell,UVT,187.TIF
+1141,other,other,UGU,400.TIF
+1142,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,365.TIF
+1143,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,202.TIF
+1144,other,monocyte,UVT,156.TIF
+1145,myeloblast,myeloblast,UGU,327.TIF
+1146,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,378.TIF
+1147,myeloblast,myeloblast,UVT,419.TIF
+1148,other,myelocyte,PKC,271.TIF
+1149,reactive lymphocyte,typical lymphocyte,SBY,037.TIF
+1150,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,307.TIF
+1151,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,459.TIF
+1152,other,other,UGU,115.TIF
+1153,reactive lymphocyte,large granulated lymphocyte,UGU,309.TIF
+1154,atypical promyelocyte,atypical promyelocyte,BHS,199.TIF
+1155,large granulated lymphocyte,large granulated lymphocyte,UGU,434.TIF
+1156,myeloblast,myeloblast,SBY,268.TIF
+1157,other,other,PKC,135.TIF
+1158,neutrophil granulocyte (segmented),neutrophil granulocyte (band),BHS,076.TIF
+1159,other,typical lymphocyte,BHS,092.TIF
+1160,other,smudge cell,SBY,079.TIF
+1161,other,typical lymphocyte,BHS,238.TIF
+1162,other,smudge cell,UVT,024.TIF
+1163,myeloblast,myeloblast,SBY,051.TIF
+1164,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,462.TIF
+1165,other,smudge cell,BHS,129.TIF
+1166,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,161.TIF
+1167,monocyte,basophil granulocyte,PKC,183.TIF
+1168,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,164.TIF
+1169,typical lymphocyte,typical lymphocyte,BHS,051.TIF
+1170,normo,normo,PKC,477.TIF
+1171,monocyte,monocyte,UVT,109.TIF
+1172,other,other,UVT,277.TIF
+1173,monocyte,mononucleosis,PKC,272.TIF
+1174,typical lymphocyte,typical lymphocyte,UGU,344.TIF
+1175,myeloblast,myeloblast,SBY,202.TIF
+1176,myeloblast,myeloblast,PKC,266.TIF
+1177,myeloblast,myeloblast,UVT,472.TIF
+1178,other,other,BHS,253.TIF
+1179,myeloblast,atypical promyelocyte,UGU,113.TIF
+1180,myeloblast,myeloblast,UVT,019.TIF
+1181,myeloblast,myeloblast,UVT,272.TIF
+1182,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,320.TIF
+1183,myeloblast,myeloblast,SBY,216.TIF
+1184,other,smudge cell,SBY,441.TIF
+1185,myeloblast,myeloblast,UVT,474.TIF
+1186,other,other,PKC,325.TIF
+1187,cup-like blast,myeloblast,UVT,063.TIF
+1188,atypical promyelocyte,atypical promyelocyte,BHS,288.TIF
+1189,atypical promyelocyte,atypical promyelocyte,BHS,154.TIF
+1190,typical lymphocyte,typical lymphocyte,SBY,440.TIF
+1191,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,231.TIF
+1192,other,other,UGU,323.TIF
+1193,myeloblast,reactive lymphocyte,UVT,017.TIF
+1194,promonocyte,monocyte,SBY,336.TIF
+1195,promonocyte,atypical promyelocyte,PKC,038.TIF
+1196,atypical promyelocyte,atypical promyelocyte,BHS,336.TIF
+1197,monocyte,typical lymphocyte,UVT,367.TIF
+1198,myeloblast,myeloblast,UGU,042.TIF
+1199,myeloblast,myeloblast,UGU,288.TIF
+1200,"atypical promyelocyte, bilobed",atypical promyelocyte,PKC,261.TIF
+1201,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,316.TIF
+1202,other,smudge cell,BHS,270.TIF
+1203,other,other,BHS,411.TIF
+1204,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,359.TIF
+1205,other,neutrophil granulocyte (segmented),UGU,388.TIF
+1206,myeloblast,myeloblast,SBY,259.TIF
+1207,monocyte,neutrophil granulocyte (segmented),UGU,246.TIF
+1208,typical lymphocyte,typical lymphocyte,BHS,184.TIF
+1209,myeloblast with auer rod,atypical promyelocyte,BHS,269.TIF
+1210,other,neutrophil granulocyte (segmented),PKC,259.TIF
+1211,reactive lymphocyte,typical lymphocyte,UGU,201.TIF
+1212,atypical promyelocyte,monocyte,BHS,068.TIF
+1213,normo,normo,UVT,090.TIF
+1214,"atypical promyelocyte, bilobed",atypical promyelocyte,PKC,144.TIF
+1215,atypical promyelocyte,atypical promyelocyte,BHS,080.TIF
+1216,atypical promyelocyte,atypical promyelocyte,BHS,198.TIF
+1217,myeloblast,myeloblast,SBY,219.TIF
+1218,promonocyte,atypical promyelocyte,PKC,025.TIF
+1219,atypical promyelocyte,atypical promyelocyte,BHS,389.TIF
+1220,myeloblast,myeloblast,UVT,482.TIF
+1221,other,myelocyte,PKC,233.TIF
+1222,myeloblast with auer rod,atypical promyelocyte,BHS,471.TIF
+1223,atypical promyelocyte,atypical promyelocyte,PKC,098.TIF
+1224,neutrophil granulocyte (band),neutrophil granulocyte (band),UGU,032.TIF
+1225,monocyte,metamyelocyte,BHS,100.TIF
+1226,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,489.TIF
+1227,monocyte,other,BHS,016.TIF
+1228,myeloblast,myeloblast,UVT,429.TIF
+1229,neutrophil granulocyte (band),neutrophil granulocyte (segmented),PKC,322.TIF
+1230,other,other,BHS,044.TIF
+1231,other,neutrophil granulocyte (segmented),PKC,116.TIF
+1232,other,other,PKC,117.TIF
+1233,other,smudge cell,UGU,192.TIF
+1234,faggot cell,atypical promyelocyte,PKC,247.TIF
+1235,myeloblast,myeloblast,SBY,072.TIF
+1236,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,293.TIF
+1237,other,other,BHS,485.TIF
+1238,other,normo,UVT,485.TIF
+1239,myeloblast,mononucleosis,UGU,004.TIF
+1240,myeloblast,myeloblast,SBY,438.TIF
+1241,reactive lymphocyte,typical lymphocyte,SBY,018.TIF
+1242,typical lymphocyte,typical lymphocyte,PKC,130.TIF
+1243,typical lymphocyte,typical lymphocyte,UVT,343.TIF
+1244,myeloblast,myeloblast,SBY,139.TIF
+1245,metamyelocyte,neutrophil granulocyte (band),PKC,380.TIF
+1246,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,124.TIF
+1247,reactive lymphocyte,myeloblast,UGU,218.TIF
+1248,atypical promyelocyte,atypical promyelocyte,PKC,219.TIF
+1249,myeloblast,myeloblast,SBY,047.TIF
+1250,myeloblast,myeloblast,UVT,080.TIF
+1251,other,other,BHS,323.TIF
+1252,reactive lymphocyte,reactive lymphocyte,UGU,134.TIF
+1253,large granulated lymphocyte,large granulated lymphocyte,UGU,413.TIF
+1254,myeloblast,myeloblast,UVT,216.TIF
+1255,atypical promyelocyte,atypical promyelocyte,BHS,019.TIF
+1256,myeloblast,myeloblast,SBY,144.TIF
+1257,metamyelocyte,basophil granulocyte,UVT,230.TIF
+1258,other,neutrophil granulocyte (segmented),PKC,032.TIF
+1259,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,456.TIF
+1260,other,atypical promyelocyte,BHS,475.TIF
+1261,other,typical lymphocyte,BHS,293.TIF
+1262,reactive lymphocyte,myeloblast,UGU,209.TIF
+1263,other,mononucleosis,UGU,034.TIF
+1264,monocyte,metamyelocyte,PKC,005.TIF
+1265,other,atypical promyelocyte,PKC,295.TIF
+1266,myeloblast,myeloblast,UVT,051.TIF
+1267,other,atypical promyelocyte,BHS,161.TIF
+1268,typical lymphocyte,typical lymphocyte,UGU,468.TIF
+1269,other,atypical promyelocyte,BHS,348.TIF
+1270,monocyte,metamyelocyte,BHS,368.TIF
+1271,monocyte,myeloblast,UVT,251.TIF
+1272,myeloblast,myeloblast,UVT,340.TIF
+1273,typical lymphocyte,typical lymphocyte,SBY,388.TIF
+1274,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,012.TIF
+1275,other,other,BHS,298.TIF
+1276,atypical promyelocyte,myeloblast,PKC,394.TIF
+1277,monocyte,monocyte,PKC,279.TIF
+1278,other,smudge cell,SBY,127.TIF
+1279,other,typical lymphocyte,PKC,112.TIF
+1280,other,other,BHS,114.TIF
+1281,other,other,PKC,176.TIF
+1282,eosinophil granulocyte,eosinophil granulocyte,SBY,015.TIF
+1283,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,409.TIF
+1284,myeloblast,atypical promyelocyte,PKC,125.TIF
+1285,other,other,BHS,340.TIF
+1286,typical lymphocyte,typical lymphocyte,PKC,420.TIF
+1287,monocyte,large granulated lymphocyte,UGU,335.TIF
+1288,monocyte,monocyte,BHS,201.TIF
+1289,monocyte,myelocyte,PKC,400.TIF
+1290,other,other,BHS,185.TIF
+1291,other,smudge cell,UVT,114.TIF
+1292,monocyte,metamyelocyte,PKC,100.TIF
+1293,typical lymphocyte,typical lymphocyte,SBY,407.TIF
+1294,other,basophil granulocyte,UVT,424.TIF
+1295,reactive lymphocyte,typical lymphocyte,UVT,311.TIF
+1296,other,neutrophil granulocyte (segmented),UGU,279.TIF
+1297,other,smudge cell,BHS,073.TIF
+1298,large granulated lymphocyte,reactive lymphocyte,UGU,123.TIF
+1299,myeloblast,myeloblast,SBY,447.TIF
+1300,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,431.TIF
+1301,neutrophil granulocyte (segmented),neutrophil granulocyte (band),PKC,160.TIF
+1302,myeloblast,myeloblast,SBY,473.TIF
+1303,myeloblast,myeloblast,SBY,296.TIF
+1304,monocyte,neutrophil granulocyte (band),PKC,184.TIF
+1305,cup-like blast,myeloblast,UVT,283.TIF
+1306,reactive lymphocyte,typical lymphocyte,SBY,351.TIF
+1307,typical lymphocyte,typical lymphocyte,SBY,319.TIF
+1308,other,other,PKC,205.TIF
+1309,myeloblast,myeloblast,SBY,346.TIF
+1310,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,396.TIF
+1311,promonocyte,myeloblast,UVT,038.TIF
+1312,other,other,BHS,316.TIF
+1313,atypical promyelocyte,bilobed M3v,PKC,351.TIF
+1314,atypical promyelocyte,atypical promyelocyte,BHS,295.TIF
+1315,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,031.TIF
+1316,typical lymphocyte,typical lymphocyte,SBY,040.TIF
+1317,other,other,UGU,092.TIF
+1318,other,other,BHS,204.TIF
+1319,monocyte,atypical promyelocyte,PKC,413.TIF
+1320,monocyte,neutrophil granulocyte (band),UVT,117.TIF
+1321,atypical promyelocyte,atypical promyelocyte,PKC,191.TIF
+1322,ambiguous,myeloblast,UGU,223.TIF
+1323,myeloblast,myeloblast,SBY,165.TIF
+1324,other,other,UVT,100.TIF
+1325,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,478.TIF
+1326,other,smudge cell,UGU,445.TIF
+1327,other,other,BHS,311.TIF
+1328,monocyte,monocyte,PKC,302.TIF
+1329,other,other,PKC,292.TIF
+1330,eosinophil granulocyte,eosinophil granulocyte,SBY,253.TIF
+1331,other,normo,PKC,163.TIF
+1332,atypical promyelocyte,atypical promyelocyte,BHS,089.TIF
+1333,monocyte,neutrophil granulocyte (segmented),PKC,353.TIF
+1334,other,smudge cell,UVT,375.TIF
+1335,myeloblast,myeloblast,UVT,414.TIF
+1336,monocyte,monocyte,UGU,186.TIF
+1337,other,other,UVT,430.TIF
+1338,monocyte,atypical promyelocyte,SBY,370.TIF
+1339,myeloblast,myeloblast,SBY,049.TIF
+1340,myeloblast,myeloblast,SBY,333.TIF
+1341,monocyte,metamyelocyte,PKC,284.TIF
+1342,reactive lymphocyte,plasma cell,UGU,127.TIF
+1343,normo,normo,UVT,445.TIF
+1344,monocyte,monocyte,PKC,192.TIF
+1345,other,neutrophil granulocyte (segmented),PKC,218.TIF
+1346,monocyte,hair cell,SBY,053.TIF
+1347,monocyte,myeloblast,UGU,118.TIF
+1348,myeloblast,myeloblast,SBY,485.TIF
+1349,monocyte,typical lymphocyte,BHS,304.TIF
+1350,myeloblast,myeloblast,SBY,418.TIF
+1351,cup-like blast,myeloblast,SBY,052.TIF
+1352,large granulated lymphocyte,large granulated lymphocyte,UGU,474.TIF
+1353,typical lymphocyte,typical lymphocyte,UVT,384.TIF
+1354,monocyte,myeloblast,UVT,025.TIF
+1355,myeloblast,myeloblast,UVT,036.TIF
+1356,other,myelocyte,PKC,059.TIF
+1357,myeloblast,myeloblast,UGU,054.TIF
+1358,atypical promyelocyte,atypical promyelocyte,PKC,208.TIF
+1359,other,other,UVT,408.TIF
+1360,other,smudge cell,UVT,184.TIF
+1361,myeloblast,atypical promyelocyte,BHS,142.TIF
+1362,monocyte,atypical promyelocyte,BHS,279.TIF
+1363,large granulated lymphocyte,large granulated lymphocyte,UGU,055.TIF
+1364,myeloblast,myeloblast,UGU,242.TIF
+1365,atypical promyelocyte,atypical promyelocyte,BHS,390.TIF
+1366,myeloblast,myeloblast,SBY,357.TIF
+1367,other,atypical promyelocyte,BHS,296.TIF
+1368,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,403.TIF
+1369,neutrophil granulocyte (segmented),basophil granulocyte,PKC,447.TIF
+1370,other,smudge cell,UVT,205.TIF
+1371,other,bilobed M3v,PKC,479.TIF
+1372,reactive lymphocyte,large granulated lymphocyte,UGU,003.TIF
+1373,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,362.TIF
+1374,atypical promyelocyte,myeloblast,PKC,071.TIF
+1375,typical lymphocyte,typical lymphocyte,UGU,057.TIF
+1376,other,other,PKC,109.TIF
+1377,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,421.TIF
+1378,myelocyte,myelocyte,BHS,315.TIF
+1379,ambiguous,mononucleosis,SBY,427.TIF
+1380,other,other,SBY,246.TIF
+1381,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,339.TIF
+1382,other,smudge cell,SBY,223.TIF
+1383,myeloblast,myeloblast,UVT,011.TIF
+1384,other,other,UVT,163.TIF
+1385,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,347.TIF
+1386,typical lymphocyte,typical lymphocyte,UGU,146.TIF
+1387,other,other,UVT,484.TIF
+1388,myeloblast,myeloblast,UGU,143.TIF
+1389,myeloblast,myeloblast,SBY,174.TIF
+1390,monocyte,typical lymphocyte,BHS,324.TIF
+1391,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,002.TIF
+1392,other,other,UGU,261.TIF
+1393,myeloblast,myeloblast,UGU,305.TIF
+1394,other,other,UVT,364.TIF
+1395,cup-like blast,myeloblast,UVT,470.TIF
+1396,myeloblast,myeloblast,UVT,432.TIF
+1397,monocyte,atypical promyelocyte,PKC,409.TIF
+1398,monocyte,atypical promyelocyte,PKC,101.TIF
+1399,other,other,BHS,268.TIF
+1400,monocyte,myeloblast,UGU,139.TIF
+1401,monocyte,monocyte,PKC,058.TIF
+1402,atypical promyelocyte,atypical promyelocyte,BHS,416.TIF
+1403,monocyte,myeloblast,UVT,087.TIF
+1404,reactive lymphocyte,large granulated lymphocyte,UGU,464.TIF
+1405,typical lymphocyte,typical lymphocyte,UVT,321.TIF
+1406,typical lymphocyte,typical lymphocyte,UGU,035.TIF
+1407,other,smudge cell,UGU,290.TIF
+1408,other,myelocyte,PKC,252.TIF
+1409,ambiguous,mononucleosis,UGU,076.TIF
+1410,other,atypical promyelocyte,BHS,384.TIF
+1411,other,myeloblast,UVT,104.TIF
+1412,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,358.TIF
+1413,monocyte,metamyelocyte,PKC,458.TIF
+1414,other,other,UVT,405.TIF
+1415,other,typical lymphocyte,UGU,361.TIF
+1416,typical lymphocyte,myeloblast,SBY,345.TIF
+1417,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,068.TIF
+1418,monocyte,neutrophil granulocyte (segmented),PKC,339.TIF
+1419,myeloblast,myeloblast,SBY,337.TIF
+1420,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,174.TIF
+1421,myeloblast,myeloblast,UVT,322.TIF
+1422,myeloblast,myeloblast,SBY,224.TIF
+1423,myeloblast,myeloblast,SBY,160.TIF
+1424,other,smudge cell,UVT,332.TIF
+1425,atypical promyelocyte,atypical promyelocyte,BHS,075.TIF
+1426,typical lymphocyte,typical lymphocyte,SBY,487.TIF
+1427,promonocyte,myeloblast,SBY,120.TIF
+1428,myeloblast,atypical promyelocyte,SBY,101.TIF
+1429,other,other,UVT,027.TIF
+1430,monocyte,myeloblast,UGU,029.TIF
+1431,myeloblast,bilobed M3v,UGU,435.TIF
+1432,other,typical lymphocyte,PKC,355.TIF
+1433,other,other,PKC,187.TIF
+1434,typical lymphocyte,typical lymphocyte,BHS,329.TIF
+1435,other,atypical promyelocyte,BHS,214.TIF
+1436,other,other,UGU,387.TIF
+1437,monocyte,neutrophil granulocyte (band),PKC,169.TIF
+1438,monocyte,atypical promyelocyte,PKC,194.TIF
+1439,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,035.TIF
+1440,typical lymphocyte,typical lymphocyte,SBY,065.TIF
+1441,typical lymphocyte,typical lymphocyte,UVT,328.TIF
+1442,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,186.TIF
+1443,other,myeloblast,UVT,081.TIF
+1444,typical lymphocyte,typical lymphocyte,UGU,315.TIF
+1445,monocyte,neutrophil granulocyte (band),UVT,215.TIF
+1446,myeloblast,myeloblast,UGU,213.TIF
+1447,other,other,BHS,371.TIF
+1448,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,326.TIF
+1449,ambiguous,myeloblast,SBY,046.TIF
+1450,other,smudge cell,UVT,309.TIF
+1451,monocyte,typical lymphocyte,UGU,077.TIF
+1452,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,391.TIF
+1453,typical lymphocyte,typical lymphocyte,BHS,358.TIF
+1454,atypical promyelocyte,myeloblast,UVT,308.TIF
+1455,monocyte,mononucleosis,UGU,195.TIF
+1456,other,other,PKC,063.TIF
+1457,monocyte,monocyte,UGU,391.TIF
+1458,myeloblast,atypical promyelocyte,BHS,042.TIF
+1459,other,other,SBY,363.TIF
+1460,myeloblast,mononucleosis,SBY,004.TIF
+1461,myeloblast,myeloblast,UGU,395.TIF
+1462,other,monocyte,BHS,468.TIF
+1463,typical lymphocyte,typical lymphocyte,SBY,480.TIF
+1464,large granulated lymphocyte,large granulated lymphocyte,UVT,275.TIF
+1465,atypical promyelocyte,myelocyte,PKC,024.TIF
+1466,myeloblast,myeloblast,UGU,251.TIF
+1467,other,smudge cell,UVT,210.TIF
+1468,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,396.TIF
+1469,atypical promyelocyte,atypical promyelocyte,BHS,081.TIF
+1470,typical lymphocyte,typical lymphocyte,UGU,239.TIF
+1471,monocyte,other,BHS,164.TIF
+1472,typical lymphocyte,typical lymphocyte,PKC,408.TIF
+1473,monocyte,neutrophil granulocyte (segmented),UGU,026.TIF
+1474,myeloblast,atypical promyelocyte,SBY,414.TIF
+1475,monocyte,mononucleosis,UGU,039.TIF
+1476,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,069.TIF
+1477,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,336.TIF
+1478,myeloblast,typical lymphocyte,UGU,448.TIF
+1479,other,smudge cell,UVT,121.TIF
+1480,myeloblast,myeloblast,UGU,425.TIF
+1481,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,471.TIF
+1482,other,smudge cell,BHS,254.TIF
+1483,myeloblast,myeloblast,SBY,412.TIF
+1484,typical lymphocyte,typical lymphocyte,PKC,103.TIF
+1485,typical lymphocyte,typical lymphocyte,SBY,063.TIF
+1486,typical lymphocyte,typical lymphocyte,UGU,233.TIF
+1487,other,metamyelocyte,PKC,141.TIF
+1488,other,atypical promyelocyte,BHS,339.TIF
+1489,monocyte,monocyte,SBY,477.TIF
+1490,myeloblast,atypical promyelocyte,BHS,146.TIF
+1491,other,eosinophil granulocyte,BHS,291.TIF
+1492,other,other,PKC,056.TIF
+1493,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,486.TIF
+1494,monocyte,monocyte,UVT,241.TIF
+1495,myeloblast,myeloblast,SBY,020.TIF
+1496,myeloblast,myeloblast,SBY,173.TIF
+1497,atypical promyelocyte with auer rod,atypical promyelocyte,BHS,235.TIF
+1498,myeloblast,myeloblast,UVT,483.TIF
+1499,typical lymphocyte,metamyelocyte,BHS,405.TIF
+1500,typical lymphocyte,typical lymphocyte,SBY,377.TIF
+1501,myeloblast,myeloblast,UVT,122.TIF
+1502,large granulated lymphocyte,large granulated lymphocyte,UGU,295.TIF
+1503,other,smudge cell,SBY,392.TIF
+1504,monocyte,other,BHS,478.TIF
+1505,myeloblast,myeloblast,UGU,422.TIF
+1506,other,plasma cell,BHS,145.TIF
+1507,monocyte,myeloblast,UVT,143.TIF
+1508,typical lymphocyte,typical lymphocyte,UVT,144.TIF
+1509,other,smudge cell,SBY,162.TIF
+1510,large granulated lymphocyte,large granulated lymphocyte,UGU,462.TIF
+1511,other,neutrophil granulocyte (segmented),PKC,102.TIF
+1512,monocyte,myelocyte,BHS,474.TIF
+1513,other,myeloblast,BHS,066.TIF
+1514,ambiguous,atypical promyelocyte,PKC,108.TIF
+1515,monocyte,typical lymphocyte,PKC,474.TIF
+1516,monocyte,myeloblast,UGU,231.TIF
+1517,typical lymphocyte,typical lymphocyte,UGU,426.TIF
+1518,other,other,UVT,307.TIF
+1519,typical lymphocyte,typical lymphocyte,SBY,207.TIF
+1520,other,basophil granulocyte,BHS,005.TIF
+1521,typical lymphocyte,typical lymphocyte,BHS,320.TIF
+1522,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,153.TIF
+1523,typical lymphocyte,typical lymphocyte,UGU,145.TIF
+1524,other,plasma cell,BHS,355.TIF
+1525,monocyte,monocyte,SBY,215.TIF
+1526,atypical promyelocyte,atypical promyelocyte,BHS,321.TIF
+1527,atypical promyelocyte,atypical promyelocyte,BHS,166.TIF
+1528,reactive lymphocyte,mononucleosis,SBY,078.TIF
+1529,myeloblast,mononucleosis,SBY,290.TIF
+1530,myeloblast,atypical promyelocyte,BHS,432.TIF
+1531,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,296.TIF
+1532,other,smudge cell,BHS,425.TIF
+1533,monocyte,plasma cell,BHS,203.TIF
+1534,monocyte,myeloblast,UVT,031.TIF
+1535,large granulated lymphocyte,large granulated lymphocyte,UGU,263.TIF
+1536,atypical promyelocyte,atypical promyelocyte,BHS,123.TIF
+1537,reactive lymphocyte,reactive lymphocyte,UGU,286.TIF
+1538,reactive lymphocyte,typical lymphocyte,UGU,179.TIF
+1539,other,other,PKC,137.TIF
+1540,other,other,PKC,390.TIF
+1541,monocyte,typical lymphocyte,UGU,220.TIF
+1542,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,120.TIF
+1543,monocyte,myeloblast,UVT,458.TIF
+1544,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,434.TIF
+1545,typical lymphocyte,typical lymphocyte,SBY,200.TIF
+1546,myeloblast,myeloblast,UGU,085.TIF
+1547,atypical promyelocyte,atypical promyelocyte,BHS,462.TIF
+1548,typical lymphocyte,typical lymphocyte,SBY,074.TIF
+1549,other,other,UVT,186.TIF
+1550,other,neutrophil granulocyte (segmented),UGU,256.TIF
+1551,monocyte,myelocyte,PKC,364.TIF
+1552,monocyte,large granulated lymphocyte,UGU,157.TIF
+1553,atypical promyelocyte,atypical promyelocyte,BHS,242.TIF
+1554,other,other,PKC,020.TIF
+1555,myeloblast,atypical promyelocyte,BHS,174.TIF
+1556,typical lymphocyte,typical lymphocyte,SBY,057.TIF
+1557,other,myeloblast,UGU,167.TIF
+1558,other,other,BHS,305.TIF
+1559,monocyte,atypical promyelocyte,BHS,310.TIF
+1560,other,atypical promyelocyte,BHS,109.TIF
+1561,other,myeloblast,UGU,420.TIF
+1562,myeloblast,myeloblast,SBY,005.TIF
+1563,reactive lymphocyte,mononucleosis,UGU,196.TIF
+1564,other,basophil granulocyte,BHS,151.TIF
+1565,monocyte,large granulated lymphocyte,UGU,022.TIF
+1566,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,332.TIF
+1567,monocyte,myelocyte,BHS,133.TIF
+1568,other,myeloblast,BHS,233.TIF
+1569,other,neutrophil granulocyte (segmented),PKC,490.TIF
+1570,atypical promyelocyte,atypical promyelocyte,PKC,029.TIF
+1571,other,atypical promyelocyte,BHS,105.TIF
+1572,monocyte,atypical promyelocyte,BHS,377.TIF
+1573,myeloblast,myeloblast,SBY,073.TIF
+1574,typical lymphocyte,typical lymphocyte,SBY,305.TIF
+1575,monocyte,monocyte,SBY,338.TIF
+1576,other,other,PKC,473.TIF
+1577,normo,normo,PKC,094.TIF
+1578,large granulated lymphocyte,basophil granulocyte,UGU,190.TIF
+1579,other,other,UVT,239.TIF
+1580,monocyte,metamyelocyte,BHS,210.TIF
+1581,typical lymphocyte,typical lymphocyte,SBY,166.TIF
+1582,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,057.TIF
+1583,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,321.TIF
+1584,monocyte,myeloblast,UVT,298.TIF
+1585,myeloblast,myeloblast,UGU,443.TIF
+1586,other,neutrophil granulocyte (segmented),PKC,110.TIF
+1587,myeloblast,myeloblast,UVT,152.TIF
+1588,atypical promyelocyte,atypical promyelocyte,BHS,111.TIF
+1589,other,other,BHS,093.TIF
+1590,other,eosinophil granulocyte,PKC,073.TIF
+1591,other,typical lymphocyte,BHS,259.TIF
+1592,cup-like blast,myeloblast,UVT,351.TIF
+1593,reactive lymphocyte,typical lymphocyte,UGU,465.TIF
+1594,myeloblast with auer rod,atypical promyelocyte,BHS,028.TIF
+1595,other,neutrophil granulocyte (segmented),PKC,131.TIF
+1596,atypical promyelocyte,atypical promyelocyte,BHS,367.TIF
+1597,other,neutrophil granulocyte (segmented),PKC,251.TIF
+1598,myeloblast,atypical promyelocyte,BHS,465.TIF
+1599,other,smudge cell,SBY,146.TIF
+1600,myeloblast,atypical promyelocyte,SBY,283.TIF
+1601,myeloblast,myeloblast,SBY,228.TIF
+1602,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,091.TIF
+1603,monocyte,monocyte,SBY,353.TIF
+1604,other,typical lymphocyte,UGU,089.TIF
+1605,myeloblast,myeloblast,SBY,430.TIF
+1606,reactive lymphocyte,plasma cell,UGU,222.TIF
+1607,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,357.TIF
+1608,typical lymphocyte,plasma cell,SBY,385.TIF
+1609,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,006.TIF
+1610,large granulated lymphocyte,large granulated lymphocyte,SBY,147.TIF
+1611,typical lymphocyte,atypical promyelocyte,BHS,443.TIF
+1612,monocyte,neutrophil granulocyte (band),BHS,392.TIF
+1613,monocyte,mononucleosis,SBY,454.TIF
+1614,myeloblast,myeloblast,UGU,428.TIF
+1615,monocyte,mononucleosis,UVT,076.TIF
+1616,typical lymphocyte,typical lymphocyte,UGU,112.TIF
+1617,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,037.TIF
+1618,monocyte,metamyelocyte,BHS,244.TIF
+1619,other,other,SBY,184.TIF
+1620,atypical promyelocyte,atypical promyelocyte,BHS,394.TIF
+1621,myeloblast,myeloblast,UGU,492.TIF
+1622,other,other,UVT,471.TIF
+1623,monocyte,promyelocyte,SBY,099.TIF
+1624,other,other,PKC,026.TIF
+1625,monocyte,myeloblast,UVT,467.TIF
+1626,normo,normo,PKC,066.TIF
+1627,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,441.TIF
+1628,reactive lymphocyte,typical lymphocyte,UGU,454.TIF
+1629,monocyte,myeloblast,UVT,385.TIF
+1630,other,smudge cell,UVT,406.TIF
+1631,reactive lymphocyte,reactive lymphocyte,UGU,142.TIF
+1632,myeloblast,myeloblast,UVT,043.TIF
+1633,other,other,PKC,383.TIF
+1634,atypical promyelocyte,myelocyte,PKC,216.TIF
+1635,myeloblast,myeloblast,UVT,464.TIF
+1636,typical lymphocyte,typical lymphocyte,SBY,161.TIF
+1637,monocyte,myeloblast,UVT,297.TIF
+1638,other,other,UVT,288.TIF
+1639,myeloblast,myeloblast,UGU,206.TIF
+1640,myeloblast,myeloblast,SBY,031.TIF
+1641,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,139.TIF
+1642,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,010.TIF
+1643,large granulated lymphocyte,large granulated lymphocyte,UGU,431.TIF
+1644,cup-like blast,myeloblast,UVT,358.TIF
+1645,other,atypical promyelocyte,BHS,453.TIF
+1646,atypical promyelocyte,atypical promyelocyte,PKC,114.TIF
+1647,other,other,BHS,190.TIF
+1648,neutrophil granulocyte (segmented),other,BHS,035.TIF
+1649,myeloblast,myeloblast,UVT,139.TIF
+1650,other,neutrophil granulocyte (band),PKC,429.TIF
+1651,monocyte,mononucleosis,UGU,020.TIF
+1652,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,472.TIF
+1653,myeloblast,myeloblast,UGU,337.TIF
+1654,atypical promyelocyte,atypical promyelocyte,PKC,487.TIF
+1655,other,other,UVT,265.TIF
+1656,monocyte,myeloblast,PKC,004.TIF
+1657,myeloblast,myeloblast,SBY,066.TIF
+1658,myeloblast,myeloblast,UGU,152.TIF
+1659,myeloblast,myeloblast,SBY,187.TIF
+1660,atypical promyelocyte,atypical promyelocyte,PKC,344.TIF
+1661,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,489.TIF
+1662,other,myelocyte,PKC,006.TIF
+1663,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,175.TIF
+1664,monocyte,metamyelocyte,BHS,391.TIF
+1665,large granulated lymphocyte,large granulated lymphocyte,UGU,073.TIF
+1666,myeloblast,atypical promyelocyte,BHS,020.TIF
+1667,other,basophil granulocyte,SBY,429.TIF
+1668,monocyte,metamyelocyte,PKC,077.TIF
+1669,other,other,UGU,451.TIF
+1670,large granulated lymphocyte,large granulated lymphocyte,UGU,235.TIF
+1671,other,neutrophil granulocyte (segmented),PKC,084.TIF
+1672,other,other,PKC,209.TIF
+1673,atypical promyelocyte,atypical promyelocyte,PKC,041.TIF
+1674,myeloblast with auer rod,myeloblast,UVT,149.TIF
+1675,monocyte,metamyelocyte,PKC,238.TIF
+1676,other,atypical promyelocyte,BHS,434.TIF
+1677,typical lymphocyte,typical lymphocyte,UGU,013.TIF
+1678,myeloblast,mononucleosis,UVT,338.TIF
+1679,ambiguous,myeloblast,SBY,131.TIF
+1680,monocyte,mononucleosis,UVT,497.TIF
+1681,other,atypical promyelocyte,BHS,058.TIF
+1682,other,other,UVT,362.TIF
+1683,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,327.TIF
+1684,other,other,UGU,383.TIF
+1685,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,264.TIF
+1686,ambiguous,myeloblast,SBY,372.TIF
+1687,other,smudge cell,UVT,466.TIF
+1688,myeloblast,myeloblast,UVT,052.TIF
+1689,myeloblast,myeloblast,UVT,495.TIF
+1690,typical lymphocyte,typical lymphocyte,PKC,435.TIF
+1691,other,smudge cell,SBY,394.TIF
+1692,typical lymphocyte,typical lymphocyte,SBY,448.TIF
+1693,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,014.TIF
+1694,typical lymphocyte,typical lymphocyte,PKC,172.TIF
+1695,monocyte,monocyte,PKC,061.TIF
+1696,reactive lymphocyte,large granulated lymphocyte,UGU,228.TIF
+1697,myeloblast,myeloblast,UVT,013.TIF
+1698,myeloblast,myeloblast,UVT,207.TIF
+1699,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,366.TIF
+1700,myeloblast,myeloblast,UVT,292.TIF
+1701,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,005.TIF
+1702,myeloblast,atypical promyelocyte,UVT,102.TIF
+1703,myeloblast,myeloblast,UVT,377.TIF
+1704,typical lymphocyte,typical lymphocyte,UVT,171.TIF
+1705,monocyte,reactive lymphocyte,UGU,276.TIF
+1706,monocyte,bilobed M3v,PKC,065.TIF
+1707,myeloblast,myeloblast,UGU,347.TIF
+1708,myeloblast,neoplastic lymphocyte,SBY,208.TIF
+1709,reactive lymphocyte,typical lymphocyte,UVT,018.TIF
+1710,other,other,SBY,383.TIF
+1711,myeloblast,myeloblast,SBY,233.TIF
+1712,ambiguous,other,BHS,313.TIF
+1713,myeloblast,myeloblast,SBY,135.TIF
+1714,other,other,PKC,453.TIF
+1715,monocyte,myeloblast,UVT,213.TIF
+1716,typical lymphocyte,typical lymphocyte,UGU,316.TIF
+1717,neutrophil granulocyte (band),neutrophil granulocyte (segmented),PKC,253.TIF
+1718,monocyte,atypical promyelocyte,PKC,399.TIF
+1719,typical lymphocyte,typical lymphocyte,BHS,216.TIF
+1720,monocyte,monocyte,SBY,486.TIF
+1721,other,smudge cell,UVT,200.TIF
+1722,myeloblast,myeloblast,UVT,399.TIF
+1723,other,other,BHS,025.TIF
+1724,atypical promyelocyte,atypical promyelocyte,PKC,210.TIF
+1725,myeloblast,myeloblast,UGU,341.TIF
+1726,typical lymphocyte,typical lymphocyte,UGU,051.TIF
+1727,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,141.TIF
+1728,monocyte,typical lymphocyte,PKC,270.TIF
+1729,myeloblast,myeloblast,UGU,369.TIF
+1730,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,380.TIF
+1731,typical lymphocyte,typical lymphocyte,UGU,106.TIF
+1732,atypical promyelocyte,atypical promyelocyte,PKC,223.TIF
+1733,monocyte,other,BHS,084.TIF
+1734,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,118.TIF
+1735,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,174.TIF
+1736,myeloblast,myeloblast,SBY,038.TIF
+1737,typical lymphocyte,typical lymphocyte,BHS,247.TIF
+1738,monocyte,atypical promyelocyte,SBY,274.TIF
+1739,typical lymphocyte,typical lymphocyte,UGU,244.TIF
+1740,reactive lymphocyte,large granulated lymphocyte,UGU,416.TIF
+1741,other,smudge cell,UVT,257.TIF
+1742,other,atypical promyelocyte,PKC,129.TIF
+1743,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,098.TIF
+1744,other,basophil granulocyte,UGU,442.TIF
+1745,myeloblast,myeloblast,SBY,164.TIF
+1746,other,basophil granulocyte,PKC,009.TIF
+1747,myelocyte,myeloblast,SBY,091.TIF
+1748,ambiguous,neutrophil granulocyte (segmented),UVT,451.TIF
+1749,other,other,UGU,429.TIF
+1750,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,348.TIF
+1751,other,other,BHS,155.TIF
+1752,typical lymphocyte,typical lymphocyte,BHS,406.TIF
+1753,monocyte,monocyte,UGU,479.TIF
+1754,atypical promyelocyte,atypical promyelocyte,PKC,324.TIF
+1755,myeloblast,myeloblast,PKC,280.TIF
+1756,myeloblast,myeloblast,UGU,402.TIF
+1757,reactive lymphocyte,typical lymphocyte,UVT,389.TIF
+1758,monocyte,metamyelocyte,PKC,150.TIF
+1759,other,atypical promyelocyte,BHS,052.TIF
+1760,myelocyte,myeloblast,SBY,434.TIF
+1761,myeloblast,myeloblast,SBY,277.TIF
+1762,monocyte,monocyte,PKC,149.TIF
+1763,other,basophil granulocyte,SBY,212.TIF
+1764,other,other,UVT,193.TIF
+1765,other,other,UVT,434.TIF
+1766,monocyte,monocyte,SBY,093.TIF
+1767,promonocyte,myeloblast,SBY,002.TIF
+1768,myeloblast,myeloblast,SBY,349.TIF
+1769,other,large granulated lymphocyte,UGU,258.TIF
+1770,monocyte,large granulated lymphocyte,UGU,255.TIF
+1771,other,neutrophil granulocyte (segmented),BHS,343.TIF
+1772,monocyte,myelocyte,PKC,267.TIF
+1773,large granulated lymphocyte,large granulated lymphocyte,UVT,086.TIF
+1774,other,other,PKC,036.TIF
+1775,typical lymphocyte,typical lymphocyte,SBY,114.TIF
+1776,reactive lymphocyte,mononucleosis,SBY,048.TIF
+1777,other,atypical promyelocyte,BHS,446.TIF
+1778,other,smudge cell,UVT,347.TIF
+1779,myeloblast,neoplastic lymphocyte,SBY,229.TIF
+1780,monocyte,metamyelocyte,UGU,386.TIF
+1781,ambiguous,eosinophil granulocyte,SBY,042.TIF
+1782,monocyte,other,BHS,258.TIF
+1783,other,other,PKC,000.TIF
+1784,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,412.TIF
+1785,myeloblast,atypical promyelocyte,UGU,287.TIF
+1786,monocyte,other,BHS,041.TIF
+1787,monocyte,mononucleosis,SBY,468.TIF
+1788,other,metamyelocyte,BHS,408.TIF
+1789,other,smudge cell,UVT,439.TIF
+1790,myeloblast,plasma cell,BHS,063.TIF
+1791,other,other,UVT,060.TIF
+1792,monocyte,neutrophil granulocyte (segmented),BHS,082.TIF
+1793,monocyte,monocyte,UGU,349.TIF
+1794,other,other,SBY,242.TIF
+1795,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,140.TIF
+1796,myeloblast,myeloblast,UGU,346.TIF
+1797,other,typical lymphocyte,BHS,459.TIF
+1798,other,smudge cell,PKC,228.TIF
+1799,other,other,BHS,106.TIF
+1800,reactive lymphocyte,reactive lymphocyte,UGU,119.TIF
+1801,reactive lymphocyte,typical lymphocyte,UVT,050.TIF
+1802,myeloblast,atypical promyelocyte,SBY,152.TIF
+1803,monocyte,monocyte,SBY,367.TIF
+1804,other,atypical promyelocyte,BHS,167.TIF
+1805,monocyte,monocyte,UVT,225.TIF
+1806,monocyte,typical lymphocyte,PKC,028.TIF
+1807,other,myelocyte,PKC,375.TIF
+1808,other,smudge cell,UVT,219.TIF
+1809,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,056.TIF
+1810,normo,normo,PKC,081.TIF
+1811,other,other,UVT,335.TIF
+1812,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,317.TIF
+1813,other,other,UVT,074.TIF
+1814,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,203.TIF
+1815,monocyte,monocyte,SBY,417.TIF
+1816,neutrophil granulocyte (segmented),neutrophil granulocyte (band),PKC,443.TIF
+1817,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,433.TIF
+1818,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,182.TIF
+1819,myeloblast,myeloblast,PKC,288.TIF
+1820,atypical promyelocyte,atypical promyelocyte,PKC,044.TIF
+1821,myeloblast,myeloblast,UVT,475.TIF
+1822,monocyte,myeloblast,SBY,439.TIF
+1823,typical lymphocyte,typical lymphocyte,PKC,457.TIF
+1824,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,291.TIF
+1825,atypical promyelocyte,atypical promyelocyte,BHS,277.TIF
+1826,basophil granulocyte,basophil granulocyte,SBY,292.TIF
+1827,monocyte,neutrophil granulocyte (segmented),UGU,331.TIF
+1828,myeloblast,myeloblast,SBY,143.TIF
+1829,other,smudge cell,UVT,350.TIF
+1830,myeloblast,myeloblast,UGU,372.TIF
+1831,monocyte,monocyte,UGU,170.TIF
+1832,monocyte,large granulated lymphocyte,UGU,227.TIF
+1833,other,myeloblast,PKC,318.TIF
+1834,neutrophil granulocyte (segmented),other,BHS,055.TIF
+1835,large granulated lymphocyte,large granulated lymphocyte,SBY,422.TIF
+1836,ambiguous,myelocyte,UGU,289.TIF
+1837,other,other,BHS,261.TIF
+1838,other,other,PKC,469.TIF
+1839,other,other,UVT,237.TIF
+1840,monocyte,other,BHS,338.TIF
+1841,typical lymphocyte,typical lymphocyte,UGU,498.TIF
+1842,other,other,PKC,340.TIF
+1843,myeloblast,myeloblast,SBY,318.TIF
+1844,monocyte,typical lymphocyte,UGU,405.TIF
+1845,typical lymphocyte,typical lymphocyte,UGU,384.TIF
+1846,monocyte,myeloblast,PKC,200.TIF
+1847,other,myelocyte,PKC,308.TIF
+1848,monocyte,metamyelocyte,BHS,059.TIF
+1849,monocyte,neutrophil granulocyte (segmented),UGU,009.TIF
+1850,"atypical promyelocyte, bilobed",atypical promyelocyte,PKC,404.TIF
+1851,large granulated lymphocyte,large granulated lymphocyte,PKC,070.TIF
+1852,reactive lymphocyte,atypical promyelocyte,SBY,380.TIF
+1853,reactive lymphocyte,myeloblast,UGU,014.TIF
+1854,atypical promyelocyte,atypical promyelocyte,BHS,451.TIF
+1855,monocyte,myeloblast,UVT,354.TIF
+1856,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,250.TIF
+1857,other,other,UVT,154.TIF
+1858,monocyte,myeloblast,UGU,133.TIF
+1859,promonocyte,myeloblast,UVT,020.TIF
+1860,neutrophil granulocyte (segmented),basophil granulocyte,UVT,046.TIF
+1861,myeloblast,myeloblast,UGU,117.TIF
+1862,metamyelocyte,neutrophil granulocyte (band),SBY,423.TIF
+1863,normo,normo,UVT,227.TIF
+1864,cup-like blast,myeloblast,UVT,454.TIF
+1865,other,smudge cell,UVT,263.TIF
+1866,atypical promyelocyte,basophil granulocyte,PKC,310.TIF
+1867,other,smudge cell,UVT,059.TIF
+1868,other,other,PKC,123.TIF
+1869,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,232.TIF
+1870,typical lymphocyte,plasma cell,BHS,012.TIF
+1871,other,other,PKC,488.TIF
+1872,myeloblast,myeloblast,SBY,327.TIF
+1873,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,194.TIF
+1874,neutrophil granulocyte (segmented),other,UVT,083.TIF
+1875,monoblast,myeloblast,UVT,319.TIF
+1876,monocyte,monocyte,SBY,389.TIF
+1877,typical lymphocyte,typical lymphocyte,BHS,040.TIF
+1878,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,439.TIF
+1879,other,other,UGU,211.TIF
+1880,promonocyte,mononucleosis,SBY,375.TIF
+1881,other,myelocyte,UVT,369.TIF
+1882,atypical promyelocyte,atypical promyelocyte,PKC,309.TIF
+1883,typical lymphocyte,typical lymphocyte,SBY,138.TIF
+1884,myeloblast,atypical promyelocyte,UVT,221.TIF
+1885,typical lymphocyte,typical lymphocyte,BHS,423.TIF
+1886,monocyte,metamyelocyte,BHS,127.TIF
+1887,neutrophil granulocyte (band),neutrophil granulocyte (segmented),PKC,363.TIF
+1888,other,atypical promyelocyte,PKC,466.TIF
+1889,monocyte,neutrophil granulocyte (band),UGU,126.TIF
+1890,large granulated lymphocyte,mononucleosis,PKC,189.TIF
+1891,monocyte,neutrophil granulocyte (segmented),PKC,346.TIF
+1892,atypical promyelocyte,myelocyte,PKC,361.TIF
+1893,reactive lymphocyte,myeloblast,SBY,408.TIF
+1894,other,smudge cell,SBY,175.TIF
+1895,reactive lymphocyte,typical lymphocyte,UGU,461.TIF
+1896,other,other,BHS,312.TIF
+1897,other,other,UGU,436.TIF
+1898,monocyte,myeloblast,SBY,270.TIF
+1899,typical lymphocyte,typical lymphocyte,SBY,089.TIF
+1900,myeloblast,myeloblast,SBY,150.TIF
+1901,other,atypical promyelocyte,SBY,332.TIF
+1902,other,atypical promyelocyte,BHS,165.TIF
+1903,ambiguous,atypical promyelocyte,UGU,121.TIF
+1904,myeloblast,myeloblast,UVT,490.TIF
+1905,monocyte,plasma cell,PKC,166.TIF
+1906,typical lymphocyte,typical lymphocyte,PKC,199.TIF
+1907,monocyte,basophil granulocyte,PKC,068.TIF
+1908,atypical promyelocyte,atypical promyelocyte,BHS,480.TIF
+1909,reactive lymphocyte,mononucleosis,SBY,396.TIF
+1910,monocyte,monocyte,UGU,476.TIF
+1911,"atypical promyelocyte, bilobed",atypical promyelocyte,SBY,119.TIF
+1912,monocyte,monocyte,PKC,412.TIF
+1913,atypical promyelocyte,atypical promyelocyte,PKC,074.TIF
+1914,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,001.TIF
+1915,monocyte,neutrophil granulocyte (segmented),UGU,298.TIF
+1916,large granulated lymphocyte,large granulated lymphocyte,UGU,007.TIF
+1917,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,082.TIF
+1918,myeloblast,myeloblast,UVT,108.TIF
+1919,other,smudge cell,UVT,084.TIF
+1920,monocyte,monocyte,PKC,079.TIF
+1921,monocyte,monocyte,UGU,320.TIF
+1922,myeloblast,myeloblast,UVT,236.TIF
+1923,neutrophil granulocyte (band),neutrophil granulocyte (segmented),PKC,018.TIF
+1924,promonocyte,myeloblast,UVT,055.TIF
+1925,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,042.TIF
+1926,other,other,PKC,433.TIF
+1927,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,484.TIF
+1928,other,basophil granulocyte,UVT,280.TIF
+1929,cup-like blast,myeloblast,UVT,039.TIF
+1930,myeloblast,atypical promyelocyte,BHS,325.TIF
+1931,myeloblast,myeloblast,SBY,267.TIF
+1932,monocyte,monocyte,SBY,111.TIF
+1933,myeloblast,myeloblast,SBY,060.TIF
+1934,myeloblast,myeloblast,SBY,428.TIF
+1935,other,other,UVT,217.TIF
+1936,typical lymphocyte,typical lymphocyte,SBY,391.TIF
+1937,typical lymphocyte,typical lymphocyte,UGU,048.TIF
+1938,myeloblast,myeloblast,UVT,342.TIF
+1939,typical lymphocyte,typical lymphocyte,UGU,488.TIF
+1940,other,metamyelocyte,UVT,185.TIF
+1941,typical lymphocyte,typical lymphocyte,UGU,269.TIF
+1942,other,neutrophil granulocyte (segmented),PKC,418.TIF
+1943,ambiguous,other,UVT,341.TIF
+1944,monocyte,myeloblast,UVT,062.TIF
+1945,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,161.TIF
+1946,typical lymphocyte,typical lymphocyte,UGU,234.TIF
+1947,myeloblast,mononucleosis,UGU,159.TIF
+1948,typical lymphocyte,typical lymphocyte,SBY,096.TIF
+1949,reactive lymphocyte,myeloblast,UGU,382.TIF
+1950,myeloblast,myeloblast,UVT,476.TIF
+1951,myeloblast,myeloblast,UVT,157.TIF
+1952,myeloblast,atypical promyelocyte,BHS,273.TIF
+1953,other,typical lymphocyte,PKC,446.TIF
+1954,typical lymphocyte,myeloblast,SBY,275.TIF
+1955,myeloblast,myeloblast,UVT,253.TIF
+1956,normo,normo,UVT,394.TIF
+1957,myeloblast,myeloblast,SBY,076.TIF
+1958,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),SBY,106.TIF
+1959,myeloblast,myeloblast,SBY,488.TIF
+1960,other,other,PKC,463.TIF
+1961,monocyte,neutrophil granulocyte (band),UGU,075.TIF
+1962,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,440.TIF
+1963,other,other,UVT,477.TIF
+1964,other,smudge cell,UVT,162.TIF
+1965,other,atypical promyelocyte,BHS,360.TIF
+1966,other,other,BHS,448.TIF
+1967,reactive lymphocyte,myeloblast,SBY,400.TIF
+1968,other,smudge cell,UVT,110.TIF
+1969,monocyte,atypical promyelocyte,BHS,218.TIF
+1970,myeloblast,mononucleosis,UVT,329.TIF
+1971,typical lymphocyte,plasma cell,SBY,167.TIF
+1972,myeloblast,myeloblast,UVT,278.TIF
+1973,other,smudge cell,UVT,053.TIF
+1974,myeloblast,myeloblast,UVT,344.TIF
+1975,other,myeloblast,BHS,011.TIF
+1976,typical lymphocyte,typical lymphocyte,SBY,450.TIF
+1977,typical lymphocyte,typical lymphocyte,UGU,358.TIF
+1978,typical lymphocyte,monocyte,BHS,302.TIF
+1979,monocyte,neutrophil granulocyte (band),PKC,011.TIF
+1980,typical lymphocyte,typical lymphocyte,PKC,330.TIF
+1981,monocyte,normo,UGU,027.TIF
+1982,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,298.TIF
+1983,myeloblast,myeloblast,UGU,441.TIF
+1984,typical lymphocyte,typical lymphocyte,UGU,486.TIF
+1985,myeloblast,atypical promyelocyte,BHS,398.TIF
+1986,typical lymphocyte,typical lymphocyte,UGU,193.TIF
+1987,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,304.TIF
+1988,myeloblast,myeloblast,UVT,330.TIF
+1989,normo,normo,PKC,360.TIF
+1990,myeloblast,myeloblast,SBY,112.TIF
+1991,monocyte,neutrophil granulocyte (segmented),BHS,149.TIF
+1992,typical lymphocyte,typical lymphocyte,UVT,089.TIF
+1993,myeloblast,myeloblast,UVT,256.TIF
+1994,neutrophil granulocyte (segmented),neutrophil granulocyte (band),UGU,266.TIF
+1995,other,other,PKC,485.TIF
+1996,other,other,PKC,013.TIF
+1997,monocyte,neutrophil granulocyte (band),BHS,094.TIF
+1998,myeloblast,atypical promyelocyte,BHS,050.TIF
+1999,neutrophil granulocyte (segmented),other,BHS,301.TIF
+2000,other,eosinophil granulocyte,BHS,407.TIF
+2001,myeloblast,mononucleosis,UVT,167.TIF
+2002,other,atypical promyelocyte,BHS,460.TIF
+2003,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,147.TIF
+2004,other,large granulated lymphocyte,UGU,392.TIF
+2005,typical lymphocyte,typical lymphocyte,BHS,481.TIF
+2006,typical lymphocyte,typical lymphocyte,UVT,054.TIF
+2007,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,465.TIF
+2008,other,smudge cell,UVT,192.TIF
+2009,monocyte,neutrophil granulocyte (segmented),BHS,191.TIF
+2010,typical lymphocyte,typical lymphocyte,PKC,198.TIF
+2011,large granulated lymphocyte,large granulated lymphocyte,UGU,283.TIF
+2012,neutrophil granulocyte (band),neutrophil granulocyte (band),UGU,311.TIF
+2013,typical lymphocyte,typical lymphocyte,UGU,374.TIF
+2014,typical lymphocyte,typical lymphocyte,UGU,070.TIF
+2015,other,normo,PKC,093.TIF
+2016,atypical promyelocyte,atypical promyelocyte,BHS,173.TIF
+2017,monocyte,metamyelocyte,UGU,364.TIF
+2018,atypical promyelocyte,atypical promyelocyte,BHS,347.TIF
+2019,other,smudge cell,UVT,023.TIF
+2020,large granulated lymphocyte,large granulated lymphocyte,UVT,146.TIF
+2021,myeloblast,mononucleosis,UVT,481.TIF
+2022,ambiguous,myeloblast,UVT,361.TIF
+2023,monoblast,mononucleosis,UVT,141.TIF
+2024,monocyte,bilobed M3v,SBY,132.TIF
+2025,typical lymphocyte,typical lymphocyte,UGU,061.TIF
+2026,myeloblast,atypical promyelocyte,BHS,437.TIF
+2027,other,large granulated lymphocyte,UGU,398.TIF
+2028,monocyte,mononucleosis,PKC,417.TIF
+2029,other,other,PKC,416.TIF
+2030,typical lymphocyte,typical lymphocyte,SBY,474.TIF
+2031,ambiguous,atypical promyelocyte,PKC,171.TIF
+2032,eosinophil granulocyte,eosinophil granulocyte,UGU,355.TIF
+2033,other,smudge cell,UGU,257.TIF
+2034,typical lymphocyte,typical lymphocyte,UGU,202.TIF
+2035,myeloblast,myeloblast,UVT,125.TIF
+2036,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,392.TIF
+2037,other,smudge cell,BHS,430.TIF
+2038,other,typical lymphocyte,PKC,099.TIF
+2039,neutrophil granulocyte (band),neutrophil granulocyte (band),PKC,134.TIF
+2040,other,basophil granulocyte,BHS,000.TIF
+2041,myeloblast,myeloblast,UVT,223.TIF
+2042,large granulated lymphocyte,large granulated lymphocyte,UGU,137.TIF
+2043,atypical promyelocyte,atypical promyelocyte,PKC,343.TIF
+2044,typical lymphocyte,typical lymphocyte,PKC,128.TIF
+2045,typical lymphocyte,typical lymphocyte,UGU,180.TIF
+2046,monocyte,myeloblast,UGU,275.TIF
+2047,other,other,PKC,224.TIF
+2048,monocyte,mononucleosis,SBY,244.TIF
+2049,other,smudge cell,UVT,238.TIF
+2050,"atypical promyelocyte, bilobed",atypical promyelocyte,PKC,297.TIF
+2051,other,other,PKC,033.TIF
+2052,other,smudge cell,UGU,226.TIF
+2053,myeloblast,myeloblast,UVT,164.TIF
+2054,typical lymphocyte,typical lymphocyte,UGU,351.TIF
+2055,myeloblast,myeloblast,UVT,188.TIF
+2056,typical lymphocyte,typical lymphocyte,UGU,281.TIF
+2057,monocyte,metamyelocyte,UGU,245.TIF
+2058,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,022.TIF
+2059,monocyte,myeloblast,UGU,300.TIF
+2060,other,typical lymphocyte,UGU,367.TIF
+2061,typical lymphocyte,typical lymphocyte,BHS,286.TIF
+2062,other,smudge cell,UVT,282.TIF
+2063,myeloblast,myeloblast,UVT,007.TIF
+2064,monocyte,myeloblast,PKC,319.TIF
+2065,other,atypical promyelocyte,BHS,006.TIF
+2066,promonocyte,monocyte,UVT,302.TIF
+2067,other,neutrophil granulocyte (segmented),BHS,181.TIF
+2068,other,other,UGU,058.TIF
+2069,normo,normo,PKC,290.TIF
+2070,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,093.TIF
+2071,other,basophil granulocyte,BHS,473.TIF
+2072,reactive lymphocyte,typical lymphocyte,UVT,303.TIF
+2073,monocyte,monocyte,SBY,230.TIF
+2074,typical lymphocyte,typical lymphocyte,UGU,430.TIF
+2075,myeloblast,mononucleosis,UVT,295.TIF
+2076,other,other,BHS,444.TIF
+2077,myeloblast,atypical promyelocyte,BHS,156.TIF
+2078,reactive lymphocyte,myeloblast,SBY,204.TIF
+2079,monocyte,myeloblast,SBY,356.TIF
+2080,monocyte,myeloblast,UGU,084.TIF
+2081,myeloblast,atypical promyelocyte,SBY,176.TIF
+2082,atypical promyelocyte,atypical promyelocyte,BHS,113.TIF
+2083,neutrophil granulocyte (band),neutrophil granulocyte (band),UGU,371.TIF
+2084,other,smudge cell,UVT,153.TIF
+2085,myeloblast,mononucleosis,UGU,453.TIF
+2086,myeloblast,myeloblast,UGU,158.TIF
+2087,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),SBY,437.TIF
+2088,reactive lymphocyte,myeloblast,UGU,156.TIF
+2089,typical lymphocyte,typical lymphocyte,UGU,359.TIF
+2090,typical lymphocyte,typical lymphocyte,UVT,148.TIF
+2091,other,other,PKC,303.TIF
+2092,monocyte,metamyelocyte,BHS,096.TIF
+2093,promyelocyte,myelocyte,PKC,425.TIF
+2094,atypical promyelocyte,atypical promyelocyte,PKC,444.TIF
+2095,typical lymphocyte,typical lymphocyte,UGU,265.TIF
+2096,reactive lymphocyte,myeloblast,UGU,447.TIF
+2097,cup-like blast,myeloblast,UVT,401.TIF
+2098,monocyte,metamyelocyte,PKC,329.TIF
+2099,large granulated lymphocyte,typical lymphocyte,PKC,423.TIF
+2100,other,myeloblast,UVT,443.TIF
+2101,other,atypical promyelocyte,BHS,158.TIF
+2102,myeloblast,myeloblast,UVT,082.TIF
+2103,other,other,BHS,442.TIF
+2104,other,other,PKC,164.TIF
+2105,typical lymphocyte,typical lymphocyte,SBY,366.TIF
+2106,monocyte,myeloblast,UGU,031.TIF
+2107,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,202.TIF
+2108,reactive lymphocyte,myeloblast,UGU,375.TIF
+2109,other,basophil granulocyte,PKC,246.TIF
+2110,other,neutrophil granulocyte (segmented),BHS,101.TIF
+2111,reactive lymphocyte,myeloblast,UVT,204.TIF
+2112,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,237.TIF
+2113,other,other,PKC,177.TIF
+2114,other,other,PKC,481.TIF
+2115,other,other,PKC,145.TIF
+2116,monocyte,myeloblast,SBY,482.TIF
+2117,typical lymphocyte,typical lymphocyte,UGU,463.TIF
+2118,other,other,BHS,421.TIF
+2119,typical lymphocyte,typical lymphocyte,UGU,037.TIF
+2120,atypical promyelocyte with auer rod,atypical promyelocyte,PKC,372.TIF
+2121,large granulated lymphocyte,large granulated lymphocyte,UGU,480.TIF
+2122,other,atypical promyelocyte,BHS,163.TIF
+2123,myeloblast,myeloblast,UVT,009.TIF
+2124,reactive lymphocyte,large granulated lymphocyte,UGU,277.TIF
+2125,other,smudge cell,BHS,171.TIF
+2126,other,neutrophil granulocyte (segmented),PKC,034.TIF
+2127,other,other,UVT,276.TIF
+2128,typical lymphocyte,metamyelocyte,PKC,118.TIF
+2129,myeloblast,myeloblast,UVT,028.TIF
+2130,atypical promyelocyte,atypical promyelocyte,BHS,147.TIF
+2131,monocyte,atypical promyelocyte,PKC,122.TIF
+2132,monocyte,mononucleosis,SBY,260.TIF
+2133,monocyte,mononucleosis,SBY,402.TIF
+2134,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,039.TIF
+2135,other,other,UVT,267.TIF
+2136,myeloblast,myeloblast,UVT,325.TIF
+2137,typical lymphocyte,typical lymphocyte,SBY,348.TIF
+2138,myeloblast with long auer rod,myeloblast,UGU,087.TIF
+2139,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,047.TIF
+2140,typical lymphocyte,typical lymphocyte,UGU,381.TIF
+2141,atypical promyelocyte,atypical promyelocyte,BHS,014.TIF
+2142,other,atypical promyelocyte,BHS,180.TIF
+2143,typical lymphocyte,typical lymphocyte,UGU,148.TIF
+2144,typical lymphocyte,myeloblast,SBY,280.TIF
+2145,other,other,BHS,208.TIF
+2146,reactive lymphocyte,reactive lymphocyte,UGU,043.TIF
+2147,typical lymphocyte,myeloblast,SBY,343.TIF
+2148,myeloblast,myeloblast,SBY,088.TIF
+2149,typical lymphocyte,typical lymphocyte,UGU,096.TIF
+2150,myeloblast,atypical promyelocyte,PKC,345.TIF
+2151,typical lymphocyte,typical lymphocyte,UGU,419.TIF
+2152,atypical promyelocyte,atypical promyelocyte,PKC,374.TIF
+2153,myeloblast,myeloblast,UGU,169.TIF
+2154,typical lymphocyte,typical lymphocyte,UGU,130.TIF
+2155,typical lymphocyte,typical lymphocyte,SBY,458.TIF
+2156,monocyte,neutrophil granulocyte (segmented),BHS,438.TIF
+2157,typical lymphocyte,typical lymphocyte,BHS,472.TIF
+2158,eosinophil granulocyte,basophil granulocyte,SBY,449.TIF
+2159,other,neutrophil granulocyte (segmented),PKC,062.TIF
+2160,typical lymphocyte,typical lymphocyte,BHS,424.TIF
+2161,myelocyte,myeloblast,UGU,241.TIF
+2162,other,atypical promyelocyte,BHS,032.TIF
+2163,typical lymphocyte,typical lymphocyte,UGU,254.TIF
+2164,monocyte,atypical promyelocyte,SBY,471.TIF
+2165,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,158.TIF
+2166,monocyte,myeloblast,UGU,182.TIF
+2167,other,smudge cell,UVT,029.TIF
+2168,typical lymphocyte,typical lymphocyte,UGU,015.TIF
+2169,other,typical lymphocyte,BHS,281.TIF
+2170,monocyte,monocyte,UGU,444.TIF
+2171,myelocyte,atypical promyelocyte,PKC,054.TIF
+2172,typical lymphocyte,typical lymphocyte,SBY,241.TIF
+2173,myeloblast,myeloblast,SBY,090.TIF
+2174,other,atypical promyelocyte,PKC,385.TIF
+2175,atypical promyelocyte,atypical promyelocyte,BHS,300.TIF
+2176,other,other,BHS,409.TIF
+2177,other,other,UVT,393.TIF
+2178,other,other,BHS,038.TIF
+2179,typical lymphocyte,typical lymphocyte,BHS,297.TIF
+2180,other,smudge cell,SBY,209.TIF
+2181,other,smudge cell,UVT,388.TIF
+2182,other,large granulated lymphocyte,UGU,243.TIF
+2183,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,048.TIF
+2184,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,137.TIF
+2185,typical lymphocyte,typical lymphocyte,UGU,102.TIF
+2186,normo,normo,PKC,489.TIF
+2187,reactive lymphocyte,reactive lymphocyte,UGU,301.TIF
+2188,other,other,PKC,348.TIF
+2189,other,other,UGU,083.TIF
+2190,monocyte,monocyte,UGU,310.TIF
+2191,monocyte,myeloblast,SBY,159.TIF
+2192,reactive lymphocyte,reactive lymphocyte,UVT,233.TIF
+2193,typical lymphocyte,monocyte,BHS,335.TIF
+2194,monocyte,metamyelocyte,BHS,162.TIF
+2195,monocyte,myeloblast,UGU,023.TIF
+2196,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,003.TIF
+2197,other,other,UVT,169.TIF
+2198,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,475.TIF
+2199,large granulated lymphocyte,plasma cell,BHS,278.TIF
+2200,myeloblast with auer rod,atypical promyelocyte,BHS,280.TIF
+2201,typical lymphocyte,typical lymphocyte,PKC,273.TIF
+2202,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,328.TIF
+2203,myeloblast,myeloblast,SBY,098.TIF
+2204,myeloblast,atypical promyelocyte,BHS,232.TIF
+2205,other,metamyelocyte,PKC,156.TIF
+2206,myeloblast,myeloblast,SBY,193.TIF
+2207,myeloblast,myeloblast,SBY,077.TIF
+2208,large granulated lymphocyte,large granulated lymphocyte,UVT,468.TIF
+2209,other,other,BHS,205.TIF
+2210,other,atypical promyelocyte,BHS,234.TIF
+2211,typical lymphocyte,typical lymphocyte,UGU,299.TIF
+2212,ambiguous,myeloblast,BHS,249.TIF
+2213,other,monocyte,BHS,239.TIF
+2214,other,other,PKC,403.TIF
+2215,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,230.TIF
+2216,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,289.TIF
+2217,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,146.TIF
+2218,myeloblast,atypical promyelocyte,SBY,011.TIF
+2219,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,248.TIF
+2220,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,183.TIF
+2221,myeloblast,myeloblast,UVT,379.TIF
+2222,reactive lymphocyte,large granulated lymphocyte,UGU,101.TIF
+2223,monocyte,myeloblast,UVT,115.TIF
+2224,typical lymphocyte,other,BHS,008.TIF
+2225,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,068.TIF
+2226,atypical promyelocyte,atypical promyelocyte,PKC,186.TIF
+2227,myeloblast,atypical promyelocyte,BHS,240.TIF
+2228,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,158.TIF
+2229,atypical promyelocyte,atypical promyelocyte,PKC,387.TIF
+2230,other,hair cell,UVT,487.TIF
+2231,typical lymphocyte,myeloblast,SBY,007.TIF
+2232,ambiguous,other,UVT,180.TIF
+2233,other,other,PKC,193.TIF
+2234,monocyte,myeloblast,PKC,480.TIF
+2235,neutrophil granulocyte (band),metamyelocyte,BHS,382.TIF
+2236,other,typical lymphocyte,BHS,060.TIF
+2237,monocyte,myeloblast,SBY,232.TIF
+2238,monocyte,neutrophil granulocyte (band),BHS,207.TIF
+2239,atypical promyelocyte,myelocyte,BHS,401.TIF
+2240,other,smudge cell,UVT,331.TIF
+2241,monocyte,myelocyte,BHS,308.TIF
+2242,typical lymphocyte,typical lymphocyte,UGU,038.TIF
+2243,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,410.TIF
+2244,typical lymphocyte,typical lymphocyte,SBY,294.TIF
+2245,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,263.TIF
+2246,myeloblast,myeloblast,SBY,479.TIF
+2247,myeloblast,atypical promyelocyte,PKC,086.TIF
+2248,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,353.TIF
+2249,myeloblast,myeloblast,SBY,446.TIF
+2250,myeloblast,myeloblast,SBY,285.TIF
+2251,monocyte,metamyelocyte,PKC,296.TIF
+2252,typical lymphocyte,typical lymphocyte,UGU,033.TIF
+2253,other,atypical promyelocyte,BHS,447.TIF
+2254,neutrophil granulocyte (band),neutrophil granulocyte (band),UGU,404.TIF
+2255,myeloblast,myeloblast,UVT,165.TIF
+2256,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,248.TIF
+2257,atypical promyelocyte with auer rod,atypical promyelocyte,BHS,403.TIF
+2258,other,atypical promyelocyte,BHS,221.TIF
+2259,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,428.TIF
+2260,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,199.TIF
+2261,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,250.TIF
+2262,typical lymphocyte,typical lymphocyte,UGU,466.TIF
+2263,monocyte,myeloblast,UVT,281.TIF
+2264,other,myeloblast,BHS,397.TIF
+2265,other,basophil granulocyte,BHS,386.TIF
+2266,"atypical promyelocyte, bilobed",atypical promyelocyte,PKC,291.TIF
+2267,cup-like blast,myeloblast,UVT,183.TIF
+2268,reactive lymphocyte,myeloblast,UVT,453.TIF
+2269,monocyte,typical lymphocyte,UGU,010.TIF
+2270,monocyte,myeloblast,UVT,452.TIF
+2271,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,053.TIF
+2272,myeloblast,myeloblast,SBY,321.TIF
+2273,promyelocyte,atypical promyelocyte,PKC,389.TIF
+2274,monocyte,monocyte,SBY,006.TIF
+2275,large granulated lymphocyte,large granulated lymphocyte,UGU,155.TIF
+2276,other,large granulated lymphocyte,PKC,486.TIF
+2277,eosinophil granulocyte,eosinophil granulocyte,SBY,123.TIF
+2278,ambiguous,myeloblast,SBY,303.TIF
+2279,monocyte,monocyte,UGU,368.TIF
+2280,other,smudge cell,BHS,128.TIF
+2281,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,276.TIF
+2282,promyelocyte,atypical promyelocyte,PKC,449.TIF
+2283,monocyte,atypical promyelocyte,BHS,241.TIF
+2284,other,other,BHS,290.TIF
+2285,monocyte,other,BHS,029.TIF
+2286,typical lymphocyte,typical lymphocyte,SBY,467.TIF
+2287,atypical promyelocyte,atypical promyelocyte,PKC,454.TIF
+2288,myeloblast,myeloblast,SBY,286.TIF
+2289,monocyte,metamyelocyte,BHS,086.TIF
+2290,myeloblast,myeloblast,UGU,399.TIF
+2291,other,atypical promyelocyte,BHS,262.TIF
+2292,monocyte,atypical promyelocyte,PKC,432.TIF
+2293,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,030.TIF
+2294,monocyte,atypical promyelocyte,PKC,007.TIF
+2295,promonocyte,myeloblast,UVT,365.TIF
+2296,typical lymphocyte,myeloblast,SBY,137.TIF
+2297,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,310.TIF
+2298,cup-like blast,myeloblast,UVT,045.TIF
+2299,metamyelocyte,basophil granulocyte,UVT,150.TIF
+2300,myeloblast,mononucleosis,UGU,291.TIF
+2301,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,335.TIF
+2302,reactive lymphocyte,myeloblast,SBY,226.TIF
+2303,reactive lymphocyte,myelocyte,PKC,379.TIF
+2304,monocyte,mononucleosis,UVT,249.TIF
+2305,typical lymphocyte,typical lymphocyte,SBY,179.TIF
+2306,reactive lymphocyte,reactive lymphocyte,UGU,100.TIF
+2307,typical lymphocyte,typical lymphocyte,PKC,188.TIF
+2308,other,smudge cell,SBY,269.TIF
+2309,other,myeloblast,UVT,462.TIF
+2310,other,other,PKC,037.TIF
+2311,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,027.TIF
+2312,reactive lymphocyte,myeloblast,SBY,199.TIF
+2313,other,other,BHS,283.TIF
+2314,myeloblast,myeloblast,SBY,008.TIF
+2315,monocyte,atypical promyelocyte,BHS,350.TIF
+2316,monocyte,monocyte,SBY,443.TIF
+2317,large granulated lymphocyte,large granulated lymphocyte,UGU,001.TIF
+2318,monocyte,other,BHS,237.TIF
+2319,"atypical promyelocyte, bilobed",atypical promyelocyte,PKC,492.TIF
+2320,typical lymphocyte,typical lymphocyte,UGU,274.TIF
+2321,myeloblast,atypical promyelocyte,UVT,002.TIF
+2322,typical lymphocyte,typical lymphocyte,BHS,458.TIF
+2323,typical lymphocyte,typical lymphocyte,BHS,079.TIF
+2324,reactive lymphocyte,myeloblast,SBY,019.TIF
+2325,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,342.TIF
+2326,monocyte,neutrophil granulocyte (band),BHS,002.TIF
+2327,reactive lymphocyte,myeloblast,SBY,190.TIF
+2328,monocyte,monocyte,SBY,227.TIF
+2329,other,other,PKC,173.TIF
+2330,myeloblast,myeloblast,UVT,047.TIF
+2331,typical lymphocyte,myeloblast,SBY,379.TIF
+2332,typical lymphocyte,myeloblast,SBY,470.TIF
+2333,typical lymphocyte,typical lymphocyte,SBY,355.TIF
+2334,typical lymphocyte,typical lymphocyte,UGU,237.TIF
+2335,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,435.TIF
+2336,"atypical promyelocyte, bilobed",bilobed M3v,SBY,097.TIF
+2337,other,other,PKC,243.TIF
+2338,reactive lymphocyte,atypical promyelocyte,SBY,068.TIF
+2339,reactive lymphocyte,myeloblast,UGU,093.TIF
+2340,ambiguous,atypical promyelocyte,BHS,013.TIF
+2341,myeloblast,myeloblast,UVT,374.TIF
+2342,other,other,PKC,159.TIF
+2343,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,296.TIF
+2344,typical lymphocyte,typical lymphocyte,UGU,217.TIF
+2345,monocyte,myeloblast,SBY,489.TIF
+2346,other,smudge cell,SBY,460.TIF
+2347,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,107.TIF
+2348,typical lymphocyte,typical lymphocyte,SBY,217.TIF
+2349,other,other,BHS,469.TIF
+2350,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,047.TIF
+2351,monocyte,monocyte,SBY,284.TIF
+2352,other,other,UGU,044.TIF
+2353,myeloblast,mononucleosis,SBY,185.TIF
+2354,other,smudge cell,UVT,433.TIF
+2355,other,other,UVT,079.TIF
+2356,neutrophil granulocyte (band),neutrophil granulocyte (segmented),UVT,092.TIF
+2357,other,smudge cell,BHS,260.TIF
+2358,other,smudge cell,UVT,245.TIF
+2359,atypical promyelocyte,atypical promyelocyte,PKC,167.TIF
+2360,typical lymphocyte,typical lymphocyte,PKC,138.TIF
+2361,ambiguous,atypical promyelocyte,BHS,449.TIF
+2362,other,other,BHS,192.TIF
+2363,monocyte,other,BHS,372.TIF
+2364,myeloblast,myeloblast,SBY,039.TIF
+2365,typical lymphocyte,typical lymphocyte,SBY,105.TIF
+2366,other,neutrophil granulocyte (segmented),PKC,078.TIF
+2367,myeloblast,myeloblast,PKC,410.TIF
+2368,typical lymphocyte,typical lymphocyte,UGU,497.TIF
+2369,other,smudge cell,UVT,151.TIF
+2370,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,270.TIF
+2371,myeloblast,myeloblast,UGU,091.TIF
+2372,myeloblast,myeloblast,SBY,225.TIF
+2373,monocyte,atypical promyelocyte,SBY,317.TIF
+2374,other,smudge cell,UGU,025.TIF
+2375,other,other,SBY,484.TIF
+2376,myeloblast,myeloblast,UGU,099.TIF
+2377,other,neutrophil granulocyte (segmented),PKC,097.TIF
+2378,large granulated lymphocyte,large granulated lymphocyte,UVT,395.TIF
+2379,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UVT,136.TIF
+2380,other,atypical promyelocyte,SBY,062.TIF
+2381,myeloblast,promyelocyte,PKC,382.TIF
+2382,large granulated lymphocyte,large granulated lymphocyte,UGU,303.TIF
+2383,monocyte,myeloblast,SBY,341.TIF
+2384,monocyte,monocyte,PKC,376.TIF
+2385,other,atypical promyelocyte,BHS,271.TIF
+2386,myeloblast,myeloblast,UGU,111.TIF
+2387,myeloblast,myeloblast,UVT,159.TIF
+2388,large granulated lymphocyte,large granulated lymphocyte,UGU,307.TIF
+2389,other,atypical promyelocyte,BHS,131.TIF
+2390,other,other,PKC,450.TIF
+2391,neutrophil granulocyte (band),eosinophil granulocyte,BHS,229.TIF
+2392,myeloblast,atypical promyelocyte,UGU,343.TIF
+2393,normo,normo,PKC,411.TIF
+2394,ambiguous,typical lymphocyte,SBY,299.TIF
+2395,large granulated lymphocyte,large granulated lymphocyte,UGU,120.TIF
+2396,myeloblast,myeloblast,UVT,070.TIF
+2397,typical lymphocyte,typical lymphocyte,UVT,409.TIF
+2398,myelocyte,myelocyte,PKC,181.TIF
+2399,typical lymphocyte,typical lymphocyte,UGU,017.TIF
+2400,other,other,SBY,205.TIF
+2401,other,myeloblast,PKC,212.TIF
+2402,other,basophil granulocyte,BHS,292.TIF
+2403,monocyte,myeloblast,UGU,108.TIF
+2404,other,neutrophil granulocyte (segmented),PKC,370.TIF
+2405,monocyte,neutrophil granulocyte (segmented),UGU,470.TIF
+2406,other,smudge cell,UVT,032.TIF
+2407,other,neutrophil granulocyte (segmented),PKC,178.TIF
+2408,reactive lymphocyte,large granulated lymphocyte,UVT,010.TIF
+2409,myeloblast,myeloblast,UVT,373.TIF
+2410,myeloblast,myeloblast,SBY,459.TIF
+2411,other,myeloblast,SBY,453.TIF
+2412,monocyte,metamyelocyte,BHS,413.TIF
+2413,typical lymphocyte,large granulated lymphocyte,PKC,465.TIF
+2414,other,other,BHS,326.TIF
+2415,other,typical lymphocyte,UGU,200.TIF
+2416,other,other,PKC,445.TIF
+2417,other,typical lymphocyte,BHS,187.TIF
+2418,atypical promyelocyte,atypical promyelocyte,BHS,284.TIF
+2419,monocyte,monocyte,PKC,299.TIF
+2420,reactive lymphocyte,typical lymphocyte,SBY,382.TIF
+2421,monocyte,reactive lymphocyte,UGU,496.TIF
+2422,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),UGU,215.TIF
+2423,typical lymphocyte,typical lymphocyte,SBY,279.TIF
+2424,typical lymphocyte,typical lymphocyte,BHS,322.TIF
+2425,neutrophil granulocyte (segmented),other,UVT,066.TIF
+2426,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,023.TIF
+2427,monocyte,monocyte,SBY,214.TIF
+2428,other,other,UVT,397.TIF
+2429,typical lymphocyte,typical lymphocyte,BHS,177.TIF
+2430,typical lymphocyte,typical lymphocyte,UGU,098.TIF
+2431,monocyte,metamyelocyte,UGU,423.TIF
+2432,other,typical lymphocyte,UGU,485.TIF
+2433,monocyte,atypical promyelocyte,BHS,396.TIF
+2434,neutrophil granulocyte (band),neutrophil granulocyte (segmented),UVT,072.TIF
+2435,other,smudge cell,BHS,379.TIF
+2436,atypical promyelocyte,atypical promyelocyte,BHS,418.TIF
+2437,other,large granulated lymphocyte,UGU,393.TIF
+2438,other,typical lymphocyte,PKC,393.TIF
+2439,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,148.TIF
+2440,typical lymphocyte,typical lymphocyte,UGU,153.TIF
+2441,monocyte,myeloblast,UGU,408.TIF
+2442,neutrophil granulocyte (band),neutrophil granulocyte (band),UVT,247.TIF
+2443,monocyte,atypical promyelocyte,PKC,165.TIF
+2444,other,typical lymphocyte,BHS,026.TIF
+2445,cup-like blast,myeloblast,UGU,154.TIF
+2446,typical lymphocyte,typical lymphocyte,SBY,431.TIF
+2447,typical lymphocyte,typical lymphocyte,UVT,355.TIF
+2448,other,neutrophil granulocyte (segmented),PKC,414.TIF
+2449,myeloblast,myeloblast,UVT,234.TIF
+2450,myeloblast,myeloblast,SBY,250.TIF
+2451,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,326.TIF
+2452,monocyte,myeloblast,SBY,316.TIF
+2453,"atypical promyelocyte, bilobed",atypical promyelocyte,BHS,108.TIF
+2454,myeloblast,mononucleosis,SBY,087.TIF
+2455,ambiguous,atypical promyelocyte,PKC,464.TIF
+2456,other,neutrophil granulocyte (segmented),PKC,407.TIF
+2457,monocyte,monocyte,BHS,383.TIF
+2458,other,smudge cell,BHS,122.TIF
+2459,atypical promyelocyte,atypical promyelocyte,BHS,130.TIF
+2460,other,smudge cell,UVT,244.TIF
+2461,other,typical lymphocyte,SBY,436.TIF
+2462,faggot cell,atypical promyelocyte,BHS,356.TIF
+2463,reactive lymphocyte,neoplastic lymphocyte,SBY,251.TIF
+2464,neutrophil granulocyte (band),neutrophil granulocyte (segmented),BHS,419.TIF
+2465,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),PKC,083.TIF
+2466,monocyte,atypical promyelocyte,PKC,426.TIF
+2467,other,large granulated lymphocyte,UGU,018.TIF
+2468,large granulated lymphocyte,large granulated lymphocyte,UGU,141.TIF
+2469,neutrophil granulocyte (segmented),neutrophil granulocyte (segmented),BHS,102.TIF
+2470,other,other,BHS,456.TIF
