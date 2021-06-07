@@ -5,7 +5,7 @@ from tqdm import tqdm
 import os
 from PIL import Image
 
-data_dir = '../../data'
+data_dir = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/data'
 
 def embeddable_image(array, idx):
     img_data = array[idx, ...]
