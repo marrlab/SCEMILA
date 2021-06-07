@@ -3,6 +3,7 @@ import numpy as np
 import pickle as pkl
 import pandas as pd
 import os, sys
+from scipy.stats import entropy
 
 import label_converter
 
@@ -54,7 +55,8 @@ def load_data(folder_list, basepath, prefix):
                 pat_id = os.path.basename(pat_path)
                 pat_attention_raw, pat_attention_softmax, _, pat_prediction_vector, pat_loss, _ = pat_data_packed
                 pat_prediction_argmax = np.argmax(pat_prediction_vector)
-                pat_datapoint =[pat_id, pat_path, f_fold, lbl_conv_obj[entity], lbl_conv_obj[int(pat_prediction_argmax)], pat_loss]
+                pat_entropy = entropy(pat_prediction_vector, base=len(pat_prediction_vector))
+                pat_datapoint =[pat_id, pat_path, f_fold, lbl_conv_obj[entity], lbl_conv_obj[int(pat_prediction_argmax)], pat_loss, pat_entropy]
                 pat_datapoint.extend(pat_prediction_vector)
 
                 # enter data in dataframe and confusion matrix
@@ -63,7 +65,7 @@ def load_data(folder_list, basepath, prefix):
                 temporary_data_cache[pat_id] = (pat_attention_raw, pat_attention_softmax, pat_prediction_vector)
 
     
-    columns_df = ['ID', 'pat_path', 'fold', 'gt_label', 'pred_lbl', 'MIL loss']
+    columns_df = ['ID', 'pat_path', 'fold', 'gt_label', 'pred_lbl', 'MIL loss', 'entropy']
     columns_df.extend(['mil_prediction_'+lbl_conv_obj[x] for x in range(len(lbl_conv_obj.df))])
     patient_dataframe = pd.DataFrame(datapoints, columns=columns_df).set_index('ID')
 
