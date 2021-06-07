@@ -31,7 +31,7 @@ parser.add_argument('--multi_att', help='use multi-attention approach', required
 
 ########## Data parameters: Modify the dataset
 parser.add_argument('--prefix', help='define which set of features shall be used', required=False, default='fnl34_')        # define feature source to use (from different CNNs)
-parser.add_argument('--filter_diff', help='Filters AML patients with less or equal to this perc. of MYB.', default=20)      # pass -1, if no filtering acc to peripheral blood differential count should be done
+parser.add_argument('--filter_diff', help='Filters AML patients with less than this perc. of MYB.', default=20)      # pass -1, if no filtering acc to peripheral blood differential count should be done
 
 ########## Output parameters
 parser.add_argument('--result_folder', help='store folder with custom name', required=True)                                 # custom output folder name
