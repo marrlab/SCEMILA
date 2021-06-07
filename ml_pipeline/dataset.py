@@ -70,9 +70,9 @@ def define_dataset(num_folds = 5, prefix_in=None, label_converter_in=None,
             # filter if patient has not enough malign cells (only if an AML patient)
             # define filter criterion by which to filter the patients by annotation
             annotations_exclude_by = ['pb_myeloblast']
-            annotate_exclude_by = sum(row[annotations_exclude_by].values)
-            if annotate_exclude_by < filter_diff_count and (not row['bag_label'] == 'SCD'):
-                print("Not enough malign cells, exclude: ", row.name, " with ", annotations_exclude_by, " malign cells ")
+            annotation_count = sum(row[annotations_exclude_by].values)
+            if annotation_count < filter_diff_count and (not row['bag_label'] == 'SCD'):
+                print("Not enough malign cells, exclude: ", row.name, " with ", annotation_count, " malign cells ")
                 continue
 
             # filter if manual assessment revealed flaws. If this cell contains N/A, then we don't exclude
