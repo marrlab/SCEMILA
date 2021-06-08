@@ -15,7 +15,7 @@ from model_train import *   # model training function
 
 
 # 1: Setup. Source Folder is parent folder for both mll_data_master and the /data folder
-TARGET_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/code/results'
+TARGET_FOLDER = '/storage/groups/qscd01/projects/aml_mil_hehr/final_results'
 SOURCE_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/'                 # results will be stored here
 
 # get arguments from parser, set up folder
