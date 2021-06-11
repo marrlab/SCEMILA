@@ -56,7 +56,8 @@ print('Initialize datasets...')
 label_conv_obj = label_converter.label_converter()
 set_dataset_path(SOURCE_FOLDER)
 define_dataset(num_folds = 5, prefix_in = args.prefix, 
-                label_converter_in=label_conv_obj, filter_diff_count=int(args.filter_diff))
+                label_converter_in=label_conv_obj, filter_diff_count=int(args.filter_diff), 
+                filter_quality_minor_assessment=int(args.filter_mediocre_quality))
 datasets = {}
 
 ##### set up folds for cross validation
@@ -64,12 +65,9 @@ folds = {'train':np.array([0,1,2]), 'val':np.array([3]), 'test':np.array([4])}
 for name, fold in folds.items():
     folds[name] = ((fold+int(args.fold))%5).tolist()
 
-datasets['train'] = dataset(folds=folds['train'], aug_im_order=True, split='train', 
-                            filter_quality_minor_assessment=int(args.filter_mediocre_quality))
-datasets['val'] = dataset(folds=folds['val'], aug_im_order=False, split='val', 
-                            filter_quality_minor_assessment=int(args.filter_mediocre_quality))
-datasets['test'] = dataset(folds=folds['test'], aug_im_order=False, split='test', 
-                            filter_quality_minor_assessment=int(args.filter_mediocre_quality))
+datasets['train'] = dataset(folds=folds['train'], aug_im_order=True, split='train')
+datasets['val'] = dataset(folds=folds['val'], aug_im_order=False, split='val')
+datasets['test'] = dataset(folds=folds['test'], aug_im_order=False, split='test')
 
 ##### store conversion from true string labels to artificial numbers for one-hot encoding
 df = label_conv_obj.df
