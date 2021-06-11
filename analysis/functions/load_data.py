@@ -9,7 +9,7 @@ import label_converter
 
 generate_tiffname = lambda x: '0'*(3-len(str(x))) + str(x) + '.TIF'
 
-def load_data(folder_list, basepath, prefix):
+def load_data(folder_list, basepath, prefix, folder_dataset):
     '''This function loads...
     All testing data object files.
     All feature vectors for the UMAP embeddings.
@@ -22,6 +22,7 @@ def load_data(folder_list, basepath, prefix):
 
     # load label converter for further processing
     lbl_conv_obj = label_converter.label_converter(path_preload=os.path.join(basepath, folder_list[0], 'class_conversion.csv'))
+    patient_master_dataframe = pd.read_csv('{}/mll_data_master_pseudo.csv'.format(folder_dataset)).set_index('pseudonym')
 
     datapoints = []
     temporary_data_cache = {}
@@ -56,7 +57,10 @@ def load_data(folder_list, basepath, prefix):
                 pat_attention_raw, pat_attention_softmax, _, pat_prediction_vector, pat_loss, _ = pat_data_packed
                 pat_prediction_argmax = np.argmax(pat_prediction_vector)
                 pat_entropy = entropy(pat_prediction_vector, base=len(pat_prediction_vector))
-                pat_datapoint =[pat_id, pat_path, f_fold, lbl_conv_obj[entity], lbl_conv_obj[int(pat_prediction_argmax)], pat_loss, pat_entropy]
+                pat_quality_category = patient_master_dataframe.loc[pat_id, 'examine_category_quality']
+                pat_myb_share = patient_master_dataframe.loc[pat_id, 'pb_myeloblast']
+                pat_datapoint =[pat_id, pat_path, f_fold, lbl_conv_obj[entity], lbl_conv_obj[int(pat_prediction_argmax)], 
+                                pat_loss, pat_entropy, pat_quality_category, pat_myb_share]
                 pat_datapoint.extend(pat_prediction_vector)
 
                 # enter data in dataframe and confusion matrix
@@ -65,7 +69,7 @@ def load_data(folder_list, basepath, prefix):
                 temporary_data_cache[pat_id] = (pat_attention_raw, pat_attention_softmax, pat_prediction_vector)
 
     
-    columns_df = ['ID', 'pat_path', 'fold', 'gt_label', 'pred_lbl', 'MIL loss', 'entropy']
+    columns_df = ['ID', 'pat_path', 'fold', 'gt_label', 'pred_lbl', 'MIL loss', 'entropy', 'quality_category', 'myb_annotated']
     columns_df.extend(['mil_prediction_'+lbl_conv_obj[x] for x in range(len(lbl_conv_obj.df))])
     patient_dataframe = pd.DataFrame(datapoints, columns=columns_df).set_index('ID')
 
