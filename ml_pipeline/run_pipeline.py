@@ -31,7 +31,8 @@ parser.add_argument('--multi_att', help='use multi-attention approach', required
 
 ########## Data parameters: Modify the dataset
 parser.add_argument('--prefix', help='define which set of features shall be used', required=False, default='fnl34_')        # define feature source to use (from different CNNs)
-parser.add_argument('--filter_diff', help='Filters AML patients with less than this perc. of MYB.', default=20)      # pass -1, if no filtering acc to peripheral blood differential count should be done
+parser.add_argument('--filter_diff', help='Filters AML patients with less than this perc. of MYB.', default=20)             # pass -1, if no filtering acc to peripheral blood differential count should be done
+parser.add_argument('--filter_mediocre_quality', help='Filters patients with sub-standard sample quality', default=1)       # Leave out some more samples, if we have enough without them. Quality of these is not good, but if data is short, still ok.
 
 ########## Output parameters
 parser.add_argument('--result_folder', help='store folder with custom name', required=True)                                 # custom output folder name
@@ -63,9 +64,12 @@ folds = {'train':np.array([0,1,2]), 'val':np.array([3]), 'test':np.array([4])}
 for name, fold in folds.items():
     folds[name] = ((fold+int(args.fold))%5).tolist()
 
-datasets['train'] = dataset(folds=folds['train'], aug_im_order=True, split='train')
-datasets['val'] = dataset(folds=folds['val'], aug_im_order=False, split='val')
-datasets['test'] = dataset(folds=folds['test'], aug_im_order=False, split='test')
+datasets['train'] = dataset(folds=folds['train'], aug_im_order=True, split='train', 
+                            filter_quality_minor_assessment=int(args.filter_mediocre_quality))
+datasets['val'] = dataset(folds=folds['val'], aug_im_order=False, split='val', 
+                            filter_quality_minor_assessment=int(args.filter_mediocre_quality))
+datasets['test'] = dataset(folds=folds['test'], aug_im_order=False, split='test', 
+                            filter_quality_minor_assessment=int(args.filter_mediocre_quality))
 
 ##### store conversion from true string labels to artificial numbers for one-hot encoding
 df = label_conv_obj.df

@@ -40,7 +40,7 @@ def set_dataset_path(path):
 
 ##### Load and filter dataset according to custom criteria, before Dataset initialization
 def define_dataset(num_folds = 5, prefix_in=None, label_converter_in=None,
-                    filter_diff_count=-1, filter_quality_assessment=True):
+                    filter_diff_count=-1, filter_quality_major_assessment=True, filter_quality_minor_assessment=True):
         '''function needs to be called before constructing datasets. Gets an overview over the entire dataset, does filtering
         according to parameters / exclusion criteria, and splits the data automatically.
         - num_folds: split dataset into n folds
@@ -48,7 +48,9 @@ def define_dataset(num_folds = 5, prefix_in=None, label_converter_in=None,
         - label_converter_in: needs label_converter created in run_pipeline.py to convert string to integer labels
         - filter_diff_count: filter if patient has less than this amount (e.g. '19' for 19%) myeloblasts. 
             Set to -1, if no filtering should be applied here.
-        - filter_quality_assessment: include manual quality assessment filter criterion'''
+        - filter_quality_major_assessment: exclude slides with unacceptable slide quality
+        - filter_quality_minor_assessment: exclude slides with sub-standard quality, which are still ok
+            if not enough data is available'''
         
         global dataset_defined, prefix, mil_distribution, mil_mutations, label_conv_obj
 
@@ -75,12 +77,20 @@ def define_dataset(num_folds = 5, prefix_in=None, label_converter_in=None,
                 print("Not enough malign cells, exclude: ", row.name, " with ", annotation_count, " malign cells ")
                 continue
 
-            # filter if manual assessment revealed flaws. If this cell contains N/A, then we don't exclude
+            # filter if manual assessment revealed major flaws. If this cell contains N/A, then we don't exclude
             keep_row = pd.isnull(row['examine_exclude'])
                         
             # filter if the patient has known bad sample quality
-            if not keep_row and filter_quality_assessment:
-                print("Bad slide quality, exclude: ", row.name, " ")
+            if not keep_row and filter_quality_major_assessment:
+                print("Major flaws in slide quality, exclude: ", row.name, " ")
+                continue
+
+            # filter if manual assessment revealed *minor* flaws. If this cell contains N/A, then we don't exclude
+            keep_row = pd.isnull(row['examine_optional_exclude'])
+                        
+            # filter if the patient has known bad sample quality
+            if not keep_row and filter_quality_minor_assessment:
+                print("Minor flaws in slide quality, exclude: ", row.name, " ")
                 continue
 
 
