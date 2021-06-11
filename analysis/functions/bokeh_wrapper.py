@@ -56,7 +56,8 @@ pool_dict = {
     'pathological eosinophil':'AML-CBFB-MYH11 specific',
     'monoblast':'Indicates AML',
     'promonocyte':'Indicates AML',
-    'smudge':'No clinical assessment'
+    'smudge':'No clinical assessment',
+    'cell':'cell'
 }
 
 pool_labels = lambda x: pool_dict[x]
