@@ -10,7 +10,7 @@ import pandas as pd
 def show_pred_mtrx(pred_mtrx, class_conversion=None, fig_size=None, normalize_rows=True, plot_values=True, 
                     show_zeros = True, show_size_values=True, reorder = None, cmap=None, dpi=100,
                     string_header = 'Confusion matrix', string_overview='# of patients', size_scale='lin',
-                    capitalize = True, fontsize = 12, path_save = None):
+                    capitalize = True, fontsize = 12, path_save = None, sc_df=None):
 
     ''' Same as above, but takes different inputs and is optimized for receiving the class_conversion dataframe:
     
@@ -63,9 +63,9 @@ def show_pred_mtrx(pred_mtrx, class_conversion=None, fig_size=None, normalize_ro
     # set up parameters
     class_size=len(class_conversion)
     if(fig_size is None):
-        fig_size=(9,7)
-    gridspec_width=2
-    width_rat=[7,2]
+        fig_size=(11,7)
+    gridspec_width=3
+    width_rat=[5,2,2]
 
     # convert dictionarys into arrays to prevent wrong order of labels/bars
     capitalize_func = lambda x: [y[0].upper() + y[1:] for y in x]
@@ -80,10 +80,7 @@ def show_pred_mtrx(pred_mtrx, class_conversion=None, fig_size=None, normalize_ro
 
     
     # initiate subplot layout, depending on wether frequencys shall be shown
-    fig = plt.figure(constrained_layout=False, figsize=fig_size, dpi=dpi)
-    gs = fig.add_gridspec(1,gridspec_width, width_ratios=width_rat, wspace=0)
-    ax0=plt.subplot(gs[0])
-    ax1=plt.subplot(gs[1])
+    fig, (ax0, ax1, ax2) = plt.subplots(1, 3, constrained_layout=True, figsize=fig_size, dpi=dpi, gridspec_kw={'width_ratios':width_rat, 'wspace':0.1}, sharey=False)
 
     #normalize pred_mtrx for rows
     pred_mtrx_copy = pred_mtrx.astype(float)
@@ -95,6 +92,8 @@ def show_pred_mtrx(pred_mtrx, class_conversion=None, fig_size=None, normalize_ro
     if(cmap is None):
         cmap='Greys'
     im = ax0.imshow(pred_mtrx_copy, cmap=cmap)
+
+    name_list = ['Control' if x=='SCD' else x for x in name_list ]
 
     # set up proper axis labelling/ticks
     ax0.set_xticks(np.arange(class_size))
@@ -150,20 +149,35 @@ def show_pred_mtrx(pred_mtrx, class_conversion=None, fig_size=None, normalize_ro
             else:
                 ax1.text(size, el, " " + str(size), va='center', ha='left', color='k', fontsize=fontsize)
     
+    # patient count plot
     ax1.barh(range(class_size), freq_list, color='black')   
     ax1.set_yticks(np.arange(len(class_conversion)))
+    
+
+    ax1.set_xlim(0,max(freq_list)*1.05)
     ax1.set_yticks([])
     ax1.set_ylim(class_size-0.5, -0.5)
     
-
-    if(size_scale == 'log'):
-        ax1.set_xscale('log')
-    if not (size_scale is None):
-        ax1.set_xlim(min(freq_list)*0.8,max(freq_list)*1.05)
-    
-    ax1.set_title(string_overview, fontsize=fontsize)
+    ax1.set_title("Patients", fontdict=None, fontsize=fontsize)
     ax1.tick_params(axis='both', which='major', labelsize=fontsize)
     for label in ax1.get_xticklabels():
+        label.set_rotation(45)
+        label.set_ha('right')
+
+    # image count plot
+    image_counts = []
+    for el in list(class_conversion.true_lbl):
+        images_of_class = sc_df.loc[sc_df['gt_label'] == el]
+        image_counts.append(len(images_of_class))
+    ax2.barh(range(class_size), image_counts, color='black')   
+
+    ax2.set_xlim(0,max(image_counts)*1.05)
+    ax2.set_yticks([])
+    ax2.set_ylim(class_size-0.5, -0.5)
+    
+    ax2.set_title("Total images", fontdict=None, fontsize=fontsize)
+    ax2.tick_params(axis='both', which='major', labelsize=fontsize)
+    for label in ax2.get_xticklabels():
         label.set_rotation(45)
         label.set_ha('right')
 

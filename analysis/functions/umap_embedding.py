@@ -28,20 +28,16 @@ def select_embedding(sc_dataframe):
     else:
         return generate_embedding(sc_dataframe, os.path.join(path_embeddings, name_new + '.pkl'))
 
-def generate_embedding(sc_dataframe, path_target, embed_sample=20000):
+def generate_embedding(sc_dataframe, path_target, save=False):
     
     # create scalers and reducer
     print("\nCalculating embedding")
-    sc_dataframe_embedding = sc_dataframe[:embed_sample]
+    sc_dataframe_embedding = sc_dataframe
     cell_data = sc_dataframe_embedding[features].values
     umap_scaler = StandardScaler().fit(cell_data)
     scaled_cell_data = umap_scaler.transform(cell_data)
-    umap_reducer = umap.UMAP(verbose=True).fit(scaled_cell_data)
-    
-    print("\nScaling features ...")
-    sc_dataframe_scaled = umap_scaler.transform(sc_dataframe[features].values)
-    print("Calculating coordinates. This will take some time ...")
-    embedding = umap_reducer.transform(sc_dataframe_scaled)
+    umap_reducer = umap.UMAP(verbose=True)
+    embedding = umap_reducer.fit_transform(scaled_cell_data)
     
     
     sc_dataframe['x'] = embedding[..., 0]
@@ -49,9 +45,10 @@ def generate_embedding(sc_dataframe, path_target, embed_sample=20000):
     
     embedding_data = sc_dataframe[['im_path', 'x', 'y']].copy()
     pickle_storage_object = (umap_scaler, umap_reducer, embedding_data)
-    f_obj = open(path_target, 'wb')
-    pkl.dump(pickle_storage_object, f_obj)
-    f_obj.close()
+    if(save):
+        f_obj = open(path_target, 'wb')
+        pkl.dump(pickle_storage_object, f_obj)
+        f_obj.close()
     
     return sc_dataframe
 

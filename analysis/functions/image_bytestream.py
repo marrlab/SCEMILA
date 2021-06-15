@@ -27,8 +27,9 @@ def map_images_to_dataframe(df):
         pat_id = df.loc[row_idx].ID
         if pat_id != current_pat_id:
             # load numpy array
-            entity = df.loc[row_idx].gt_label
-            patient_images_path = os.path.join(data_dir, entity, pat_id, 'processed', 'stacked_images.npy')
+            patient_basepath = os.path.dirname(df.loc[row_idx].im_path)
+
+            patient_images_path = os.path.join(patient_basepath, 'processed', 'stacked_images.npy')
             patient_images = np.load(patient_images_path)
             current_pat_id = pat_id
 
