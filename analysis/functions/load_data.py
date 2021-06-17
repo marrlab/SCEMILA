@@ -115,7 +115,7 @@ def load_data(folder_list, basepath, prefix, folder_dataset):
         pat_features = np.load(os.path.join(pat_path, 'processed/{}bn_features_layer_7.npy'.format(prefix)))
         ft_dims = pat_features.shape
         pat_features_flattened = pat_features.reshape((ft_dims[0], ft_dims[1]*ft_dims[2]*ft_dims[3]))            # keeps image dimension
-        pat_sc_feature_dataframe = pd.DataFrame(pat_features_flattened, columns = range(12800))
+        pat_sc_feature_dataframe = pd.DataFrame(pat_features_flattened, columns = [str(x) for x in range(12800)])
         pat_sc_dataframe_full = pat_sc_dataframe.join(pat_sc_feature_dataframe)
 
         patientwise_single_cell_dataframes.append(pat_sc_dataframe_full)

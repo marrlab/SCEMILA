@@ -68,7 +68,7 @@ pool_dict = {
 pool_labels = lambda x: pool_dict[x]
 
 def swarmplot(df, xlim, ylim, title="Swarmplot", legend_header="", **kwargs):
-    df = df.drop(columns=range(12800))
+    df = df.drop(columns=[str(x) for x in range(12800)])
     df['color'] = df['color_values'].apply(col_get)
     df['edgecolor'] = df['color_values'].apply(col_edge_get)
     size=6
@@ -125,7 +125,7 @@ def multi_swarmplot(df, xlim, ylim, title, **kwargs):
     
     show(Tabs(tabs=[tab1, tab2]))
 
-def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, **kwargs):
+def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, **kwargs):
     
     dotsize=35
     custom_zoom=0.7
@@ -142,6 +142,7 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, **kwargs):
     ax.spines['right'].set_visible(False)
     ax.set_yticks([])
     ax.set_xlabel('Single cell attention', fontsize=fontsize)
+    ax.set_title(title, fontsize=fontsize, ha='center')
     
     df['color'] = df['color_values'].apply(col_get)
     df['edgecolor'] = df['color_values'].apply(col_edge_get)
@@ -150,12 +151,12 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, **kwargs):
     for ctype in legend_order:
         ctype_df = df.loc[df['color_values'] == ctype]   
         if len(ctype_df) > 0:
-            marker_function = shape_get_matplotlib(ctype)
             ax.scatter(x=ctype_df.x, y=ctype_df.y, color=ctype_df.color, edgecolor=ctype_df.edgecolor, 
-                               label=capitalize(ctype), s=dotsize, linewidth=0.5, **kwargs)
+                               label=capitalize(ctype), marker=shape_get_matplotlib(ctype), s=dotsize, linewidth=0.5, **kwargs)
             
-    ax.legend(loc=6, bbox_to_anchor=(1.1, 0.0, 0.5, 0.5), title="Annotated cell type", 
+    leg = ax.legend(loc=6, bbox_to_anchor=(1.1, 0.0, 0.5, 0.5), title="Annotated cell type", 
               title_fontsize=fontsize, edgecolor='w', fontsize=fontsize)
+    leg._legend_box.align = "left"
 
     # plot simplified swarmplot
     ax2 = ax.twinx()
@@ -174,33 +175,41 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, **kwargs):
     for ctype in legend_order:
         ctype_df = df.loc[df['color_values_pooled'] == ctype]   
         if len(ctype_df) > 0:
-            marker_function = shape_get_matplotlib(ctype)
             ax2.scatter(x=ctype_df.x, y=ctype_df.y+yrange, color=ctype_df.color, edgecolor=ctype_df.edgecolor, 
-                               label=capitalize(ctype), s=dotsize, linewidth=0.5, **kwargs)
+                               label=capitalize(ctype), marker=shape_get_matplotlib(ctype), s=dotsize, linewidth=0.5, **kwargs)
             
-    ax2.legend(loc=6, bbox_to_anchor=(1.1, 0.5, 0.5, 0.5), title="Grouped cell type", 
+    leg = ax2.legend(loc=6, bbox_to_anchor=(1.1, 0.5, 0.5, 0.5), title="Grouped cell type", 
               title_fontsize=fontsize, edgecolor='w', fontsize=fontsize)
+    leg._legend_box.align = "left"
     
     # plot in highlighted images
     # draw out lines and plot images
-    for identifier in highlight_idx:
-        cell = df.loc[df['im_id']==identifier].iloc[0]
-        x, y = cell.x, cell.y
-        class_lbl = cell.color_values
-        ax2.plot([x, x], [y, y+yrange], c='k', zorder=5)
+    if not highlight_idx is None:
+        for identifier in highlight_idx:
+            cell = df.loc[df['im_id']==identifier].iloc[0]
+            x, y = cell.x, cell.y
+            class_lbl = cell.color_values
+            ax2.plot([x, x], [y, y+yrange], c='k', zorder=5)
         
-        # load and display image
-        im = Image.open(cell.im_path)
-        ab = AnnotationBbox(OffsetImage(im, zoom=0.5), (x, yrange+ylim[1]), frameon=True)
-        ab.set_zorder(10)
-        ax2.add_artist(ab)
+            # load and display image
+            im = Image.open(cell.im_path)        
+            ab = AnnotationBbox(OffsetImage(im, zoom=0.5), (x, yrange+ylim[1]), frameon=True)
+            ab.set_zorder(10)
+            ax2.add_artist(ab)
         
-        ax2.scatter(x, y, color = col_get(class_lbl), linewidth=0.5,
-                   s=dotsize, zorder=10, marker=shape_get_matplotlib(class_lbl), edgecolors=col_edge_get(class_lbl))
+            ax2.scatter(x, y, color = col_get(class_lbl), linewidth=0.5,
+                    s=dotsize, zorder=10, marker=shape_get_matplotlib(class_lbl), edgecolors=col_edge_get(class_lbl))
         
-        class_lbl = cell.color_values_pooled
-        ax2.scatter(x, y+yrange, color = col_get(class_lbl), linewidth=0.5,
-                   s=dotsize, zorder=10, marker=shape_get_matplotlib(class_lbl), edgecolors=col_edge_get(class_lbl))
+            class_lbl = cell.color_values_pooled
+            ax2.scatter(x, y+yrange, color = col_get(class_lbl), linewidth=0.5,
+                    s=dotsize, zorder=10, marker=shape_get_matplotlib(class_lbl), edgecolors=col_edge_get(class_lbl))
+    
+        ax.text(x=0.01, y=0.01, s="Low attention", transform=ax.transAxes, ha='left', fontsize=fontsize)
+        ax.text(x=0.99, y=0.01, s="High attention", transform=ax.transAxes, ha='right', fontsize=fontsize)
+    
+    if not path_save is None:
+        fig.savefig(path_save, bbox_inches='tight')
+    plt.close('all')
 
 
 
@@ -214,13 +223,14 @@ def umap(df, title="UMAP", legend_header="Annotated cell type", **kwargs):
     df = df.copy()
     df['color_values'] = df['mll_annotation'].fillna('cell')
 
-    df = df.drop(columns=range(12800))
+
+    df = df.drop(columns=[str(x) for x in range(12800)])
     df['color'] = df['color_values'].apply(col_get)
     df['edgecolor'] = df['color_values'].apply(col_edge_get)
     size=6
     
     plot_figure=figure(title=title, plot_width=900, 
-                       plot_height=500, tools=('wheel_zoom'),
+                       plot_height=700, tools=('pan, wheel_zoom, reset'),
                         aspect_scale=2)
 
     legend = Legend()
@@ -228,14 +238,21 @@ def umap(df, title="UMAP", legend_header="Annotated cell type", **kwargs):
     legend.click_policy="hide"
     plot_figure.add_layout(legend, 'right')
     
-    plot_figure.yaxis.visible = False
+#     plot_figure.yaxis.visible = False
     plot_figure.xgrid.grid_line_color = None
     plot_figure.ygrid.grid_line_color = None
     plot_figure.outline_line_color = None
     plot_figure.title.align = 'center'
 
-    hover_labels = []
-
+    # show only na values
+    df_background = df.loc[df['color_values'] == 'cell', ['x', 'y']].copy()
+    df_background['outline'] = ['black']*len(df_background)
+    df_background['fill'] = ['white']*len(df_background)
+    background_dsource = ColumnDataSource(df_background)
+    plot_figure.circle(source=background_dsource, x='x', y='y', fill_color='outline', line_color='outline',radius=0.15)
+    plot_figure.circle(source=background_dsource, x ='x', y='y', fill_color='fill', line_color='fill', radius=0.14)
+    
+    
     for ctype in legend_order:
         if ctype == 'cell':
             continue
@@ -245,20 +262,170 @@ def umap(df, title="UMAP", legend_header="Annotated cell type", **kwargs):
             datasource = ColumnDataSource(ctype_df)
             marker_function = shape_get_bokeh(ctype)
             marker_function(fig=plot_figure, x='x', y='y', fill_color='color', line_color="edgecolor", 
-                               source=datasource, legend_label=capitalize(ctype), size=size, line_width=0.5, **kwargs)
-            hover_labels.append(capitalize(ctype))
+                               source=datasource, legend_label=capitalize(ctype), size=size, line_width=0.5, name='needshover', **kwargs)
     
-    plot_figure.add_tools(HoverTool(names=hover_labels, tooltips="""
+    plot_figure.add_tools(HoverTool(names=['needshover'], tooltips="""
     <div>
         <div>
             <img src='@image' style='float: left; margin: 5px 5px 5px 5px'/>
         </div>
         <div>
-            <span style='font-size: 12px; color: #224499'>Annotation:</span>
-            <span style='font-size: 12px'>@mll_annotation</span>
-            <span style='font-size: 12px'>@im_tiffname</span>
+            <span style='font-size: 18px; color: #224499'>Annotation:</span>
+            <span style='font-size: 18px'>@mll_annotation</span>
         </div>
     </div>
     """))
 
     show(plot_figure)
+
+
+
+
+class MidpointNormalize(mpt_colors.Normalize):
+    def __init__(self, vmin=None, vmax=None, midpoint=None, clip=False):
+        self.midpoint = midpoint
+        mpt_colors.Normalize.__init__(self, vmin, vmax, clip)
+
+    def __call__(self, value, clip=None):
+        # Note that I'm ignoring clipping and other edge cases here.
+        result, is_scalar = self.process_value(value)
+        x, y = [self.vmin, self.midpoint, self.vmax], [0, 0.5, 1]
+        return np.ma.array(np.interp(value, x, y), mask=result.mask, copy=False)
+    
+def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single cell class', data_column='mll_annotation', 
+                legend_capt='Predicted class', highlight=False, custom_label_order=None,  zorder_adapt_by_color=True, 
+               grayscatter=True, dotsize=35, path_save=None):
+    
+    fig, ax = plt.subplots(figsize=(10,10), dpi=300)
+
+    x_min, x_max = min(df_in.x)-1, max(df_in.x)+1
+    y_min, y_max = min(df_in.y)-1, max(df_in.y)+1
+        
+    ax.set_xlabel('UMAP_1', fontsize=fontsize)
+    ax.set_ylabel('UMAP_2', fontsize=fontsize)
+    ax.set_title(title, fontsize=fontsize)
+    ax.axis('equal')
+    ax.set_xlim(x_min, x_max)
+    ax.set_ylim(y_min, y_max)
+    ax.set_axisbelow(True)
+    
+    scatter_highlight_buffer = []
+    
+    if(grayscatter):
+#         ax.scatter(df_grayscatter.x, df_grayscatter.y, color='whitesmoke', edgecolor='whitesmoke', s=df_grayscatter.dotsize)
+        ax.scatter(df_in.x, df_in.y, color='k', edgecolor='k', s=56)
+    
+        ax.scatter(df_in.x, df_in.y, color='whitesmoke', edgecolor='whitesmoke', s=50)
+    
+    if(data_column == 'mll_annotation'):
+        
+        # for the legend
+        classes_order = pool_dict.keys()
+        if not (custom_label_order is None):
+            classes_order = custom_label_order
+            
+        # drop non-annotated cells
+        df_categorical = df_in.loc[~df_in[data_column].isna()].copy()
+            
+        if zorder_adapt_by_color:
+            val_count = df_categorical[data_column].value_counts()
+            print(val_count)
+            zorder_transform = lambda x: val_count[x]
+            df_categorical['order_z'] = df_categorical[data_column].apply(zorder_transform)
+            df_categorical = df_categorical.sort_values(by=['order_z'], ascending=False)
+            
+        for label in classes_order:
+            
+            if not label in df_categorical[data_column].unique():
+                continue
+            
+            # first plot a single point for the legend
+            
+            df_plot_tmp = df_categorical.loc[df_categorical[data_column] == label].iloc[0]
+            
+            label_cap = label[0].upper() + label[1:]
+            sc = ax.scatter(df_plot_tmp.x, df_plot_tmp.y, color=col_get(label), edgecolor=col_edge_get(label),
+                            s=dotsize, label=label_cap, linewidth=0.5,
+                            marker = shape_get_matplotlib(label))
+        
+        # then plot all the points in the correct order
+        for label in df_categorical[data_column].unique():
+            df_plot_tmp = df_categorical.loc[df_categorical[data_column] == label]
+            sc = ax.scatter(df_plot_tmp.x, df_plot_tmp.y, color=col_get(label), edgecolor=col_edge_get(label),
+                                s=dotsize, marker=shape_get_matplotlib(label), linewidth=0.5,)
+            
+        if highlight:
+            scatter_highlight_df = df_categorical.loc[df_categorical.highlight]
+            print(len(scatter_highlight_df))
+            for label in scatter_highlight_df[data_column].unique():
+                df_plot_tmp = scatter_highlight_df.loc[scatter_highlight_df[data_column] == label]
+                sc = ax.scatter(df_plot_tmp.x, df_plot_tmp.y, color=col_get(label), edgecolor='k',
+                                s=dotsize, marker=shape_get_matplotlib(label), linewidth=0.5,)
+            scatter_highlight_buffer = []
+            if 'name' in scatter_highlight_df.columns:
+                for el in list(scatter_highlight_df.name):
+                    im = Image.open(el)
+                    scatter_highlight_buffer.append(im)
+        
+        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), title=legend_capt, fontsize=fontsize, title_fontsize=fontsize,
+                 edgecolor='w')
+    if('att' in data_column):
+        norm = mpt_colors.Normalize(vmin=df_in[data_column].min()*1.2, vmax=df_in[data_column].max())
+        cmap = cm.jet
+        
+        # sort dataframe
+        df_in = df_in.sort_values(by=data_column, ascending=True)
+    
+        sc = ax.scatter(df_in.x, df_in.y, c=df_in[data_column], s=dotsize, norm=norm, cmap=cmap)
+        
+        cbar = plt.colorbar(sc)
+        cbar.set_label('Single cell attention for ' + data_column, rotation=90)
+        
+        if highlight:
+            scatter_highlight_df = df_in.loc[df_in.highlight]
+            sc = ax.scatter(scatter_highlight_df.x.values, scatter_highlight_df.y.values, c=scatter_highlight_df[data_column],
+                            s=75, edgecolors='k')
+            scatter_highlight_buffer = []
+            if 'name' in scatter_highlight_df.columns:
+                for el in list(scatter_highlight_df.name):
+                    im = Image.open(el)
+                    scatter_highlight_buffer.append(im)
+    
+    if('occl' in data_column):
+        norm = MidpointNormalize(vmin=-0.15, vmax=0.15, midpoint=0)
+        cmap = cm.bwr.reversed()
+        
+        # order scatterplot by absolute values
+        df_in['zorder'] = df_in[data_column].apply(abs)
+        df_in = df_in.sort_values(by='zorder', ascending=True)
+    
+        sc = ax.scatter(df_in.x, df_in.y, c=df_in[data_column], s=dotsize, norm=norm, cmap=cmap)
+        
+        cbar = plt.colorbar(sc)
+        cbar.set_label('Change in attention through occlusion for ' + data_column, rotation=90)
+        
+        if highlight:
+            scatter_highlight_df = df_in.loc[df_in.highlight]
+            sc = ax.scatter(scatter_highlight_df.x.values, scatter_highlight_df.y.values, c=scatter_highlight_df[data_column],
+                            s=75, edgecolors='k')
+            scatter_highlight_buffer = []
+            if 'name' in scatter_highlight_df.columns:
+                for el in list(scatter_highlight_df.name):
+                    im = Image.open(el)
+                    scatter_highlight_buffer.append(im)
+
+    
+    ax.set_xticks([])
+    ax.set_yticks([])
+    ax.spines['top'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.set_xlabel('')
+    ax.set_ylabel('')
+    
+    if not path_save is None:
+        fig.savefig(path_save, bbox_inches='tight')
+    plt.close('all')
+    
+    return scatter_highlight_buffer, fig, ax

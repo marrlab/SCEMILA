@@ -1,12 +1,14 @@
 import umap
 import pickle as pkl
 import os
-import image_bytestream
 from sklearn.preprocessing import StandardScaler
 
-features = range(12800)
+features = [str(x) for x in range(12800)]
 path_embeddings = 'suppl_data/embeddings'
 path_loaded_frames = ''
+
+scaler = None
+reducer = None
 
 def select_embedding(sc_dataframe):
     available_embeddings = os.listdir(path_embeddings)
@@ -28,7 +30,8 @@ def select_embedding(sc_dataframe):
     else:
         return generate_embedding(sc_dataframe, os.path.join(path_embeddings, name_new + '.pkl'))
 
-def generate_embedding(sc_dataframe, path_target, save=False):
+def generate_embedding(sc_dataframe, path_target, save=True):
+    global scaler, reducer
     
     # create scalers and reducer
     print("\nCalculating embedding")
@@ -36,39 +39,54 @@ def generate_embedding(sc_dataframe, path_target, save=False):
     cell_data = sc_dataframe_embedding[features].values
     umap_scaler = StandardScaler().fit(cell_data)
     scaled_cell_data = umap_scaler.transform(cell_data)
-    umap_reducer = umap.UMAP(verbose=True)
-    embedding = umap_reducer.fit_transform(scaled_cell_data)
+    umap_reducer = umap.UMAP(verbose=True).fit(scaled_cell_data)
+    embedding = umap_reducer.transform(scaled_cell_data)
     
     
     sc_dataframe['x'] = embedding[..., 0]
     sc_dataframe['y'] = embedding[..., 1]
     
     embedding_data = sc_dataframe[['im_path', 'x', 'y']].copy()
-    pickle_storage_object = (umap_scaler, umap_reducer, embedding_data)
+    pickle_storage_object = (embedding_data, umap_scaler, umap_reducer)
     if(save):
         f_obj = open(path_target, 'wb')
         pkl.dump(pickle_storage_object, f_obj)
         f_obj.close()
     
+    scaler, reducer = umap_scaler, umap_reducer
     return sc_dataframe
 
 def load_embedding(sc_dataframe, path):
-    umap_scaler, umap_reducer, embedding_data = pkl.load(open(path, 'rb'))
+    global scaler, reducer
+
+    (embedding_data, umap_scaler, umap_reducer) = pkl.load(open(path, 'rb'))
     
     '''join sc_dataframe by using im_path as index column, and thus load 
     columns: x, y and image_column'''
     if len(embedding_data) != len(sc_dataframe):
-        print("Mismatch of previously embedded and current cell count. Scaling...")
-        sc_dataframe_scaled = umap_scaler.transform(sc_dataframe[features].values)
-        print("Calculating coordinates. This will take some time ...")
-        embedding = umap_reducer.transform(sc_dataframe_scaled)
+        if embedding_data.im_path != sc_dataframe.im_path:
+            print("Mismatch of previously embedded and current cell count. Matching as many cells as possible.")
+
+    sc_dataframe['ID'] = sc_dataframe.index
+    sc_dataframe = sc_dataframe.set_index('im_path')
+    embedding_data = embedding_data.set_index('im_path')
+    sc_dataframe = sc_dataframe.drop(['x','y'], axis=1, errors='ignore')
+    sc_dataframe = sc_dataframe.join(embedding_data, how='left')
+    sc_dataframe['im_path'] = sc_dataframe.index
+    sc_dataframe = sc_dataframe.set_index('ID')
     
-        sc_dataframe['x'] = embedding[..., 0]
-        sc_dataframe['y'] = embedding[..., 1]
-    else:
-        sc_dataframe['ID'] = sc_dataframe.index
-        sc_dataframe = sc_dataframe.set_index('im_path')
-        embedding_data = embedding_data.set_index('im_path')
-        sc_dataframe = sc_dataframe.drop(['x','y'], axis=1, errors='ignore')
-        sc_dataframe = sc_dataframe.join(embedding_data).set_index('ID')
+    scaler, reducer = umap_scaler, umap_reducer
     return sc_dataframe
+
+def embed_new_data(df):
+    if scaler is None:
+        raise NameError("No embedding selected!")
+    
+    df = df.copy()
+    cell_data = df[features].values
+    scaled_cell_data = scaler.transform(cell_data)
+    embedding = reducer.transform(scaled_cell_data)
+    df['x'] = embedding[..., 0]
+    df['y'] = embedding[..., 1]
+
+    return df
