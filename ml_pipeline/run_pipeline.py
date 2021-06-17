@@ -65,7 +65,7 @@ folds = {'train':np.array([0,1,2]), 'val':np.array([3]), 'test':np.array([4])}
 for name, fold in folds.items():
     folds[name] = ((fold+int(args.fold))%5).tolist()
 
-datasets['train'] = dataset(folds=folds['train'], aug_im_order=True, split='train')
+datasets['train'] = dataset(folds=folds['train'], aug_im_order=True, split='train', p_instance_dropout=0.2)
 datasets['val'] = dataset(folds=folds['val'], aug_im_order=False, split='val')
 datasets['test'] = dataset(folds=folds['test'], aug_im_order=False, split='test')
 
