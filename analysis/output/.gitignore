@@ -1,4 +1,9 @@
 # Ignore everything in this directory
 *
+
 # Except this file
 !.gitignore
+!umaps_attention
+!umaps_categorical
+!umaps_occlusion
+!swarmplots
