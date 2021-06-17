@@ -3,7 +3,7 @@
 
 # Except this file
 !.gitignore
-!umaps_attention
-!umaps_categorical
-!umaps_occlusion
-!swarmplots
+!umaps_attention/
+!umaps_categorical/
+!umaps_occlusion/
+!swarmplots/
