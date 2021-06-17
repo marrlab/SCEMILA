@@ -1,18 +1,8 @@
 # Ignore everything in this directory
 
-analysis/output/*
+*.svg
+*.png
+*.gzip
+*.pkl
 
-!analysis/output/swarmplots/
-analysis/output/swarmplots/*
-
-!analysis/output/umaps_attention/
-analysis/output/umaps_attention/*
-
-!analysis/output/umaps_categorical/
-analysis/output/umaps_categorical/*
-
-!analysis/output/umaps_occlusion/
-analysis/output/umaps_occlusion/*
-
-analysis/suppl_data/dataframe_saves/*
-analysis/suppl_data/embeddings/*
+!analysis/suppl_data/color_scheme.pkl
