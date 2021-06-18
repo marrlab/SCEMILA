@@ -1,6 +1,10 @@
 import sys, os, time
 import argparse as ap
 
+# strange workaround for bug: libgcc_s.so.1 must be installed for pthread_cancel to work
+import ctypes
+libgcc_s = ctypes.CDLL('libgcc_s.so.1')
+
 import torch
 import torch.multiprocessing
 from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
@@ -65,7 +69,7 @@ folds = {'train':np.array([0,1,2]), 'val':np.array([3]), 'test':np.array([4])}
 for name, fold in folds.items():
     folds[name] = ((fold+int(args.fold))%5).tolist()
 
-datasets['train'] = dataset(folds=folds['train'], aug_im_order=True, split='train', p_instance_dropout=0.2)
+datasets['train'] = dataset(folds=folds['train'], aug_im_order=True, split='train')
 datasets['val'] = dataset(folds=folds['val'], aug_im_order=False, split='val')
 datasets['test'] = dataset(folds=folds['test'], aug_im_order=False, split='test')
 

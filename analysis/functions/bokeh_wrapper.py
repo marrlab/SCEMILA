@@ -5,9 +5,11 @@ from bokeh.palettes import Turbo256 as palette_umap
 from bokeh.transform import linear_cmap
 import matplotlib.colors as mpt_colors
 import matplotlib.pyplot as plt
+from matplotlib import cm
 import pickle as pkl
 from PIL import Image
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+import numpy as np
 
 fontsize=12
 output_notebook()
@@ -218,69 +220,6 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
 
 
 # below: UMAP
-
-def umap(df, title="UMAP", legend_header="Annotated cell type", **kwargs):
-    df = df.copy()
-    df['color_values'] = df['mll_annotation'].fillna('cell')
-
-
-    df = df.drop(columns=[str(x) for x in range(12800)])
-    df['color'] = df['color_values'].apply(col_get)
-    df['edgecolor'] = df['color_values'].apply(col_edge_get)
-    size=6
-    
-    plot_figure=figure(title=title, plot_width=900, 
-                       plot_height=700, tools=('pan, wheel_zoom, reset'),
-                        aspect_scale=2)
-
-    legend = Legend()
-    legend.title = legend_header
-    legend.click_policy="hide"
-    plot_figure.add_layout(legend, 'right')
-    
-#     plot_figure.yaxis.visible = False
-    plot_figure.xgrid.grid_line_color = None
-    plot_figure.ygrid.grid_line_color = None
-    plot_figure.outline_line_color = None
-    plot_figure.title.align = 'center'
-
-    # show only na values
-    df_background = df.loc[df['color_values'] == 'cell', ['x', 'y']].copy()
-    df_background['outline'] = ['black']*len(df_background)
-    df_background['fill'] = ['white']*len(df_background)
-    background_dsource = ColumnDataSource(df_background)
-    plot_figure.circle(source=background_dsource, x='x', y='y', fill_color='outline', line_color='outline',radius=0.15)
-    plot_figure.circle(source=background_dsource, x ='x', y='y', fill_color='fill', line_color='fill', radius=0.14)
-    
-    
-    for ctype in legend_order:
-        if ctype == 'cell':
-            continue
-        
-        ctype_df = df.loc[df['color_values'] == ctype]   
-        if len(ctype_df) > 0:
-            datasource = ColumnDataSource(ctype_df)
-            marker_function = shape_get_bokeh(ctype)
-            marker_function(fig=plot_figure, x='x', y='y', fill_color='color', line_color="edgecolor", 
-                               source=datasource, legend_label=capitalize(ctype), size=size, line_width=0.5, name='needshover', **kwargs)
-    
-    plot_figure.add_tools(HoverTool(names=['needshover'], tooltips="""
-    <div>
-        <div>
-            <img src='@image' style='float: left; margin: 5px 5px 5px 5px'/>
-        </div>
-        <div>
-            <span style='font-size: 18px; color: #224499'>Annotation:</span>
-            <span style='font-size: 18px'>@mll_annotation</span>
-        </div>
-    </div>
-    """))
-
-    show(plot_figure)
-
-
-
-
 class MidpointNormalize(mpt_colors.Normalize):
     def __init__(self, vmin=None, vmax=None, midpoint=None, clip=False):
         self.midpoint = midpoint
@@ -291,6 +230,106 @@ class MidpointNormalize(mpt_colors.Normalize):
         result, is_scalar = self.process_value(value)
         x, y = [self.vmin, self.midpoint, self.vmax], [0, 0.5, 1]
         return np.ma.array(np.interp(value, x, y), mask=result.mask, copy=False)
+
+
+def umap(df, title="UMAP", legend_header="Annotated cell type", data_column='mll_annotation', grayscatter=True, **kwargs):
+    df = df.copy()
+    df = df.drop(columns=[str(x) for x in range(12800)])
+    df['info'] = df[data_column]
+    size=8
+    
+    plot_figure=figure(title=title, plot_width=900, 
+                        plot_height=700, tools=('pan, wheel_zoom, reset'),
+                        aspect_scale=2)
+    
+    #     plot_figure.yaxis.visible = False
+    plot_figure.xgrid.grid_line_color = None
+    plot_figure.ygrid.grid_line_color = None
+    plot_figure.outline_line_color = None
+    plot_figure.title.align = 'center'
+    
+    if grayscatter:
+        df['outline'] = ['black']*len(df)
+        df['fill'] = ['white']*len(df)
+        background_dsource = ColumnDataSource(df)
+        plot_figure.circle(source=background_dsource, x='x', y='y', fill_color='outline', line_color='outline',radius=0.15)
+        plot_figure.circle(source=background_dsource, x ='x', y='y', fill_color='fill', line_color='fill', radius=0.14)
+    
+    if(data_column=='mll_annotation'):
+        df['color_values'] = df[data_column].fillna('cell')
+
+
+        df['color'] = df['color_values'].apply(col_get)
+        df['edgecolor'] = df['color_values'].apply(col_edge_get)
+        
+    
+    
+
+
+        legend = Legend()
+        legend.title = legend_header
+        legend.click_policy="hide"
+        plot_figure.add_layout(legend, 'right')
+        
+        for ctype in legend_order:
+            if ctype == 'cell':
+                continue
+        
+            ctype_df = df.loc[df['color_values'] == ctype]   
+            if len(ctype_df) > 0:
+                datasource = ColumnDataSource(ctype_df)
+                marker_function = shape_get_bokeh(ctype)
+                marker_function(fig=plot_figure, x='x', y='y', fill_color='color', line_color="edgecolor", 
+                                   source=datasource, legend_label=capitalize(ctype), size=size, line_width=0.5, name='needshover', **kwargs)
+                
+    if('occl' in data_column):
+        norm = MidpointNormalize(vmin=-0.15, vmax=0.15, midpoint=0)
+        cmap = cm.bwr.reversed()
+        
+        # order scatterplot by absolute values
+        df['zorder'] = df[data_column].apply(abs)
+        df = df.sort_values(by='zorder', ascending=True)
+        
+        colors = [
+            "#%02x%02x%02x" % (int(r), int(g), int(b)) for r, g, b, _ in 255*cmap(norm(df[data_column]))
+        ]
+        df['colors']=colors
+        
+        datasource = ColumnDataSource(df)
+        plot_figure.circle(source=datasource, x ='x', y='y', fill_color='colors', line_color='colors', size=size, name='needshover')
+        
+    if('att' in data_column):
+        norm = mpt_colors.Normalize(vmin=df[data_column].min()*1.2, vmax=df[data_column].max())
+        cmap = cm.jet
+    
+        # order scatterplot by absolute value        
+        df = df.sort_values(by=data_column, ascending=True)
+        
+        colors = [
+            "#%02x%02x%02x" % (int(r), int(g), int(b)) for r, g, b, _ in 255*cmap(norm(df[data_column]))
+        ]
+        df['colors']=colors
+        
+        datasource = ColumnDataSource(df)
+        plot_figure.circle(source=datasource, x ='x', y='y', fill_color='colors', line_color='colors', size=size, name='needshover')
+    
+    
+    plot_figure.add_tools(HoverTool(names=['needshover'], tooltips="""
+    <div>
+        <div>
+            <img src='@image' style='float: left; margin: 5px 5px 5px 5px'/>
+        </div>
+        <div>
+            <span style='font-size: 18px; color: #224499'>Info:</span>
+            <span style='font-size: 18px'>@info</span>
+        </div>
+    </div>
+    """))
+
+    show(plot_figure)
+
+
+
     
 def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single cell class', data_column='mll_annotation', 
                 legend_capt='Predicted class', highlight=False, custom_label_order=None,  zorder_adapt_by_color=True, 
@@ -315,7 +354,7 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
 #         ax.scatter(df_grayscatter.x, df_grayscatter.y, color='whitesmoke', edgecolor='whitesmoke', s=df_grayscatter.dotsize)
         ax.scatter(df_in.x, df_in.y, color='k', edgecolor='k', s=56)
     
-        ax.scatter(df_in.x, df_in.y, color='whitesmoke', edgecolor='whitesmoke', s=50)
+        ax.scatter(df_in.x, df_in.y, color='white', edgecolor='white', s=50)
     
     if(data_column == 'mll_annotation'):
         
@@ -329,7 +368,6 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
             
         if zorder_adapt_by_color:
             val_count = df_categorical[data_column].value_counts()
-            print(val_count)
             zorder_transform = lambda x: val_count[x]
             df_categorical['order_z'] = df_categorical[data_column].apply(zorder_transform)
             df_categorical = df_categorical.sort_values(by=['order_z'], ascending=False)

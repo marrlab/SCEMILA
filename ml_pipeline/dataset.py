@@ -117,7 +117,7 @@ class dataset(Dataset):
 
     '''MLL mil dataset class. Can be used by pytorch DataLoader '''
 
-    def __init__(self, folds=range(3), aug_im_order=True, split=None, p_instance_dropout=0.0):
+    def __init__(self, folds=range(3), aug_im_order=True, split=None):
         '''dataset constructor. Accepts parameters:
         - folds: list of integers or integer in range(NUM_FOLDS) which are set in beginning of this file.
                 Used to define split of data this dataset should countain, e.g. 0-7 for train, 8 for val, 
@@ -129,7 +129,6 @@ class dataset(Dataset):
             raise NameError('No dataset defined. Use define_dataset before initializing dataset class')
 
         self.aug_im_order = aug_im_order
-        self.p_instance_dropout = p_instance_dropout
 
         ##### grab data split for corresponding folds
         self.data = data_split.return_folds(folds)
@@ -176,8 +175,6 @@ class dataset(Dataset):
             num_rows = bag.shape[0]
             new_idx = torch.randperm(num_rows)
             
-            # only keep x images, removing the dropout instances
-            new_idx[:int(num_rows)*(1-self.p_instance_dropout)]
             bag = bag[new_idx, :]
 
         # prepare labels as one-hot encoded
