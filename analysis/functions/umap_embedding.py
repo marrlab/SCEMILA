@@ -10,7 +10,7 @@ path_loaded_frames = ''
 scaler = None
 reducer = None
 
-def select_embedding(sc_dataframe):
+def select_embedding(sc_dataframe, fillup_unmatched=True):
     available_embeddings = os.listdir(path_embeddings)
     available_embeddings_truncated = [x.split('.')[0] for x in available_embeddings]
     if len(available_embeddings_truncated) == 0:
@@ -26,7 +26,7 @@ def select_embedding(sc_dataframe):
         name_new = input(str_preview + "Enter desired embedding, or enter different name to generate new one: ")
 
     if name_new in available_embeddings_truncated:
-        return load_embedding(sc_dataframe, os.path.join(path_embeddings, name_new +'.pkl'))
+        return load_embedding(sc_dataframe, os.path.join(path_embeddings, name_new +'.pkl'), fillup_unmatched=fillup_unmatched)
     else:
         return generate_embedding(sc_dataframe, os.path.join(path_embeddings, name_new + '.pkl'))
 
@@ -56,7 +56,7 @@ def generate_embedding(sc_dataframe, path_target, save=True):
     scaler, reducer = umap_scaler, umap_reducer
     return sc_dataframe
 
-def load_embedding(sc_dataframe, path):
+def load_embedding(sc_dataframe, path, fillup_unmatched):
     global scaler, reducer
 
     (embedding_data, umap_scaler, umap_reducer) = pkl.load(open(path, 'rb'))
@@ -64,8 +64,9 @@ def load_embedding(sc_dataframe, path):
     '''join sc_dataframe by using im_path as index column, and thus load 
     columns: x, y and image_column'''
     if len(embedding_data) != len(sc_dataframe):
-        if embedding_data.im_path != sc_dataframe.im_path:
-            print("Mismatch of previously embedded and current cell count. Matching as many cells as possible.")
+        print("Mismatch of previously embedded and current cell count. Matching as many cells as possible.")
+    elif (embedding_data.im_path != sc_dataframe.im_path).any():
+        print("Different dataframe to add embedding to, than which was initially saved. Trying to make the best of it...")
 
     sc_dataframe['ID'] = sc_dataframe.index
     sc_dataframe = sc_dataframe.set_index('im_path')
@@ -74,8 +75,17 @@ def load_embedding(sc_dataframe, path):
     sc_dataframe = sc_dataframe.join(embedding_data, how='left')
     sc_dataframe['im_path'] = sc_dataframe.index
     sc_dataframe = sc_dataframe.set_index('ID')
-    
+
     scaler, reducer = umap_scaler, umap_reducer
+
+    if(fillup_unmatched):
+        idx_unmatched = sc_dataframe['x'].isna()
+        df_unmatched = sc_dataframe.loc[idx_unmatched]
+        coordinates = embed_new_data(df_unmatched)[['x','y']]
+        sc_dataframe.loc[idx_unmatched, 'x'] = coordinates['x']
+        sc_dataframe.loc[idx_unmatched, 'y'] = coordinates['y']
+
+    
     return sc_dataframe
 
 def embed_new_data(df):

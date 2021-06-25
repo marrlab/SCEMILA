@@ -9,7 +9,7 @@ import label_converter
 
 generate_tiffname = lambda x: '0'*(3-len(str(x))) + str(x) + '.TIF'
 
-def load_data(folder_list, basepath, prefix, folder_dataset):
+def load_data(folder_list, basepath, prefix, folder_dataset, load_sc_features=True):
     '''This function loads...
     All testing data object files.
     All feature vectors for the UMAP embeddings.
@@ -112,13 +112,16 @@ def load_data(folder_list, basepath, prefix, folder_dataset):
         pat_sc_dataframe[att_softmax_columns] = pd.DataFrame(np.swapaxes(pat_attention_softmax, 0, 1))
         pat_sc_dataframe[att_raw_columns] = pd.DataFrame(np.swapaxes(pat_attention_raw, 0, 1))
 
-        pat_features = np.load(os.path.join(pat_path, 'processed/{}bn_features_layer_7.npy'.format(prefix)))
-        ft_dims = pat_features.shape
-        pat_features_flattened = pat_features.reshape((ft_dims[0], ft_dims[1]*ft_dims[2]*ft_dims[3]))            # keeps image dimension
-        pat_sc_feature_dataframe = pd.DataFrame(pat_features_flattened, columns = [str(x) for x in range(12800)])
-        pat_sc_dataframe_full = pat_sc_dataframe.join(pat_sc_feature_dataframe)
+        if load_sc_features:
+            pat_features = np.load(os.path.join(pat_path, 'processed/{}bn_features_layer_7.npy'.format(prefix)))
+            ft_dims = pat_features.shape
+            pat_features_flattened = pat_features.reshape((ft_dims[0], ft_dims[1]*ft_dims[2]*ft_dims[3]))            # keeps image dimension
+            pat_sc_feature_dataframe = pd.DataFrame(pat_features_flattened, columns = [str(x) for x in range(12800)])
+            pat_sc_dataframe_full = pat_sc_dataframe.join(pat_sc_feature_dataframe)
 
-        patientwise_single_cell_dataframes.append(pat_sc_dataframe_full)
+            patientwise_single_cell_dataframes.append(pat_sc_dataframe_full)
+        else:
+            patientwise_single_cell_dataframes.append(pat_sc_dataframe)
         
     # merge all the dataframes
     whole_sc_dataframe = pd.concat(patientwise_single_cell_dataframes, axis=0)

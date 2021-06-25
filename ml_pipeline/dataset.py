@@ -71,8 +71,8 @@ def define_dataset(num_folds = 5, prefix_in=None, label_converter_in=None,
             
             # filter if patient has not enough malign cells (only if an AML patient)
             # define filter criterion by which to filter the patients by annotation
-            annotations_exclude_by = ['pb_myeloblast']
-            annotation_count = sum(row[annotations_exclude_by].values)
+            annotations_exclude_by = ['pb_myeloblast', 'pb_promyelocyte', 'pb_myelocyte']
+            annotation_count = sum(row[annotations_exclude_by])
             if annotation_count < filter_diff_count and (not row['bag_label'] == 'SCD'):
                 print("Not enough malign cells, exclude: ", row.name, " with ", annotation_count, " malign cells ")
                 continue
@@ -117,7 +117,7 @@ class dataset(Dataset):
 
     '''MLL mil dataset class. Can be used by pytorch DataLoader '''
 
-    def __init__(self, folds=range(3), aug_im_order=True, split=None):
+    def __init__(self, folds=range(3), aug_im_order=True, split=None, patient_bootstrap_exclude=None):
         '''dataset constructor. Accepts parameters:
         - folds: list of integers or integer in range(NUM_FOLDS) which are set in beginning of this file.
                 Used to define split of data this dataset should countain, e.g. 0-7 for train, 8 for val, 
@@ -139,6 +139,14 @@ class dataset(Dataset):
         
         # enter paths and corresponding labels in self.data
         for key, val in self.data.items():
+            if not patient_bootstrap_exclude is None:
+                if(0 <= patient_bootstrap_exclude < len(val)):
+                    path_excluded = val.pop(patient_bootstrap_exclude)
+                    patient_bootstrap_exclude = -1
+                    print("Bootstrapping. Excluded: ", path_excluded)
+                else:
+                    patient_bootstrap_exclude -= len(val)
+
             self.paths.extend(val)
             
             label_conv_obj.add(key, len(val), split=split)

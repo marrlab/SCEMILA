@@ -10,6 +10,12 @@ import pickle as pkl
 from PIL import Image
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import numpy as np
+import pandas as pd
+import seaborn as sns
+import math
+from scipy.optimize import fmin
+from scipy.spatial import distance
+import os
 
 fontsize=12
 output_notebook()
@@ -71,6 +77,11 @@ pool_labels = lambda x: pool_dict[x]
 
 def swarmplot(df, xlim, ylim, title="Swarmplot", legend_header="", **kwargs):
     df = df.drop(columns=[str(x) for x in range(12800)])
+
+    # if annotation exists, drop 'cell' datapoints
+    if len(df['color_values'].unique()) > 1:
+        df = df.loc[~(df['color_values']=='cell')]
+
     df['color'] = df['color_values'].apply(col_get)
     df['edgecolor'] = df['color_values'].apply(col_edge_get)
     size=6
@@ -134,6 +145,10 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
     ylim=(ylim[0]*custom_zoom, ylim[1]*custom_zoom)
     
     df = df.copy()
+    # if annotation exists, drop 'cell' datapoints
+    if len(df['color_values'].unique()) > 1:
+        df = df.loc[~(df['color_values']=='cell')]
+
     fig, ax = plt.subplots(figsize=(10,11))
     ax.set_xscale('log')
     yrange = ylim[0]-ylim[1]
@@ -187,6 +202,7 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
     # plot in highlighted images
     # draw out lines and plot images
     if not highlight_idx is None:
+        im_buffer = {}
         for identifier in highlight_idx:
             cell = df.loc[df['im_id']==identifier].iloc[0]
             x, y = cell.x, cell.y
@@ -195,9 +211,7 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
         
             # load and display image
             im = Image.open(cell.im_path)        
-            ab = AnnotationBbox(OffsetImage(im, zoom=0.5), (x, yrange+ylim[1]), frameon=True)
-            ab.set_zorder(10)
-            ax2.add_artist(ab)
+            im_buffer[x] = im
         
             ax2.scatter(x, y, color = col_get(class_lbl), linewidth=0.5,
                     s=dotsize, zorder=10, marker=shape_get_matplotlib(class_lbl), edgecolors=col_edge_get(class_lbl))
@@ -205,13 +219,117 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
             class_lbl = cell.color_values_pooled
             ax2.scatter(x, y+yrange, color = col_get(class_lbl), linewidth=0.5,
                     s=dotsize, zorder=10, marker=shape_get_matplotlib(class_lbl), edgecolors=col_edge_get(class_lbl))
+
+
+        # shift images a little bit to improve optics
+        global xpoints
+        xpoints = sorted(im_buffer.keys())
+
+        def log_x_dist(x1, x2):
+            if min(x1, x2) <= 0:
+                return 10000
+            return math.log10(max(x1, x2)/min(x1, x2))
+
+        def f_positions(shifts):
+            global xpoints
+
+            # calculate distances to close points
+            xpoints_shifted = [xpoints[x]*shifts[x] for x in range(len(xpoints))]
+            el_dists = np.array([log_x_dist(xpoints_shifted[x], xpoints_shifted[x+1]) for x in range(len(xpoints)-1)])
+            mean_dist = np.mean(el_dists)
+            dist_loss = np.sum(np.square(el_dists-mean_dist))    
+
+            return dist_loss
+
+        # calculate coordinates
+        shift_images = fmin(f_positions, np.array([1]*len(xpoints)))
+
+        # add images
+        for x in xpoints:
+            im = im_buffer[x]
+            ab = AnnotationBbox(OffsetImage(im, zoom=0.5), (x*shift_images[xpoints.index(x)], yrange+ylim[1]), frameon=True, pad=0.0)
+            ab.set_zorder(10)
+            ax2.add_artist(ab)
+
     
-        ax.text(x=0.01, y=0.01, s="Low attention", transform=ax.transAxes, ha='left', fontsize=fontsize)
-        ax.text(x=0.99, y=0.01, s="High attention", transform=ax.transAxes, ha='right', fontsize=fontsize)
+    ax.text(x=0.01, y=0.01, s="Low attention", transform=ax.transAxes, ha='left', fontsize=fontsize)
+    ax.text(x=0.99, y=0.01, s="High attention", transform=ax.transAxes, ha='right', fontsize=fontsize)
     
     if not path_save is None:
         fig.savefig(path_save, bbox_inches='tight')
     plt.close('all')
+
+
+def calculate_cells_in_quantiles(df, target_column, quantiles=[0.25, 0.5, 0.75], percent_columns=True, sort_by_percentage=True, group_index=True):
+    
+    global borders 
+    borders = df[target_column].quantile([0.25,0.5,0.75])
+    
+    def calculate_single_quantile(value):
+        global borders
+        
+        min_quant = 0.0
+        min_val = 0
+        for quantile, value_quantile in borders.iteritems():
+            
+            if min_val <= value < value_quantile:
+                return str(min_quant) + ' - ' + str(quantile)
+
+            min_quant = quantile
+            min_val = value_quantile
+    
+        return str(min_quant) + ' - ' + str(1.0)
+
+    df_quant = df.copy()
+    df_quant = df_quant.loc[~df_quant['mll_annotation'].isna()]
+
+    if(group_index):
+        df_quant['mll_annotation'] = df_quant['mll_annotation'].apply(pool_labels)
+    df_quant['quantiles'] = df[target_column].apply(calculate_single_quantile)
+
+    quants_available = sorted(list(df_quant['quantiles'].unique()))
+
+    df_buffer = []
+    for ctype in legend_order:
+        df_filtered = df_quant.loc[df_quant['mll_annotation']==ctype]
+        
+        if len(df_filtered) == 0:
+            continue
+        
+        quantiles_ctype = df_filtered['quantiles'].value_counts()
+
+        buffer_entry = [ctype]
+        for q in quants_available:
+            try:
+                buffer_entry.append(quantiles_ctype[q])
+            except KeyError:
+                buffer_entry.append(0)
+        df_buffer.append(buffer_entry)
+
+    columns_out = ['Cell type']
+    columns_out.extend(quants_available)
+
+    df_out = pd.DataFrame(df_buffer, columns=columns_out).set_index('Cell type')
+    if(percent_columns):
+        for q in quants_available:
+            df_out[q] = (df_out[q]/sum(df_out[q]))
+            if(sort_by_percentage):
+                df_out = df_out.sort_values(by=q, ascending=False)
+
+    cm = sns.light_palette("green", as_cmap=True)
+
+    s = df_out.style.background_gradient(cmap=cm)
+    return s
+        
+
+
+            
+
+
+    
+
+    
+
 
 
 
@@ -234,7 +352,10 @@ class MidpointNormalize(mpt_colors.Normalize):
 
 def umap(df, title="UMAP", legend_header="Annotated cell type", data_column='mll_annotation', grayscatter=True, **kwargs):
     df = df.copy()
-    df = df.drop(columns=[str(x) for x in range(12800)])
+
+    if('148' in list(df.columns)):
+        df = df.drop(columns=[str(x) for x in range(12800)])
+
     df['info'] = df[data_column]
     size=8
     
@@ -261,6 +382,7 @@ def umap(df, title="UMAP", legend_header="Annotated cell type", data_column='mll
 
         df['color'] = df['color_values'].apply(col_get)
         df['edgecolor'] = df['color_values'].apply(col_edge_get)
+        df['pat_id'] = df.index
         
     
     
@@ -322,6 +444,7 @@ def umap(df, title="UMAP", legend_header="Annotated cell type", data_column='mll
         <div>
             <span style='font-size: 18px; color: #224499'>Info:</span>
             <span style='font-size: 18px'>@info</span>
+            <span style='font-size: 18px'>@index</span>
         </div>
     </div>
     """))
@@ -359,7 +482,7 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
     if(data_column == 'mll_annotation'):
         
         # for the legend
-        classes_order = pool_dict.keys()
+        classes_order = legend_order
         if not (custom_label_order is None):
             classes_order = custom_label_order
             
@@ -394,16 +517,18 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
             
         if highlight:
             scatter_highlight_df = df_categorical.loc[df_categorical.highlight]
-            print(len(scatter_highlight_df))
             for label in scatter_highlight_df[data_column].unique():
                 df_plot_tmp = scatter_highlight_df.loc[scatter_highlight_df[data_column] == label]
                 sc = ax.scatter(df_plot_tmp.x, df_plot_tmp.y, color=col_get(label), edgecolor='k',
-                                s=dotsize, marker=shape_get_matplotlib(label), linewidth=0.5,)
+                                s=dotsize+50, marker=shape_get_matplotlib(label), linewidth=1,zorder=100000)
             scatter_highlight_buffer = []
-            if 'name' in scatter_highlight_df.columns:
-                for el in list(scatter_highlight_df.name):
+            idx_counter = 0
+            if 'im_path' in scatter_highlight_df.columns:
+                for el in list(scatter_highlight_df.im_path):
                     im = Image.open(el)
-                    scatter_highlight_buffer.append(im)
+                    save_dirname = os.path.join(os.path.dirname(path_save), str(idx_counter)+'.TIF')
+                    im.save(save_dirname)
+                    idx_counter += 1
         
         ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), title=legend_capt, fontsize=fontsize, title_fontsize=fontsize,
                  edgecolor='w')
@@ -423,13 +548,14 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
             scatter_highlight_df = df_in.loc[df_in.highlight]
             sc = ax.scatter(scatter_highlight_df.x.values, scatter_highlight_df.y.values, c=scatter_highlight_df[data_column],
                             s=75, edgecolors='k')
-            scatter_highlight_buffer = []
-            if 'name' in scatter_highlight_df.columns:
-                for el in list(scatter_highlight_df.name):
-                    im = Image.open(el)
-                    scatter_highlight_buffer.append(im)
+            # scatter_highlight_buffer = []
+            # if 'name' in scatter_highlight_df.columns:
+            #     for el in list(scatter_highlight_df.name):
+            #         im = Image.open(el)
+            #         scatter_highlight_buffer.append(im)
     
     if('occl' in data_column):
+        
         norm = MidpointNormalize(vmin=-0.15, vmax=0.15, midpoint=0)
         cmap = cm.bwr.reversed()
         
@@ -443,14 +569,86 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
         cbar.set_label('Change in attention through occlusion for ' + data_column, rotation=90)
         
         if highlight:
-            scatter_highlight_df = df_in.loc[df_in.highlight]
-            sc = ax.scatter(scatter_highlight_df.x.values, scatter_highlight_df.y.values, c=scatter_highlight_df[data_column],
-                            s=75, edgecolors='k')
-            scatter_highlight_buffer = []
-            if 'name' in scatter_highlight_df.columns:
-                for el in list(scatter_highlight_df.name):
-                    im = Image.open(el)
-                    scatter_highlight_buffer.append(im)
+
+            # if highlighting is active, look up X cells
+            tmp = df_in.sort_values(by=data_column, ascending=True)
+            
+            highest_occl = tmp.iloc[-3:]
+            lowest_occl = tmp.iloc[:3]
+            
+
+            ''' From here on out, it gets very confusing. 
+            The next lines deal with highlighting the right cells in the umap and drawing the actual cell image into the figure. 
+            For this, the image function is approximated with f_min from scipy, where multiple factors flow into a distance
+            metric. Manual work would probably have been more efficient, but after many changes in parameters this now works quite well
+            (as long as not too many cells are highlighted!)
+            '''
+            global f_pos_distance_sample, f_pos_target_sample, highlight_cells, plotted_images, c_counter
+            highlight_cells = pd.concat([highest_occl, lowest_occl])
+            f_pos_distance_sample = np.array(df_in.sample(frac=0.1)[['x', 'y']])
+            f_pos_target_sample = np.array(highlight_cells[['x', 'y']])
+            plotted_images = []
+            
+            def f_positions(locs):
+                global f_pos_distance_sample, f_pos_target_sample, highlight_cells, plotted_images, c_counter
+                min_dist = 2
+
+                locs = np.reshape(locs, (int(locs.shape[0]/2), 2))
+                # calculate distances to rough outlines. Maximize distance along first axis
+                dist_outline = distance.cdist(locs, f_pos_distance_sample, 'euclidean')
+                
+                distance_loss = np.sum(np.where(dist_outline < min_dist))
+#                 dist_min_outline = np.amin(dist_outline, axis=1)
+#                 distance_loss = np.sum(np.exp(-(dist_min_outline-3)))
+                
+                # calculate distances to plotted images. Maximize!
+                if len(plotted_images)>0:
+                    plotted = np.array(plotted_images)
+                    dist_outline = distance.cdist(locs, plotted, 'euclidean')
+                    dist_min_outline = np.amin(dist_outline, axis=1)
+                    distance_loss_plotted = np.sum(np.exp(-(dist_min_outline-4.2)))
+                else:
+                    distance_loss_plotted = 0
+                
+                # calculate distances to points the images belong to. Minimize
+                dist_target = distance.cdist(locs, f_pos_target_sample[c_counter, np.newaxis], 'euclidean')
+                target_dist = np.square(dist_target[0, 0])
+                
+                return distance_loss + target_dist + distance_loss_plotted
+            
+            c_counter = 0
+            for idx, row in highlight_cells.iterrows():
+                # load and display image
+                im = Image.open(row.im_path)
+                
+                # find good position for image
+                coord_start = np.array([row.x, row.y])
+                coord, fopt, _,_,_ = fmin(f_positions, coord_start, maxiter=10000, maxfun=10000, disp=False, full_output=1)
+
+                thresh=15
+                
+                while distance.cdist(np.reshape(coord_start, (1,2)), np.reshape(coord, (1,2)), 'euclidean') < 2 or fopt > thresh or (not (x_max > coord[0] > x_min) or (not(y_max > coord[1] > y_min))):
+                    coord, fopt, _,_,_ = fmin(f_positions, coord_start+np.random.normal(loc=0.0, scale=1.0, size=(2)), maxiter=10000, maxfun=10000, disp=False, full_output=1)
+                    thresh += 0.5
+                    
+                x = coord[0]
+                y = coord[1]
+                plotted_images.append([x, y])
+                
+                ax.plot([row.x, x], [row.y, y], color='k', zorder=9, linewidth=0.5)
+                ab = AnnotationBbox(OffsetImage(im, zoom=0.3), (x, y), frameon=True, pad=0.0)
+                ab.set_zorder(10)
+                ax.add_artist(ab)  
+                c_counter += 1
+
+            scatter_highlight_df = highlight_cells
+            sc = ax.scatter(scatter_highlight_df.x.values, scatter_highlight_df.y.values, c=scatter_highlight_df[data_column], s=dotsize, norm=norm, cmap=cmap,
+                            edgecolors='k', zorder=11, linewidth=0.5)
+            # scatter_highlight_buffer = []
+            # if 'name' in scatter_highlight_df.columns:
+            #     for el in list(scatter_highlight_df.name):
+            #         im = Image.open(el)
+            #         scatter_highlight_buffer.append(im)
 
     
     ax.set_xticks([])
@@ -464,6 +662,8 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
     
     if not path_save is None:
         fig.savefig(path_save, bbox_inches='tight')
-    plt.close('all')
+        plt.close('all')
+    else:
+        plt.show()
     
     return scatter_highlight_buffer, fig, ax
