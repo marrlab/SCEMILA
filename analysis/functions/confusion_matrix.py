@@ -63,9 +63,9 @@ def show_pred_mtrx(pred_mtrx, class_conversion=None, fig_size=None, normalize_ro
     # set up parameters
     class_size=len(class_conversion)
     if(fig_size is None):
-        fig_size=(11,7)
+        fig_size=(12,7)
     gridspec_width=3
-    width_rat=[5,2,2]
+    width_rat=[5,2,3]
 
     # convert dictionarys into arrays to prevent wrong order of labels/bars
     capitalize_func = lambda x: [y[0].upper() + y[1:] for y in x]
@@ -175,11 +175,25 @@ def show_pred_mtrx(pred_mtrx, class_conversion=None, fig_size=None, normalize_ro
     ax2.set_yticks([])
     ax2.set_ylim(class_size-0.5, -0.5)
     
-    ax2.set_title("Total images", fontdict=None, fontsize=fontsize)
+    ax2.set_title("Single cell images", fontdict=None, fontsize=fontsize)
     ax2.tick_params(axis='both', which='major', labelsize=fontsize)
     for label in ax2.get_xticklabels():
         label.set_rotation(45)
         label.set_ha('right')
+
+    if(show_size_values):
+
+        log_min = 0
+        log_max = max(image_counts)
+        log_border = log_max*0.66
+
+        for el in range(class_size):
+            size = image_counts[el]
+
+            if(size > log_border):
+                ax2.text(size, el, str(size) + " ", va='center', ha='right', color='w', fontsize=fontsize)
+            else:
+                ax2.text(size, el, " " + str(size), va='center', ha='left', color='k', fontsize=fontsize)
 
 
     plt.show()
@@ -233,6 +247,7 @@ def get_classwise_values(conf_matrix):
         
     return classwise_precision, classwise_recall, classwise_selectivity, classwise_f1, classwise_accuracy
 
+
 def get_classwise_values_as_df(conf_matrix, lbl_conv):
     df = pd.DataFrame([], columns=['class', 'prec', 'rec', 'f1', 'sens', 'spec']).set_index('class')
     true_names = lbl_conv.df.true_lbl
@@ -247,6 +262,27 @@ def get_classwise_values_as_df(conf_matrix, lbl_conv):
         df.loc[label] = data
     
     return df
+
+def get_fold_statistics(conf_matrices_dict, lbl_conv, metric='f1'):
+    c_data = None
+    for fold, confusion_data in conf_matrices_dict.items():
+        df = get_classwise_values_as_df(confusion_data, lbl_conv)
+        new_metric_string = '{}_{}'.format(metric, fold)
+
+        if c_data is None:
+            c_data = df[metric].to_frame().rename(columns={metric:new_metric_string})
+        else:
+            c_data[new_metric_string] = df[metric]
+
+    mean = c_data.mean(axis=1)
+    std = c_data.std(axis=1)
+
+    c_data['mean'] = mean
+    c_data['std'] = std
+    
+    return c_data
+
+    
         
 def get_accuracy(conf_matrix):
     tp = sum([conf_matrix[i,i] for i in range(conf_matrix.shape[0])])

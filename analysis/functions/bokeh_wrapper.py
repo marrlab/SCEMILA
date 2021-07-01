@@ -316,10 +316,8 @@ def calculate_cells_in_quantiles(df, target_column, quantiles=[0.25, 0.5, 0.75],
             if(sort_by_percentage):
                 df_out = df_out.sort_values(by=q, ascending=False)
 
-    cm = sns.light_palette("green", as_cmap=True)
-
-    s = df_out.style.background_gradient(cmap=cm)
-    return s
+    df_out = df_out.round(2)
+    return df_out
         
 
 

@@ -9,13 +9,12 @@ import label_converter
 
 generate_tiffname = lambda x: '0'*(3-len(str(x))) + str(x) + '.TIF'
 
-def load_data(folder_list, basepath, prefix, folder_dataset, load_sc_features=True):
+def load_dataframes(folder_list, basepath, prefix, folder_dataset, load_sc_features=True):
     '''This function loads...
     All testing data object files.
     All feature vectors for the UMAP embeddings.
     
     Returns:
-    - confusion matrix (npy array)
     - dataframe with all single cell images including their features
     - dataframe with all patient data
     '''
@@ -26,7 +25,6 @@ def load_data(folder_list, basepath, prefix, folder_dataset, load_sc_features=Tr
 
     datapoints = []
     temporary_data_cache = {}
-    confusion_matrix = np.zeros((len(lbl_conv_obj.df), len(lbl_conv_obj.df)), dtype=np.int16)
     
     ''' Load all Patients into dataframe. 
     Dataframe has columns:
@@ -63,9 +61,8 @@ def load_data(folder_list, basepath, prefix, folder_dataset, load_sc_features=Tr
                                 pat_loss, pat_entropy, pat_quality_category, pat_myb_share]
                 pat_datapoint.extend(pat_prediction_vector)
 
-                # enter data in dataframe and confusion matrix
+                # enter data in dataframe
                 datapoints.append(pat_datapoint)
-                confusion_matrix[entity, np.argmax(pat_prediction_vector)] += 1
                 temporary_data_cache[pat_id] = (pat_attention_raw, pat_attention_softmax, pat_prediction_vector)
 
     
@@ -128,4 +125,19 @@ def load_data(folder_list, basepath, prefix, folder_dataset, load_sc_features=Tr
     mll_annotation_dataframe = pd.read_csv('suppl_data/image_annotation_master.csv').set_index(['ID', 'im_tiffname'])
     whole_sc_dataframe = whole_sc_dataframe.join(mll_annotation_dataframe, on=['ID', 'im_tiffname'], how='left').set_index('ID')
 
-    return lbl_conv_obj, confusion_matrix, patient_dataframe, whole_sc_dataframe
+    return lbl_conv_obj, patient_dataframe, whole_sc_dataframe
+
+def extract_confusion_matrix(sc_df, lbl_conv_obj):
+    
+    num_classes = len(lbl_conv_obj.df)
+    confusion_matrix = np.zeros((num_classes, num_classes), dtype=np.int16)
+
+    for idx, r in sc_df.iterrows():
+        groundtruth = lbl_conv_obj[r.gt_label]
+        prediction = lbl_conv_obj[r.pred_lbl]
+
+        confusion_matrix[groundtruth, prediction] += 1
+
+    return confusion_matrix
+
+
