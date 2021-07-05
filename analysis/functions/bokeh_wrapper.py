@@ -1,4 +1,4 @@
-from bokeh.plotting import figure, show, output_notebook
+from bokeh.plotting import figure, show, save, output_notebook, output_file
 from bokeh.models import HoverTool, ColumnDataSource, CategoricalColorMapper, ColorBar, LinearColorMapper
 from bokeh.models import FuncTickFormatter, FixedTicker, Legend, BasicTickFormatter, Panel, Tabs
 from bokeh.palettes import Turbo256 as palette_umap
@@ -127,7 +127,7 @@ def swarmplot(df, xlim, ylim, title="Swarmplot", legend_header="", **kwargs):
 
     return plot_figure
     
-def multi_swarmplot(df, xlim, ylim, title, **kwargs):
+def multi_swarmplot(df, xlim, ylim, title, path_save=None, **kwargs):
     swarm_regular = swarmplot(df, xlim, ylim, title, legend_header="Annotated cell type", **kwargs)
     tab1 = Panel(child=swarm_regular, title="Full annotation")
     
@@ -137,6 +137,10 @@ def multi_swarmplot(df, xlim, ylim, title, **kwargs):
     tab2 = Panel(child=swarm_simplified, title="Reduced annotation")
     
     show(Tabs(tabs=[tab1, tab2]))
+    
+    if not path_save is None:
+        output_file(path_save)
+        save(Tabs(tabs=[tab1, tab2]))
 
 def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, **kwargs):
     
