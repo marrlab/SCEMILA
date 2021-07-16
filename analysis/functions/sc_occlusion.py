@@ -1,4 +1,4 @@
-from model import AMiL
+from model import SCEMILA
 import label_converter
 
 import pandas as pd

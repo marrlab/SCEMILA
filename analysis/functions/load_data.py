@@ -8,6 +8,7 @@ from scipy.stats import entropy
 import label_converter
 
 generate_tiffname = lambda x: '0'*(3-len(str(x))) + str(x) + '.TIF'
+has_multiatt = False
 
 def load_dataframes(folder_list, basepath, prefix, folder_dataset, load_sc_features=True):
     '''This function loads...
@@ -19,8 +20,10 @@ def load_dataframes(folder_list, basepath, prefix, folder_dataset, load_sc_featu
     - dataframe with all patient data
     '''
 
+    global has_multiatt
+
     # load label converter for further processing
-    lbl_conv_obj = label_converter.label_converter(path_preload=os.path.join(basepath, folder_list[0], 'class_conversion.csv'))
+    lbl_conv_obj = label_converter.LabelConverter(path_preload=os.path.join(basepath, folder_list[0], 'class_conversion.csv'))
     patient_master_dataframe = pd.read_csv('{}/mll_data_master_pseudo.csv'.format(folder_dataset)).set_index('pseudonym')
 
     datapoints = []
@@ -41,6 +44,7 @@ def load_dataframes(folder_list, basepath, prefix, folder_dataset, load_sc_featu
         else:
             f_fold = 0
 
+        ''' Below: Load the data from the data matrix. '''
         f_full_target = os.path.join(basepath, f, 'testing_data.pkl')
         if not os.path.exists(f_full_target):
             continue
@@ -65,6 +69,9 @@ def load_dataframes(folder_list, basepath, prefix, folder_dataset, load_sc_featu
                 datapoints.append(pat_datapoint)
                 temporary_data_cache[pat_id] = (pat_attention_raw, pat_attention_softmax, pat_prediction_vector)
 
+    # determine if the algorithm was set to multi attention, or single attention
+    has_multiatt = pat_attention_raw.shape[0] > 1
+
     
     columns_df = ['ID', 'pat_path', 'fold', 'gt_label', 'pred_lbl', 'MIL loss', 'entropy', 'quality_category', 'myb_annotated']
     columns_df.extend(['mil_prediction_'+lbl_conv_obj[x] for x in range(len(lbl_conv_obj.df))])
@@ -82,8 +89,12 @@ def load_dataframes(folder_list, basepath, prefix, folder_dataset, load_sc_featu
     patientwise_single_cell_dataframes = []
     columns_df = ['ID', 'fold', 'gt_label']
     columns_df.extend(['mil_prediction_'+lbl_conv_obj[x] for x in range(len(lbl_conv_obj.df))])
-    att_softmax_columns = ['att_softmax_'+lbl_conv_obj[x] for x in range(len(lbl_conv_obj.df))]
-    att_raw_columns = ['att_raw_'+lbl_conv_obj[x] for x in range(len(lbl_conv_obj.df))]
+    if has_multiatt:
+        att_softmax_columns = ['att_softmax_'+lbl_conv_obj[x] for x in range(len(lbl_conv_obj.df))]
+        att_raw_columns = ['att_raw_'+lbl_conv_obj[x] for x in range(len(lbl_conv_obj.df))]
+    else:
+        att_softmax_columns=['att_softmax']
+        att_raw_columns=['att_raw']
     
     for row_idx in tqdm(range(len(patient_dataframe))):    
         pat_datapoint = patient_dataframe.iloc[row_idx]
@@ -140,4 +151,23 @@ def extract_confusion_matrix(sc_df, lbl_conv_obj):
 
     return confusion_matrix
 
+def get_raw_attention_column(entity):
+    
+    global has_multiatt
+
+    out_string = 'att_raw'
+    if has_multiatt:
+        out_string = out_string + '_' + entity
+
+    return out_string
+
+def get_softmax_attention_column(entity):
+    
+    global has_multiatt
+
+    out_string = 'att_softmax'
+    if has_multiatt:
+        out_string = out_string + '_' + entity
+
+    return out_string
 

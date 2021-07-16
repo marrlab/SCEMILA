@@ -9,7 +9,7 @@ import time
 import copy
 import numpy as np
 
-class trainer:
+class ModelTrainer:
     '''class containing all the info about the training process and handling the actual 
     training function'''
 
@@ -81,7 +81,7 @@ class trainer:
         train_loss = 0.
         time_pre_epoch = time.time()
         confusion_matrix = np.zeros((self.class_count, self.class_count), np.int16)
-        data_obj = data_matrix()
+        data_obj = DataMatrix()
 
         self.optimizer.zero_grad()
         backprop_counter = 0
@@ -141,16 +141,44 @@ class trainer:
         return train_loss, accuracy, confusion_matrix, data_obj.return_data()
 
 
-class data_matrix():
-    '''stores all information about attention, predicted values, attention-pooled feature vectors, loss, ...
-    Great to be pickelized later.'''
+class DataMatrix():
+    '''DataMatrix contains all information about patient classification for later storage.
+    Data is stored within a dictionary:
+    
+    self.data_dict[true entity] contains another dictionary with all patient paths for
+                                the patients of one entity (e.g. AML-PML-RARA, SCD, ...)
+    
+    --> In this dictionary, the paths form the keys to all the data of that patient
+        and it's classification, stored as a tuple:
+                
+        - attention_raw:    attention for all single cell images before softmax transform
+        - attention:        attention after softmax transform
+        - prediction:       Numeric position of predicted label in the prediction vector
+        - prediction_vector:Prediction vector containing the softmax-transformed activations
+                            of the last AMiL layer
+        - loss:             Loss for that patients' classification
+        - out_features:     Aggregated bag feature vectors after attention calculation and
+                            softmax transform. '''
     
     def __init__(self):
         self.data_dict = dict()
 
     def add_patient(self, entity, path_full, attention_raw, attention, prediction, prediction_vector, loss, out_features):
-        '''stores all data including attention, predicted label, prediction probabilities, loss.
-        Object is later saved in pickle.'''
+        '''Add a new patient into the data dictionary. Enter all the data packed into a tuple into the dictionary as:
+        self.data_dict[entity][path_full] = (attention_raw, attention, prediction, prediction_vector, loss, out_features)
+        
+        accepts:
+        - entity: true patient label
+        - path_full: path to patient folder
+        - attention_raw: attention before softmax transform
+        - attention: attention after softmax transform
+        - prediction: numeric bag label
+        - prediction_vector: output activations of AMiL model
+        - loss: loss calculated from output actiations
+        - out_features: bag features after attention calculation and matrix multiplication
+
+        returns: Nothing
+        '''
 
         if not (entity in self.data_dict):
             self.data_dict[entity] = dict()

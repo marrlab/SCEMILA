@@ -45,7 +45,7 @@ def define_dataset(num_folds = 5, prefix_in=None, label_converter_in=None,
         according to parameters / exclusion criteria, and splits the data automatically.
         - num_folds: split dataset into n folds
         - prefix_in: choose different set of extracted features, by adapting here
-        - label_converter_in: needs label_converter created in run_pipeline.py to convert string to integer labels
+        - label_converter_in: needs LabelConverter created in run_pipeline.py to convert string to integer labels
         - filter_diff_count: filter if patient has less than this amount (e.g. '19' for 19%) myeloblasts. 
             Set to -1, if no filtering should be applied here.
         - filter_quality_major_assessment: exclude slides with unacceptable slide quality
@@ -113,7 +113,7 @@ def define_dataset(num_folds = 5, prefix_in=None, label_converter_in=None,
 
 
 ##### Actual dataset class
-class dataset(Dataset):
+class MllDataset(Dataset):
 
     '''MLL mil dataset class. Can be used by pytorch DataLoader '''
 

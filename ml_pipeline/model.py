@@ -29,15 +29,15 @@ class AMiL(nn.Module):
 
 
         # feature extractor before multiple instance learning starts
-        self.ft_dim_in = 512
+        self.FT_DIM_IN = 512
         self.ftr_proc = nn.Sequential(
-            nn.Conv2d(self.ft_dim_in, int(self.ft_dim_in*1.5), kernel_size=2),
+            nn.Conv2d(self.FT_DIM_IN, int(self.FT_DIM_IN*1.5), kernel_size=2),
             nn.ReLU(),
-            nn.Conv2d(int(self.ft_dim_in*1.5), int(self.ft_dim_in*2), kernel_size=2),
+            nn.Conv2d(int(self.FT_DIM_IN*1.5), int(self.FT_DIM_IN*2), kernel_size=2),
             nn.ReLU(),
             nn.AdaptiveMaxPool2d(output_size=(1,1)),
             nn.Flatten(),
-            nn.Linear(int(self.ft_dim_in*2), self.L),
+            nn.Linear(int(self.FT_DIM_IN*2), self.L),
             nn.ReLU(),
         )
 
@@ -50,8 +50,9 @@ class AMiL(nn.Module):
         )
         ##### classifier (single attention approach)
         self.classifier = nn.Sequential(
-            nn.Linear(self.L, self.class_count),
-            nn.Softmax(1)
+            nn.Linear(self.L, 64),
+            nn.ReLU(),
+            nn.Linear(64, self.class_count)
         )
 
         # Networks for multi attention approach

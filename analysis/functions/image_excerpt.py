@@ -3,13 +3,14 @@ import math
 import os
 import numpy as np
 
+CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+
 def plot(sc_df, cols=16, dpi=150, show_coordinates=True, show_scalebar=False, path_save=None):
     
     # load image array
     im_path = os.path.join(os.path.dirname(sc_df.iloc[0].im_path), 'processed', 'stacked_images.npy')
     im_ar = np.load(im_path)
     
-    chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     scale_size=15/cols
     rows=math.ceil(im_ar.shape[0]/cols)
 
@@ -24,7 +25,7 @@ def plot(sc_df, cols=16, dpi=150, show_coordinates=True, show_scalebar=False, pa
         ax.set_yticks([])
 
         if show_coordinates:
-            coordinates = chars[counter%cols] + str(math.ceil((counter+1)/cols))
+            coordinates = CHARS[counter%cols] + str(math.ceil((counter+1)/cols))
             ax.text(5, 28, coordinates, alpha=0.4)
         
         if show_scalebar and counter == 0:

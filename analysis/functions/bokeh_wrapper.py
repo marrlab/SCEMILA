@@ -17,7 +17,7 @@ from scipy.optimize import fmin
 from scipy.spatial import distance
 import os
 
-fontsize=12
+FONTSIZE=12
 output_notebook()
 
 col_scheme = pkl.load(open('suppl_data/color_scheme.pkl', 'rb'))
@@ -136,9 +136,11 @@ def multi_swarmplot(df, xlim, ylim, title, path_save=None, **kwargs):
     swarm_simplified = swarmplot(df_simplified, xlim, ylim, title, legend_header="Annotated cell group", **kwargs)
     tab2 = Panel(child=swarm_simplified, title="Reduced annotation")
     
-    show(Tabs(tabs=[tab1, tab2]))
-    
-    if not path_save is None:
+    if path_save is None:
+        # if no path_save is given, show
+        show(Tabs(tabs=[tab1, tab2]))
+    else:
+        # otherwise, save
         output_file(path_save)
         save(Tabs(tabs=[tab1, tab2]))
 
@@ -162,8 +164,8 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
     ax.spines['left'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.set_yticks([])
-    ax.set_xlabel('Single cell attention', fontsize=fontsize)
-    ax.set_title(title, fontsize=fontsize, ha='center')
+    ax.set_xlabel('Single cell attention', fontsize=FONTSIZE)
+    ax.set_title(title, fontsize=FONTSIZE, ha='center')
     
     df['color'] = df['color_values'].apply(col_get)
     df['edgecolor'] = df['color_values'].apply(col_edge_get)
@@ -176,7 +178,7 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
                                label=capitalize(ctype), marker=shape_get_matplotlib(ctype), s=dotsize, linewidth=0.5, **kwargs)
             
     leg = ax.legend(loc=6, bbox_to_anchor=(1.1, 0.0, 0.5, 0.5), title="Annotated cell type", 
-              title_fontsize=fontsize, edgecolor='w', fontsize=fontsize)
+              title_fontsize=FONTSIZE, edgecolor='w', fontsize=FONTSIZE)
     leg._legend_box.align = "left"
 
     # plot simplified swarmplot
@@ -200,7 +202,7 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
                                label=capitalize(ctype), marker=shape_get_matplotlib(ctype), s=dotsize, linewidth=0.5, **kwargs)
             
     leg = ax2.legend(loc=6, bbox_to_anchor=(1.1, 0.5, 0.5, 0.5), title="Grouped cell type", 
-              title_fontsize=fontsize, edgecolor='w', fontsize=fontsize)
+              title_fontsize=FONTSIZE, edgecolor='w', fontsize=FONTSIZE)
     leg._legend_box.align = "left"
     
     # plot in highlighted images
@@ -256,8 +258,8 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
             ax2.add_artist(ab)
 
     
-    ax.text(x=0.01, y=0.01, s="Low attention", transform=ax.transAxes, ha='left', fontsize=fontsize)
-    ax.text(x=0.99, y=0.01, s="High attention", transform=ax.transAxes, ha='right', fontsize=fontsize)
+    ax.text(x=0.01, y=0.01, s="Low attention", transform=ax.transAxes, ha='left', fontsize=FONTSIZE)
+    ax.text(x=0.99, y=0.01, s="High attention", transform=ax.transAxes, ha='right', fontsize=FONTSIZE)
     
     if not path_save is None:
         fig.savefig(path_save, bbox_inches='tight')
@@ -465,9 +467,9 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
     x_min, x_max = min(df_in.x)-1, max(df_in.x)+1
     y_min, y_max = min(df_in.y)-1, max(df_in.y)+1
         
-    ax.set_xlabel('UMAP_1', fontsize=fontsize)
-    ax.set_ylabel('UMAP_2', fontsize=fontsize)
-    ax.set_title(title, fontsize=fontsize)
+    ax.set_xlabel('UMAP_1', fontsize=FONTSIZE)
+    ax.set_ylabel('UMAP_2', fontsize=FONTSIZE)
+    ax.set_title(title, fontsize=FONTSIZE)
     ax.axis('equal')
     ax.set_xlim(x_min, x_max)
     ax.set_ylim(y_min, y_max)
@@ -532,7 +534,7 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
                     im.save(save_dirname)
                     idx_counter += 1
         
-        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), title=legend_capt, fontsize=fontsize, title_fontsize=fontsize,
+        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), title=legend_capt, fontsize=FONTSIZE, title_fontsize=FONTSIZE,
                  edgecolor='w')
     if('att' in data_column):
         norm = mpt_colors.Normalize(vmin=df_in[data_column].min()*1.2, vmax=df_in[data_column].max())

@@ -7,7 +7,7 @@ In the following, I refer to the two terms:
 - artificial label = integer label for one-hot encoding
 '''
 
-class label_converter:
+class LabelConverter:
     '''Keeps track of all true labels and allows for easy index conversion.
     This is required since every class needs to match one corresponding integer
     for one-hot encoding. The dataframe can be integrates with confusion 

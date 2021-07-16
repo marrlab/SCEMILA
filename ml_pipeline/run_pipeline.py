@@ -19,7 +19,7 @@ from model_train import *   # model training function
 
 
 # 1: Setup. Source Folder is parent folder for both mll_data_master and the /data folder
-TARGET_FOLDER = '/storage/groups/qscd01/projects/aml_mil_hehr/final_results/testing_stability/'       # results will be stored here
+TARGET_FOLDER = '/storage/groups/qscd01/projects/aml_mil_hehr/final_results/'       # results will be stored here
 SOURCE_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/'                             # path to dataset
 
 # get arguments from parser, set up folder
@@ -58,7 +58,7 @@ start = time.time()
 # Initialize datasets, dataloaders, ...
 print("")
 print('Initialize datasets...')
-label_conv_obj = label_converter.label_converter()
+label_conv_obj = label_converter.LabelConverter()
 set_dataset_path(SOURCE_FOLDER)
 define_dataset(num_folds = 5, prefix_in = args.prefix, 
                 label_converter_in=label_conv_obj, filter_diff_count=int(args.filter_diff), 
@@ -70,9 +70,9 @@ folds = {'train':np.array([0,1,2]), 'val':np.array([3]), 'test':np.array([4])}
 for name, fold in folds.items():
     folds[name] = ((fold+int(args.fold))%5).tolist()
 
-datasets['train'] = dataset(folds=folds['train'], aug_im_order=True, split='train', patient_bootstrap_exclude=int(args.bootstrap_idx))
-datasets['val'] = dataset(folds=folds['val'], aug_im_order=False, split='val')
-datasets['test'] = dataset(folds=folds['test'], aug_im_order=False, split='test')
+datasets['train'] = MllDataset(folds=folds['train'], aug_im_order=True, split='train', patient_bootstrap_exclude=int(args.bootstrap_idx))
+datasets['val'] = MllDataset(folds=folds['val'], aug_im_order=False, split='val')
+datasets['test'] = MllDataset(folds=folds['test'], aug_im_order=False, split='test')
 
 ##### store conversion from true string labels to artificial numbers for one-hot encoding
 df = label_conv_obj.df
@@ -126,7 +126,7 @@ optimizer = optim.SGD(model.parameters(), lr=float(args.lr), momentum=0.9, neste
 scheduler = None
 
 ##### launch training
-train_obj = trainer(model=model, dataloaders=dataloaders, epochs=int(args.ep), optimizer = optimizer,
+train_obj = ModelTrainer(model=model, dataloaders=dataloaders, epochs=int(args.ep), optimizer = optimizer,
                     scheduler=scheduler, class_count=class_count, early_stop=int(args.es), device=device)
 model, conf_matrix, data_obj = train_obj.launch_training()
 
