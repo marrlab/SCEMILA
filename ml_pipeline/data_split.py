@@ -8,12 +8,20 @@ data_split = None
 def split_in_folds(data, num_folds): 
     '''splits data into num_folds shares. Split
     data can then be retrieved using return_folds.
-    Data comes in a dict which has to be formatted as:
-        
-        data[entity] = [patient_list]
+    Formats the data passed to the function and splits 
+    it into folds which can then be accessed easily
 
-    So that in the end every fold of num_folds contains a 
-    stratified part of patients for every entity.
+    Accepts:
+    - data (dictionary):
+        Data in a dictionary for stratified split:
+        data[bag label] = [list of patients]
+        The function stratifies the data based on
+        the bag label.
+    - num_folds (integer):
+        number of folds to split data into. 
+    
+    Returns:
+    - Nothing. Access folds through the return_folds method.
     '''
     
     global data_split
@@ -44,8 +52,19 @@ def split_in_folds(data, num_folds):
 def return_folds(folds):
 
     '''Returns all data from data_split from the corresponding folds of the 
-    previously calculated split, can pass either a single integer or a list of 
-    integers for the folds to fetch.'''
+    previously calculated split.
+    
+    Accepts:
+    - folds (integer or list of integers):
+        Pass the amount of folds that should be retrieved.
+    
+    Returns:
+    - data_final (dictionary):
+        dictionary of patients, containing all the data from the requested folds.
+        The data is formatted as
+        
+        data_final[bag label] = [list of patients]
+    '''
 
     if(isinstance(folds, int)):
         folds = [folds]

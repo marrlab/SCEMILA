@@ -44,7 +44,9 @@ def load_dataframes(folder_list, basepath, prefix, folder_dataset, load_sc_featu
         else:
             f_fold = 0
 
-        ''' Below: Load the data from the data matrix. '''
+        ''' Below: Load the data from the data matrix. 
+        For detailled insight into how data is stored, check code/ml_pipeline/model_train.py
+        to see the full documentation of the object pickelized in testing_data.pkl'''
         f_full_target = os.path.join(basepath, f, 'testing_data.pkl')
         if not os.path.exists(f_full_target):
             continue

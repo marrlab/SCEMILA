@@ -14,6 +14,32 @@ class ModelTrainer:
     training function'''
 
     def __init__(self, model, dataloaders, epochs, optimizer, scheduler, class_count, device, early_stop=20):
+
+        '''
+        Accepts:
+        - model (torch.model): 
+            Pytorch model which should be trained
+        - dataloaders (dictionary of pytorch dataloaders):
+            Dictionary containing the training, validation and test dataloaders
+        - epochs (integer):
+            Amount of max. epochs to train for
+        - optimizer (pytorch optimizer):
+            Optimizer used for training
+        - scheduler (pytorch scheduler):
+            Scheduler to use for optimizing / changing hyperparameters dynamically.
+            Can be left empty.
+        - class_count (integer):
+            Amount of total classes
+        - device ('cuda:0' or 'cpu'):
+            Device where the training should take place on
+        - early_stop (integer):
+            Amount of epochs to train for, until no improvement takes place anymore.
+        
+        Returns:
+        - Nothing, just sets the parameters.
+        
+        '''
+        
         self.model = model
         self.dataloaders = dataloaders
         self.epochs = epochs
@@ -24,7 +50,19 @@ class ModelTrainer:
         self.device = device
 
     def launch_training(self):
-        '''initializes training process.'''
+        '''Initializes training process.
+        
+        Accepts:
+        - Nothing
+        
+        Returns:
+        - model (torch.model):
+            best-performing model on the validation set
+        - conf_matrix (np.array):
+            2d confusion matrix, containing performance on the test set
+        - data_obj (DataMatrix):
+            Contains all the data of the test set classification
+        '''
 
         best_loss = 10          #high value, so that future loss values will always be lower
         no_improvement_for = 0
@@ -64,10 +102,25 @@ class ModelTrainer:
 
     def dataset_to_model(self, epoch, split, backprop_every=20):
         '''launch iteration for 1 epoch on specific dataset object, with backprop being optional
-        - epoch: epoch count, is only printed and thus not super important
-        - split: if equal to 'train', apply backpropagation. Otherwise, don`t.
-        - backprop_every: only apply backpropagation every n patients. Allows for gradient accumulation over
-          multiple patients, like in batch processing in a regular neural network.'''
+
+        Accepts:
+        - epoch (integer):
+            Epoch to print in the summary
+        - split (String):
+            Required to turn on/off backpropagation
+        - backprop_every (integer):
+            Only perform backpropagation after X patients, to minimize the effect of outliers
+        
+        Returns:
+        - train_loss (float):
+            Average loss of this epoch
+        - accuracy (float):
+            Accuracy of this epoch
+        - confusion_matrix (np.array):
+            Array containing performance of this epoch / on this part of the data
+        - data (dictionary):
+            All the data about performance on this fold/data
+        '''
         
         if(split == 'train'):
             backpropagation=True
@@ -155,7 +208,7 @@ class DataMatrix():
         - attention:        attention after softmax transform
         - prediction:       Numeric position of predicted label in the prediction vector
         - prediction_vector:Prediction vector containing the softmax-transformed activations
-                            of the last AMiL layer
+                            of the last SCEMILA layer
         - loss:             Loss for that patients' classification
         - out_features:     Aggregated bag feature vectors after attention calculation and
                             softmax transform. '''
@@ -167,17 +220,17 @@ class DataMatrix():
         '''Add a new patient into the data dictionary. Enter all the data packed into a tuple into the dictionary as:
         self.data_dict[entity][path_full] = (attention_raw, attention, prediction, prediction_vector, loss, out_features)
         
-        accepts:
+        Accepts:
         - entity: true patient label
         - path_full: path to patient folder
         - attention_raw: attention before softmax transform
         - attention: attention after softmax transform
         - prediction: numeric bag label
-        - prediction_vector: output activations of AMiL model
+        - prediction_vector: output activations of SCEMILA model
         - loss: loss calculated from output actiations
         - out_features: bag features after attention calculation and matrix multiplication
 
-        returns: Nothing
+        Returns: Nothing
         '''
 
         if not (entity in self.data_dict):

@@ -19,7 +19,7 @@ from model_train import *   # model training function
 
 
 # 1: Setup. Source Folder is parent folder for both mll_data_master and the /data folder
-TARGET_FOLDER = '/storage/groups/qscd01/projects/aml_mil_hehr/final_results/'       # results will be stored here
+TARGET_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/code/results'       # results will be stored here
 SOURCE_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/'                             # path to dataset
 
 # get arguments from parser, set up folder
@@ -113,7 +113,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 ngpu = torch.cuda.device_count()
 print("Found device: ", ngpu, "x ", device)
 
-model = AMiL(class_count=class_count, multicolumn=int(args.multi_att), device=device)
+model = SCEMILA(class_count=class_count, multi_attention=int(args.multi_att), device=device)
 
 if(ngpu > 1):
     model = torch.nn.DataParallel(model)

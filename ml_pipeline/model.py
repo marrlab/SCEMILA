@@ -7,23 +7,34 @@ import torchvision.models as models
 import numpy as np
 
 
-class AMiL(nn.Module):
+class SCEMILA(nn.Module):
 
-    def __init__(self, class_count, multicolumn, device):
+    def __init__(self, class_count, multi_attention, device):
 
-        '''Initialize model. Takes in parameters:
-        - class_count: int, amount of classes --> relevant for output vector
-        - multicolumn: boolean. Defines if multiple attention vectors should be used.
-        - device: either 'cuda:0' or the corresponding cpu counterpart.
+        '''Initialize model.
+
+        Accepts:
+        - class_count (integer):
+            amount of classes --> relevant for output vector
+        - multi_attention (boolean):
+            Defines if multiple attention values should be used for each image, one for each
+            possible bag label.
+        - device (String): 
+            either 'cuda:0' or the corresponding cpu counterpart.
+        
+        Returns:
+        - Nothing, just set up model
+        
+        
         '''
 
-        super(AMiL, self).__init__()
+        super(SCEMILA, self).__init__()
 
         self.L = 500                    # condense every image into self.L features (further encoding before actual MIL starts)
         self.D = 128                    # hidden layer size for attention network
 
         self.class_count = class_count
-        self.multicolumn = multicolumn
+        self.multi_attention = multi_attention
         self.device = device
  
 
@@ -72,13 +83,28 @@ class AMiL(nn.Module):
             ))
 
     def forward(self, x):
-        '''Forward pass of bag x through network. '''
+        '''Forward pass of feature bag x through network. 
+        
+        Accepts:
+        - x (torch.Tensor): 
+            features of every single cell image from that patient
+        
+        Returns:
+        - prediction (torch.Tensor):
+            Activations of output layer
+        - att_raw (torch.Tensor)
+            Attention values before softmax transform
+        - att_softmax (torch.Tensor)
+            Attention values after softmax transform
+        - bag_features (torch.Tensor)
+            Bag features after attention calculation and matrix multiplication
+        '''
 
         ft = x.squeeze(0)
         ft = self.ftr_proc(ft)
 
         # switch between multi- and single attention classification
-        if(self.multicolumn):
+        if(self.multi_attention):
             prediction = []
             bag_feature_stack = []
             attention_stack = []

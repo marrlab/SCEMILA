@@ -23,9 +23,9 @@
 source ~/anaconda/etc/profile.d/conda.sh
 conda activate pytorch_latest 
 
-python3 run_pipeline.py --result_folder pub_singleatt_0 --fold 0 --filter_mediocre_quality=0 --filter_diff=20 --save_model=1 --multi_att=0
-python3 run_pipeline.py --result_folder pub_singleatt_1 --fold 1 --filter_mediocre_quality=0 --filter_diff=20 --save_model=1 --multi_att=0
-python3 run_pipeline.py --result_folder pub_singleatt_2 --fold 2 --filter_mediocre_quality=0 --filter_diff=20 --save_model=1 --multi_att=0
-python3 run_pipeline.py --result_folder pub_singleatt_3 --fold 3 --filter_mediocre_quality=0 --filter_diff=20 --save_model=1 --multi_att=0
-python3 run_pipeline.py --result_folder pub_singleatt_4 --fold 4 --filter_mediocre_quality=0 --filter_diff=20 --save_model=1 --multi_att=0
+python3 run_pipeline.py --result_folder pub_singleatt_0 --fold 0 --filter_mediocre_quality=0 --filter_diff=20 --save_model=1 --multi_att=1
+python3 run_pipeline.py --result_folder pub_singleatt_1 --fold 1 --filter_mediocre_quality=0 --filter_diff=20 --save_model=1 --multi_att=1
+python3 run_pipeline.py --result_folder pub_singleatt_2 --fold 2 --filter_mediocre_quality=0 --filter_diff=20 --save_model=1 --multi_att=1
+python3 run_pipeline.py --result_folder pub_singleatt_3 --fold 3 --filter_mediocre_quality=0 --filter_diff=20 --save_model=1 --multi_att=1
+python3 run_pipeline.py --result_folder pub_singleatt_4 --fold 4 --filter_mediocre_quality=0 --filter_diff=20 --save_model=1 --multi_att=1
 

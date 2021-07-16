@@ -15,17 +15,17 @@ Research needs more people like you!
     - [X] ALL packages are lowercase
 
 * [X] No. There are no exceptions because you prefer them...
-* [ ] Are your custom data structures clearly described?
+* [X] Are your custom data structures clearly described?
 
-    - [ ] Shape?
-    - [ ] Data Types?
-    - [ ] Hierarchy?
+    - [X] Shape?
+    - [X] Data Types?
+    - [?] Hierarchy?
 
-* [ ] Do ALL public functions have docstrings?
+* [1/2 X] Do ALL public functions have docstrings? (for the ml_pipeline at least)
 
-    - [ ] Does it include the inputs and their format?
-    - [ ] Does it include the ouputs and their format?
-    - [ ] Does it include the exceptions that it throws?
+    - [X] Does it include the inputs and their format?
+    - [X] Does it include the ouputs and their format?
+    - [X] Does it include the exceptions that it throws?
 
 * [ ] Remember that function that took you ages to write? Read the code: if you can immediately understand it you are good - otherwise, rewrite it to be more explicit.
 * [ ] Does ANY functions have >2 bracket-pairs of any kind? Split it into more lines.

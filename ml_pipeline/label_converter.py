@@ -2,22 +2,28 @@ import pandas as pd
 
 
 '''
-In the following, I refer to the two terms:
+In the following, The following terms are used:
 - true label = string label of our class
 - artificial label = integer label for one-hot encoding
 '''
 
 class LabelConverter:
     '''Keeps track of all true labels and allows for easy index conversion.
-    This is required since every class needs to match one corresponding integer
-    for one-hot encoding. The dataframe can be integrates with confusion 
-    matrix function.'''
+    Instead of using a fixed dictionary, this allows us to easily adapt to different
+    classification scenarios, if e.g. changing code in the dataset.process_label function'''
     
     def __init__(self, exclude_lbls = [], path_preload = None):
-        '''Initialize. Parameters:
-        - exclude_lbls: can put in a list of labels which will be discarded
-        - path_preload: if a path is put here, load dataframe instead of setting
-        up a new one'''
+        '''Initialize. 
+        
+        Accepts:
+        - exclude_lbls (List of Strings):
+            Ignore all of the labels passed here.
+        - path_preload (path):
+            Load pre-existing dataframe for the label conversion
+        
+        Returns:
+        - Nothing
+        '''
 
         if not path_preload is None:
             self.df = pd.read_csv(path_preload, index_col=0)
@@ -32,11 +38,22 @@ class LabelConverter:
 
 
     def add(self, true_lbl, size=1, split=None):
-        '''Add a new entry. If label already exists, just counts the class size.
+        '''Add a new entry. If label already exists, just increase the class size count.
         If new entry, automatically matches next free integer to class.
-        - true_lbl: string label of class
-        - size: amount of entries to add
-        - split: fold, to which the added entries belong'''
+        
+        Accepts:
+        - true_lbl (String):
+            String label of the patient added. 
+        - size (Integer):
+            Amount of patients added with this label.
+        - split (String):
+            Part of the dataset the patient belongs to, e.g.
+            "train", "test", or "val". Like this, we keep track
+            of the amount of patients in each part of the dataset.
+        
+        Returns:
+        - Nothing
+        '''
 
         # exclude sample, if in exclusion list
         if true_lbl in self.exclude:
@@ -49,13 +66,22 @@ class LabelConverter:
         # add class size information
         if split in ['train', 'test', 'val']:
             s_increase = 's_' + split
-        self.df.loc[self.df['true_lbl'] == true_lbl, s_increase] += size
+            self.df.loc[self.df['true_lbl'] == true_lbl, s_increase] += size
         self.df.loc[self.df['true_lbl'] == true_lbl, 'size_tot'] += size
 
 
     def __getitem__(self, input):
         '''easy access: checks if input is int --> convert to true label, or 
-        input is string --> convert to artificial label.'''
+        input is string --> convert to artificial label.
+        
+        Accepts:
+        - input (String or Integer)
+            Function figures out, which way the conversion should take place, 
+            then calls the proper conversion.
+        
+        Returns:
+        - Converted label (Integer or String)
+        '''
 
         if isinstance(input, int):
             conv_from = 'art_lbl'
@@ -77,7 +103,16 @@ class LabelConverter:
 
 
     def get_sizes(self, label):
-        '''return size of a class with string label label'''
+        '''return size of a class with string label label
+        
+        Accepts:
+        - label (String):
+            Label, where class size is asked
+        
+        Returns:
+        - pd.Series:
+            Amount of patients in different folds
+        '''
 
         if isinstance(label, int):
             label = self[label]
