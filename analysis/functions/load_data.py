@@ -140,12 +140,13 @@ def load_dataframes(folder_list, basepath, prefix, folder_dataset, load_sc_featu
 
     return lbl_conv_obj, patient_dataframe, whole_sc_dataframe
 
-def extract_confusion_matrix(sc_df, lbl_conv_obj):
+def extract_confusion_matrix(df, lbl_conv_obj):
+    '''Extract the confusion matrix from the patient dataframe'''
     
     num_classes = len(lbl_conv_obj.df)
     confusion_matrix = np.zeros((num_classes, num_classes), dtype=np.int16)
 
-    for idx, r in sc_df.iterrows():
+    for idx, r in df.iterrows():
         groundtruth = lbl_conv_obj[r.gt_label]
         prediction = lbl_conv_obj[r.pred_lbl]
 
@@ -154,6 +155,8 @@ def extract_confusion_matrix(sc_df, lbl_conv_obj):
     return confusion_matrix
 
 def get_raw_attention_column(entity):
+    '''Automatically adapt, if the loaded data worked with multiple attention
+    columns and load the attention column *without* applied softmax function.'''
     
     global has_multiatt
 
@@ -164,6 +167,8 @@ def get_raw_attention_column(entity):
     return out_string
 
 def get_softmax_attention_column(entity):
+    '''Automatically adapt, if the loaded data worked with multiple attention
+    columns and load the attention column *with* applied softmax function.'''
     
     global has_multiatt
 

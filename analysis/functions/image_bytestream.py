@@ -7,6 +7,7 @@ from PIL import Image
 
 
 def embeddable_image(array, idx):
+    '''Load a specific image from the array, and encode it in a way usable by bokeh.'''
     img_data = array[idx, ...]
     image = Image.fromarray(img_data, mode='RGB').resize((64, 64), Image.BICUBIC)
     buffer = BytesIO()
@@ -15,6 +16,8 @@ def embeddable_image(array, idx):
     return 'data:image/png;base64,' + base64.b64encode(for_encoding).decode()
 
 def map_images_to_dataframe(df):
+    '''Parse through the entire single cell dataframe, and load all images from files as 
+    efficiently as possible (without unnecessary array loading)'''
     df = df.reset_index()
     df['image'] = [None]*len(df)
     df = df.sort_values(by=['ID', 'im_tiffname'])

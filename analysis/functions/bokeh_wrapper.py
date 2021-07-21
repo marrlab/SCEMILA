@@ -17,8 +17,29 @@ from scipy.optimize import fmin
 from scipy.spatial import distance
 import os
 
+'''
+This file is responsible for plotting large parts of all figures. It has grown quite a bit, and is structured in three parts:
+1. Definition of cell groupings, loading all color maps and shapes to keep the same, curated color-code
+2. Swarmplots implemented in Bokeh (interactive) and Matplotlib (for exporting)
+3. UMAPs implemented in Bokeh (interactive) and Matplotlib (for exporting)
+
+Because there had to be some workarounds and all figures are exported in publication-level vector graphics, the functions tend
+to be quite long.
+'''
+
+
+
+
+
+'''
+1. Definition of cell grouping (which cells belong to which category), loading all color maps and marker shapes
+'''
+
+
+
 FONTSIZE=12
 output_notebook()
+
 
 col_scheme = pkl.load(open('suppl_data/color_scheme.pkl', 'rb'))
 col_map = col_scheme[0]
@@ -75,7 +96,67 @@ pool_dict = {
 
 pool_labels = lambda x: pool_dict[x]
 
+# piechart_order_dict and get_order are required to pool and order the cell groups for the piecharts.
+piechart_order_dict = {
+    
+    'AML-RUNX1-RUNX1T1 specific':-6,
+    'AML-NPM1 specific':-5,
+    'AML-PML-RARA specific':-4,
+    'Indicates AML':-3,
+    'Can indicate AML':-2,
+    'Healthy / AML unrelated':-1,
+    'No clinical assessment':0,
+    
+    'myeloblast with long auer rod':1,
+    'cup-like blast':2,
+    'atypical promyelocyte':3.1,
+    'faggot cell':3.2,
+    'atypical promyelocyte with auer rod':3.3,
+    'atypical promyelocyte, bilobed':3.4,
+    'pathological eosinophil':4,
+    
+    'myeloblast':5.1,
+    'myeloblast with auer rod':5.2,
+    'monoblast':6.1,
+    'promonocyte':6.2,
+    
+    'myelocyte':7,
+    'promyelocyte':8,
+    'normo':9.1,
+    'erythroblast':9.2,
+    'monocyte':10,
+    
+    'basophil granulocyte':11,
+    'eosinophil granulocyte':12,
+    'neutrophil granulocyte (segmented)':13,
+    'neutrophil granulocyte (band)':14,
+    'metamyelocyte':15,
+    'typical lymphocyte':16,
+    'reactive lymphocyte':17,
+    'large granulated lymphocyte':18,
+    
+    'other':19,
+    'ambiguous':20,
+}
+get_order = lambda x: piechart_order_dict[x]
+
+
+
+
+
+'''
+2. Swarmplots
+'''
+
+
+
 def swarmplot(df, xlim, ylim, title="Swarmplot", legend_header="", **kwargs):
+    '''
+    Create a bokeh swarmplot with the given data, and return. 
+    Does not plot the figure itself, as this configuration in combination
+    with multi_swarmplot allows to put two different swarmplots in separate
+    tabs.
+    '''
     df = df.drop(columns=[str(x) for x in range(12800)])
 
     # if annotation exists, drop 'cell' datapoints
@@ -115,6 +196,7 @@ def swarmplot(df, xlim, ylim, title="Swarmplot", legend_header="", **kwargs):
     plot_figure.outline_line_color = None
     plot_figure.title.align = 'center'
     
+    # plot cells in specific order, to keep legend always in the same order.
     for ctype in legend_order:
         
         ctype_df = df.loc[df['color_values'] == ctype]   
@@ -123,11 +205,15 @@ def swarmplot(df, xlim, ylim, title="Swarmplot", legend_header="", **kwargs):
             marker_function = shape_get_bokeh(ctype)
             marker_function(fig=plot_figure, x='x', y='y', fill_color='color', line_color="edgecolor", 
                                source=datasource, legend_label=capitalize(ctype), size=size, line_width=0.5, **kwargs)
-    
 
     return plot_figure
     
+
 def multi_swarmplot(df, xlim, ylim, title, path_save=None, **kwargs):
+    '''
+    Call swarmplot() twice, to create separate tabs
+    '''
+
     swarm_regular = swarmplot(df, xlim, ylim, title, legend_header="Annotated cell type", **kwargs)
     tab1 = Panel(child=swarm_regular, title="Full annotation")
     
@@ -144,7 +230,9 @@ def multi_swarmplot(df, xlim, ylim, title, path_save=None, **kwargs):
         output_file(path_save)
         save(Tabs(tabs=[tab1, tab2]))
 
-def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, **kwargs):
+
+def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, plot_quantiles=None, **kwargs):
+    '''Plot the same swarmplot in matplotlib, and export as svg.'''
     
     dotsize=35
     custom_zoom=0.7
@@ -227,7 +315,11 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
                     s=dotsize, zorder=10, marker=shape_get_matplotlib(class_lbl), edgecolors=col_edge_get(class_lbl))
 
 
-        # shift images a little bit to improve optics
+        '''
+        Find optimal positions for showing the single cell images,
+        while keeping all at the same distance from each other.
+        This is realized by minimizing a function f_positions, calculating a 
+        distance metric.'''
         global xpoints
         xpoints = sorted(im_buffer.keys())
 
@@ -260,14 +352,36 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
     
     ax.text(x=0.01, y=0.01, s="Low attention", transform=ax.transAxes, ha='left', fontsize=FONTSIZE)
     ax.text(x=0.99, y=0.01, s="High attention", transform=ax.transAxes, ha='right', fontsize=FONTSIZE)
+
+    if not plot_quantiles is None:
+        quant_grouped, borders = calculate_cells_in_quantiles(df, 
+                                                       plot_quantiles, 
+                                                       group_index=True, round_data=False)
+        
+        ylevel = ylim[0] + yrange -0.05
+
+        def plot_line(xmin, xmax):
+            ax.plot((xmin, xmax), (ylevel, ylevel), color='k')
+            ax.plot((xmin, xmin), (ylevel-yrange*0.01, ylevel+yrange*0.01), color='k')
+            ax.plot((xmax, xmax), (ylevel-yrange*0.01, ylevel+yrange*0.01), color='k')
+
+        borders = borders.values.tolist()
+        borders.append(xlim[1]*0.99)
+
+        left = xlim[0]*1.01
+        print(borders)
+        for el in borders:
+            plot_line(left, el)
+            left=el
     
     if not path_save is None:
         fig.savefig(path_save, bbox_inches='tight')
     plt.close('all')
 
 
-def calculate_cells_in_quantiles(df, target_column, quantiles=[0.25, 0.5, 0.75], percent_columns=True, sort_by_percentage=True, group_index=True):
-    
+def calculate_cells_in_quantiles(df, target_column, quantiles=[0.25, 0.5, 0.75], percent_columns=True, sort_by_percentage=True, group_index=True, round_data=False):
+    '''Calculate, how the cells are distributed within the different quantiles'''
+
     global borders 
     borders = df[target_column].quantile([0.25,0.5,0.75])
     
@@ -322,39 +436,91 @@ def calculate_cells_in_quantiles(df, target_column, quantiles=[0.25, 0.5, 0.75],
             if(sort_by_percentage):
                 df_out = df_out.sort_values(by=q, ascending=False)
 
-    df_out = df_out.round(2)
-    return df_out
+    if round_data:
+        df_out = df_out.round(2)
+    return df_out, borders
+
+
+def plot_piechart(data_with_mappings_and_coordinates, att_column, scale_factor=1, path_save=None):
+    '''
+    Plot piecharts for each quantile, using the values received from calculate_cells_in_quantiles.
+    '''
+    quant_grouped, borders = calculate_cells_in_quantiles(data_with_mappings_and_coordinates, 
+                                                       att_column, 
+                                                       group_index=True, round_data=False)
+    quant_detailed, borders =  calculate_cells_in_quantiles(data_with_mappings_and_coordinates, 
+                                                       att_column, 
+                                                       group_index=False, round_data=False)
+    
+    fig, axes = plt.subplots(nrows=1, ncols=4, sharex=True,
+                                    figsize=(12, 6))
+    pie_counter = 0
+    PIE_COLS = ['0.0 - 0.25', '0.25 - 0.5', '0.5 - 0.75', '0.75 - 1.0']
+    for ax in axes:
+        
+        ax.axis('equal')
+
+        # outline pie
+        ax.pie([1], colors=['white'], radius=1.3*scale_factor)
+        
+        # outer pie
+        pie_data = quant_grouped[PIE_COLS[pie_counter]].to_frame()
+        pie_data['order'] = [get_order(x) for x in pie_data.index]
+        pie_data = pie_data.sort_values(by='order', ascending=True)[PIE_COLS[pie_counter]]
+        ax.pie(pie_data, colors=[col_get(x) for x in pie_data.index], radius=1.2*scale_factor, wedgeprops={"edgecolor":"k",'linewidth': 0.5}, normalize=True)
+        
+        # white intermediate delimeter
+        ax.pie([1], colors=['white'], radius=0.6*scale_factor, wedgeprops={"edgecolor":"k",'linewidth': 0.5})
+        
+        # # inner pie: first order and group, then plot
+        # pie_data = quant_detailed[PIE_COLS[pie_counter]].to_frame()
+        # pie_data['order'] = [get_order(x) for x in pie_data.index]
+        # pie_data = pie_data.sort_values(by='order', ascending=True)[PIE_COLS[pie_counter]]
+        # ax.pie(pie_data, colors=[col_get(x) for x in pie_data.index], radius=0.85*scale_factor, wedgeprops={"edgecolor":"k",'linewidth': 0.5}, normalize=True)
+        
+        # # white center spot
+        # ax.pie([1], colors=['white'], radius=0.55*scale_factor, wedgeprops={"edgecolor":"k",'linewidth': 0.5})
+        
+        # ax.text(0, 0, "Q {}".format(pie_counter+1), fontsize=FONTSIZE, ha='center', va='center')
+        
+        pie_counter += 1
+        
+    if not path_save is None:
+        fig.savefig(path_save, bbox_inches='tight')
+        plt.close('all')
+    else:
+        plt.show()
         
 
 
             
 
-
-    
-
-    
-
+'''
+3. UMAPs
+'''
 
 
 
-
-
-
-
-# below: UMAP
 class MidpointNormalize(mpt_colors.Normalize):
-    def __init__(self, vmin=None, vmax=None, midpoint=None, clip=False):
+    '''
+    Class adapted and simplified based on the solution suggested in https://stackoverflow.com/questions/7404116/defining-the-midpoint-of-a-colormap-in-matplotlib
+    '''
+    def __init__(self, vmin=None, vmax=None, midpoint=None):
         self.midpoint = midpoint
-        mpt_colors.Normalize.__init__(self, vmin, vmax, clip)
+        mpt_colors.Normalize.__init__(self, vmin, vmax)
 
-    def __call__(self, value, clip=None):
-        # Note that I'm ignoring clipping and other edge cases here.
+    def __call__(self, value):
+        # Note that I'm ignoring clipping and other special cases here.
         result, is_scalar = self.process_value(value)
         x, y = [self.vmin, self.midpoint, self.vmax], [0, 0.5, 1]
         return np.ma.array(np.interp(value, x, y), mask=result.mask, copy=False)
 
 
 def umap(df, title="UMAP", legend_header="Annotated cell type", data_column='mll_annotation', grayscatter=True, **kwargs):
+    '''
+    Plot a bokeh interactive UMAP, with occlusion values, categorical values or attention values.
+    '''
+
     df = df.copy()
 
     if('148' in list(df.columns)):
@@ -455,12 +621,13 @@ def umap(df, title="UMAP", legend_header="Annotated cell type", data_column='mll
 
     show(plot_figure)
 
-
-
     
 def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single cell class', data_column='mll_annotation', 
                 legend_capt='Predicted class', highlight=False, custom_label_order=None,  zorder_adapt_by_color=True, 
                grayscatter=True, dotsize=35, path_save=None):
+    '''
+    Plot the same UMAP with colorbar in matplotlib, for export.
+    '''
     
     fig, ax = plt.subplots(figsize=(10,10), dpi=300)
 
@@ -581,11 +748,11 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
             lowest_occl = tmp.iloc[:3]
             
 
-            ''' From here on out, it gets very confusing. 
+            ''' From here on out, the code is not straightforward. 
             The next lines deal with highlighting the right cells in the umap and drawing the actual cell image into the figure. 
-            For this, the image function is approximated with f_min from scipy, where multiple factors flow into a distance
+            For this, the ideal image position is approximated with f_min from scipy, where multiple factors flow into a distance
             metric. Manual work would probably have been more efficient, but after many changes in parameters this now works quite well
-            (as long as not too many cells are highlighted!)
+            as long as not too many cells are highlighted.
             '''
             global f_pos_distance_sample, f_pos_target_sample, highlight_cells, plotted_images, c_counter
             highlight_cells = pd.concat([highest_occl, lowest_occl])
@@ -631,7 +798,11 @@ def export_umap(df_in, minimalize=True, title='UMAP embedding: Predicted single 
 
                 thresh=15
                 
-                while distance.cdist(np.reshape(coord_start, (1,2)), np.reshape(coord, (1,2)), 'euclidean') < 2 or fopt > thresh or (not (x_max > coord[0] > x_min) or (not(y_max > coord[1] > y_min))):
+                while (distance.cdist(np.reshape(coord_start, (1,2)), np.reshape(coord, (1,2)), 'euclidean') < 2 
+                        or fopt > thresh 
+                        or (not (x_max > coord[0] > x_min) 
+                        or (not(y_max > coord[1] > y_min)))):
+                        
                     coord, fopt, _,_,_ = fmin(f_positions, coord_start+np.random.normal(loc=0.0, scale=1.0, size=(2)), maxiter=10000, maxfun=10000, disp=False, full_output=1)
                     thresh += 0.5
                     

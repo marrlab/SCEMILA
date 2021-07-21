@@ -4,15 +4,14 @@ from matplotlib import gridspec
 import math
 import pandas as pd
 
-'''Author: Matthias Hehr'''
-
 
 def show_pred_mtrx(pred_mtrx, class_conversion=None, fig_size=None, normalize_rows=True, plot_values=True, 
                     show_zeros = True, show_size_values=True, reorder = None, cmap=None, dpi=100,
                     string_header = 'Confusion matrix', string_overview='# of patients', size_scale='lin',
                     capitalize = True, fontsize = 12, path_save = None, sc_df=None):
 
-    ''' Same as above, but takes different inputs and is optimized for receiving the class_conversion dataframe:
+    '''
+    Function to plot the confusion matrix.
     
     pred_mtrx:      numpy array with size(groundtruth class*predicted class). 
     class_conversion: pandas dataframe containing info about true labels and class size.
@@ -202,6 +201,8 @@ def show_pred_mtrx(pred_mtrx, class_conversion=None, fig_size=None, normalize_ro
         fig.savefig(path_save, bbox_inches='tight')
 
 def manipulate_matrix(pred_mtrx, conversion):
+    '''
+    Manipulate order of labels in the confusion matrix array.'''
     pred_mtrx_reordered = pred_mtrx.copy()
 
     for pos_x in range(pred_mtrx.shape[1]):

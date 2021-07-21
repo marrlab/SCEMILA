@@ -4,6 +4,9 @@ import pandas as pd
 
 
 def plot(patient_dataframe, true_list, save_in=None):
+    '''
+    Plot ROC curves for the precision-recall and specificity-sensitivity
+    characteristic.'''
 
     roc_df = []
     for idx, row in patient_dataframe.iterrows():

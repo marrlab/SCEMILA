@@ -2,6 +2,9 @@ import matplotlib.pyplot as plt
 import os
 
 def plot(df_row, reorder, path_save=None):
+    '''Barplot visualizing output layer activations for the different classes. 
+    Also highlights true and predicted label.'''
+    
     fig, ax = plt.subplots(figsize=(5, 3))
     
     y=4

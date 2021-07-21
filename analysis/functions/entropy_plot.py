@@ -2,6 +2,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 def entropy_plot(dataframe):
+    '''Small experimental function to plot entropy of correct vs false classifications.'''
+
     df_tmp = dataframe.copy()
     df_tmp['classification'] = df_tmp['gt_label']==df_tmp['pred_lbl']
     fig, ax = plt.subplots(figsize=(8,6))
@@ -13,6 +15,7 @@ def entropy_plot(dataframe):
     ax.legend(title='Percent of acceptable images', bbox_to_anchor=(1, 0., 0.5,1), loc=10)
     
 def entropy_vs_myb(dataframe):
+    '''Scatterplot: myeloblast frequency of patient vs classification entropy.'''
     df_tmp = dataframe.copy()
     df_tmp['classification'] = df_tmp['gt_label']==df_tmp['pred_lbl']
     fig, ax = plt.subplots(figsize=(8,6))

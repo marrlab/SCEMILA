@@ -10,6 +10,9 @@ scaler = None
 reducer = None
 
 def select_embedding(sc_dataframe, fillup_unmatched=True):
+    ''' Interact with the user to determine which embedding to use. If 
+    new embedding should be calculated, initiate.'''
+
     available_embeddings = os.listdir(PATH_EMBEDDINGS)
     available_embeddings_truncated = [x.split('.')[0] for x in available_embeddings]
     if len(available_embeddings_truncated) == 0:
@@ -30,6 +33,7 @@ def select_embedding(sc_dataframe, fillup_unmatched=True):
         return generate_embedding(sc_dataframe, os.path.join(PATH_EMBEDDINGS, name_new + '.pkl'))
 
 def generate_embedding(sc_dataframe, path_target, save=True):
+    '''Generate new embedding'''
     global scaler, reducer
     
     # create scalers and reducer
@@ -56,6 +60,7 @@ def generate_embedding(sc_dataframe, path_target, save=True):
     return sc_dataframe
 
 def load_embedding(sc_dataframe, path, fillup_unmatched):
+    '''Load existing embedding. Try to match as many rows as possible to existing data.'''
     global scaler, reducer
 
     (embedding_data, umap_scaler, umap_reducer) = pkl.load(open(path, 'rb'))
@@ -88,6 +93,7 @@ def load_embedding(sc_dataframe, path, fillup_unmatched):
     return sc_dataframe
 
 def embed_new_data(df):
+    '''Embed new images into existing embedding'''
     if scaler is None:
         raise NameError("No embedding selected!")
     

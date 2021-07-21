@@ -13,6 +13,9 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
 def calculate_change_on_occlusion(df, result_folder_path, result_folders, prefix, lbl_conv_obj):
+    '''
+    Calculate image occlusion values for all cells in single cell dataframe df.
+    Automatically loads the correct model for each fold, and iterates through all images of a patient.'''
     
     # sort dataframe first by patients, then by folds (to prevent loading the wrong model/the wrong data)
     df_sorted = df.sort_index(ascending=True).sort_values(by='fold', ascending=True).reset_index()
