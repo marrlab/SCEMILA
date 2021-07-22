@@ -31,7 +31,7 @@ Research needs more people like you!
 * [X] Does ANY functions have >2 bracket-pairs of any kind? Split it into more lines.
 * [ ] Have ALL your abbreviations been defined in the same file?
 * [ ] No, not everyone knows that abbreviation...
-* [ ] Have you set up an auto-formatter?
+* [X] Have you set up an auto-formatter?
 * [ ] Has the formatter configuration been documented?
 * [ ] Okay. Now run the formatter again.
 

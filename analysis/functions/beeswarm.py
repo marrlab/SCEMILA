@@ -2,7 +2,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-def beeswarm_coordinates(df, val_col, xscale="log", figsize=(9,9), pointsize=7):
+
+def beeswarm_coordinates(df, val_col, xscale="log", figsize=(9, 9), pointsize=7):
     '''Swarmplot coordinate calculation is not available in Matplotlib to my knowledge.
     This workaround uses the implemented and efficient Seaborn function, to simply calculate
     the coordinates.'''

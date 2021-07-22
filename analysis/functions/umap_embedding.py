@@ -9,15 +9,18 @@ PATH_EMBEDDINGS = 'suppl_data/embeddings'
 scaler = None
 reducer = None
 
+
 def select_embedding(sc_dataframe, fillup_unmatched=True):
     ''' Interact with the user to determine which embedding to use. If 
     new embedding should be calculated, initiate.'''
 
     available_embeddings = os.listdir(PATH_EMBEDDINGS)
-    available_embeddings_truncated = [x.split('.')[0] for x in available_embeddings]
+    available_embeddings_truncated = [
+        x.split('.')[0] for x in available_embeddings]
     if len(available_embeddings_truncated) == 0:
-        name_new = input("No embeddings found. Generate new embedding.\nNew embedding name: ")
-        
+        name_new = input(
+            "No embeddings found. Generate new embedding.\nNew embedding name: ")
+
         if '.' in name_new:
             name_new = name_new.split('.')[0] + '.pkl'
     else:
@@ -25,17 +28,19 @@ def select_embedding(sc_dataframe, fillup_unmatched=True):
         for emb in available_embeddings_truncated:
             str_preview += emb + "\n"
         str_preview += "\n"
-        name_new = input(str_preview + "Enter desired embedding, or enter different name to generate new one: ")
+        name_new = input(
+            str_preview + "Enter desired embedding, or enter different name to generate new one: ")
 
     if name_new in available_embeddings_truncated:
-        return load_embedding(sc_dataframe, os.path.join(PATH_EMBEDDINGS, name_new +'.pkl'), fillup_unmatched=fillup_unmatched)
+        return load_embedding(sc_dataframe, os.path.join(PATH_EMBEDDINGS, name_new + '.pkl'), fillup_unmatched=fillup_unmatched)
     else:
         return generate_embedding(sc_dataframe, os.path.join(PATH_EMBEDDINGS, name_new + '.pkl'))
+
 
 def generate_embedding(sc_dataframe, path_target, save=True):
     '''Generate new embedding'''
     global scaler, reducer
-    
+
     # create scalers and reducer
     print("\nCalculating embedding")
     sc_dataframe_embedding = sc_dataframe
@@ -44,27 +49,27 @@ def generate_embedding(sc_dataframe, path_target, save=True):
     scaled_cell_data = umap_scaler.transform(cell_data)
     umap_reducer = umap.UMAP(verbose=True).fit(scaled_cell_data)
     embedding = umap_reducer.transform(scaled_cell_data)
-    
-    
+
     sc_dataframe['x'] = embedding[..., 0]
     sc_dataframe['y'] = embedding[..., 1]
-    
+
     embedding_data = sc_dataframe[['im_path', 'x', 'y']].copy()
     pickle_storage_object = (embedding_data, umap_scaler, umap_reducer)
     if(save):
         f_obj = open(path_target, 'wb')
         pkl.dump(pickle_storage_object, f_obj)
         f_obj.close()
-    
+
     scaler, reducer = umap_scaler, umap_reducer
     return sc_dataframe
+
 
 def load_embedding(sc_dataframe, path, fillup_unmatched):
     '''Load existing embedding. Try to match as many rows as possible to existing data.'''
     global scaler, reducer
 
     (embedding_data, umap_scaler, umap_reducer) = pkl.load(open(path, 'rb'))
-    
+
     '''join sc_dataframe by using im_path as index column, and thus load 
     columns: x, y and image_column'''
     if len(embedding_data) != len(sc_dataframe):
@@ -75,7 +80,7 @@ def load_embedding(sc_dataframe, path, fillup_unmatched):
     sc_dataframe['ID'] = sc_dataframe.index
     sc_dataframe = sc_dataframe.set_index('im_path')
     embedding_data = embedding_data.set_index('im_path')
-    sc_dataframe = sc_dataframe.drop(['x','y'], axis=1, errors='ignore')
+    sc_dataframe = sc_dataframe.drop(['x', 'y'], axis=1, errors='ignore')
     sc_dataframe = sc_dataframe.join(embedding_data, how='left')
     sc_dataframe['im_path'] = sc_dataframe.index
     sc_dataframe = sc_dataframe.set_index('ID')
@@ -85,18 +90,18 @@ def load_embedding(sc_dataframe, path, fillup_unmatched):
     if(fillup_unmatched):
         idx_unmatched = sc_dataframe['x'].isna()
         df_unmatched = sc_dataframe.loc[idx_unmatched]
-        coordinates = embed_new_data(df_unmatched)[['x','y']]
+        coordinates = embed_new_data(df_unmatched)[['x', 'y']]
         sc_dataframe.loc[idx_unmatched, 'x'] = coordinates['x']
         sc_dataframe.loc[idx_unmatched, 'y'] = coordinates['y']
 
-    
     return sc_dataframe
+
 
 def embed_new_data(df):
     '''Embed new images into existing embedding'''
     if scaler is None:
         raise NameError("No embedding selected!")
-    
+
     df = df.copy()
     cell_data = df[FEATURES].values
     scaled_cell_data = scaler.transform(cell_data)
