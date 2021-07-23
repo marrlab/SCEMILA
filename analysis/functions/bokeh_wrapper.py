@@ -302,7 +302,7 @@ def export_swarmplot(df, xlim, ylim, title, highlight_idx=None, path_save=None, 
             cell = df.loc[df['im_id'] == identifier].iloc[0]
             x, y = cell.x, cell.y
             class_lbl = cell.color_values
-            ax2.plot([x, x], [y, y+yrange], c='k', zorder=5)
+            ax2.plot([x, x], [y, y+yrange], c='lightgray', zorder=5)
 
             # load and display image
             im = Image.open(cell.im_path)
