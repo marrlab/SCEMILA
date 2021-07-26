@@ -1,6 +1,6 @@
 # SCEMILA - README
 
-Welcome to the github repository supplementing the publication "Predicting AML genetic subtypes and diagnostic cells with attention augmented multiple instance learning" (Hehr et al., 2021, currently under review). 
+Welcome to the Github repository supplementing the publication "Predicting AML genetic subtypes and diagnostic cells with attention augmented multiple instance learning" (Hehr et al., 2021, currently under review). 
 
 ## Table of contents
 1. Description
@@ -18,15 +18,15 @@ Welcome to the github repository supplementing the publication "Predicting AML g
     2.5 Analysis
 
 3. Authors
-4. License
-5. Acknowledgements
+4. Acknowledgements
+5. License
 
 
 # 1. Description
-### About
+## About
 This Repo contains both the machine learning algorithm and the necessary functions to analyze and plot the figures published in the paper "Predicting AML genetic subtypes and diagnostic cells with attention augmented multiple instance learning" (Hehr et al., 2021, currently under review).
 
-### Contact
+## Contact
 For questions and issues regarding the code, feel free to contact matthias.hehr@helmholtz-muenchen.de . Otherwise please reach out to the corresponding authors.  
 
 # 2. Getting started
@@ -58,7 +58,7 @@ Locate your dataset and create an output folder to store the results, afterwards
 TARGET_FOLDER = 'result_directory'       # results will be stored here
 SOURCE_FOLDER = 'data_directory'         # path to dataset
 ```  
-Once the algorithm has been trained, the paths have to be adjusted similarly in the analysis notebook.
+Once the algorithm has been trained, the paths have to be adjusted similarly in the [analysis notebook](analysis/analysis_notebook.ipynb).
 
 ## 2.4 Execution
 To start the pipeline, navigate to the folder [ml_pipeline](ml_pipeline) and load your environment. Train the algorithm for one fold by executing:
@@ -66,7 +66,7 @@ To start the pipeline, navigate to the folder [ml_pipeline](ml_pipeline) and loa
 ```
 python3 run_pipeline.py --result_folder=result_folder_1
 ```
-This will create a new folder in your directory `TARGET_FOLDER` called `result_folder_1` which automatically saves all relevant data generated during training, validation and testing. Important: the argument `--result_folder` has to be set, otherwise the algorithm will throw an error. While the algorithm is configured to run with the same parameters used in the paper, many arguments can be manipulated, altering the training process:
+This will create a new folder in your directory `TARGET_FOLDER` called `result_folder_1` which will contain all relevant data generated during training, validation and testing. Important: the argument `--result_folder` has to be set, otherwise the script will not run. While the algorithm is configured to run with the same parameters used in the paper, many arguments can be manipulated, altering the training process:
 |Argument|Description|Possible input|Default|
 |---|---|---|---|
 |`--fold`|Change this parameter to rotate through different folds of cross validation.For 5-fold cross validation (default), simply launch the code five times, every time with a different value for `--fold` in range of [0,1,2,3,4]|Integer, suggested: [0,1,2,3,4]|0|
@@ -83,12 +83,25 @@ This will create a new folder in your directory `TARGET_FOLDER` called `result_f
 ## 2.5 Analysis
 To analyze the data generated and take a look at various visualizations, use the [analysis notebook](analysis/analysis_notebook.ipynb) and adjust the corresponding paths as mentioned in 2.3 (Code Setup).
 
+The notebook is designed to simplify analysis of the results generated with the pipeline, by automated plotting of most of the figures published in the paper. These figures are then exported directly into the [output folder](analysis/output).
+
 # 3. Authors
-Under construction
+Major contributions were made by the following people:
 
-# 4. License
-Under construction
+Matthias Hehr<sup>1,2</sup>, Ario Sadafi<sup>1</sup>, Christian Matek<sup>1,2</sup>, Christian Pohlkamp<sup>3</sup>, Torsten Haferlach<sup>3</sup>, Karsten Spiekermann<sup>2,4,5,+</sup> and Carsten Marr<sup>1,+</sup>
 
-# 5. Acknowledgements
+<sup>1</sup>Institute of Computational Biology, Helmholtz Zentrum München – German Research Center for Environmental Health, Neuherberg, Germany
+<sup>2</sup>Laboratory of Leukemia Diagnostics, Department of Medicine III, University Hospital, LMU Munich, Munich, Germany
+<sup>3</sup>Munich Leukemia Laboratory, Munich, Germany
+<sup>4</sup>German Cancer Consortium (DKTK), Heidelberg, Germany
+<sup>5</sup>German Cancer Research Center (DKFZ), Heidelberg, Germany
+<sup>+</sup>Corresponding authors
+
+The code was authored by M.H, supported by A.S.
+
+
+# 4. Acknowledgements
 M.H. was supported by a José-Carreras-DGHO-Promotionsstipendium. C.M. has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (Grant agreement No. 866411)
 
+# 5. License
+[See the license](LICENSE). If you use this code, please cite our original paper (further information about the citation will follow).
