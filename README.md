@@ -35,19 +35,7 @@ For questions and issues regarding the code, feel free to contact [Matthias Hehr
 The data will be published and available for download soon. To reproduce results, download the data and unzip it.
 
 ## 2.2 Dependencies
-The pipeline and corresponding analysis requires a python environment with the following packages: 
-
-- [bokeh](https://docs.bokeh.org/en/latest/index.html)
-- [matplotlib](https://matplotlib.org/)
-- [numpy](https://numpy.org/)
-- [pandas](https://pandas.pydata.org/)
-- [pickle](https://docs.python.org/3/library/pickle.html)
-- [pillow](https://pillow.readthedocs.io/en/stable/index.html)
-- [pytorch](https://pytorch.org/)
-- [scipy](https://www.scipy.org/)
-- [seaborn](https://seaborn.pydata.org/)
-- [tqdm](https://tqdm.github.io/)
-- [umap-learn](https://umap-learn.readthedocs.io/en/latest/index.html)
+The pipeline and corresponding analysis requires a python environment with various packages. The [requirements file](requirements.txt) will be of help to build a functioning python environment. 
 
 ## 2.3 Code setup
 Once the library is built and the dataset is downloaded, adjust the paths for the dataset and output folder in the file [run_pipeline.py](ml_pipeline/run_pipeline.py). 
