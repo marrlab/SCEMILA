@@ -27,7 +27,7 @@ Welcome to the Github repository supplementing the publication "Predicting AML g
 This Repo contains both the machine learning algorithm and the necessary functions to analyze and plot the figures published in the paper "Predicting AML genetic subtypes and diagnostic cells with attention augmented multiple instance learning" (Hehr et al., 2021, currently under review).
 
 ## Contact
-For questions and issues regarding the code, feel free to contact matthias.hehr@helmholtz-muenchen.de . Otherwise please reach out to the corresponding authors.  
+For questions and issues regarding the code, feel free to contact [Matthias Hehr](https://www.linkedin.com/in/matthias-hehr/). Otherwise, please reach out to the corresponding authors.  
 
 # 2. Getting started
 
@@ -88,16 +88,16 @@ The notebook is designed to simplify analysis of the results generated with the 
 # 3. Authors
 Major contributions were made by the following people:
 
-Matthias Hehr<sup>1,2</sup>, Ario Sadafi<sup>1</sup>, Christian Matek<sup>1,2</sup>, Christian Pohlkamp<sup>3</sup>, Torsten Haferlach<sup>3</sup>, Karsten Spiekermann<sup>2,4,5,+</sup> and Carsten Marr<sup>1,+</sup>
+Matthias Hehr<sup>1,2,3</sup>, Ario Sadafi<sup>1,2</sup>, Christian Matek<sup>1,2,3</sup>, Christian Pohlkamp<sup>4</sup>, Torsten Haferlach<sup>4</sup>, Karsten Spiekermann<sup>3,5,6,+</sup> and Carsten Marr<sup>1,2,+</sup>
 
-<sup>1</sup>Institute of Computational Biology, Helmholtz Zentrum München – German Research Center for Environmental Health, Neuherberg, Germany
-<sup>2</sup>Laboratory of Leukemia Diagnostics, Department of Medicine III, University Hospital, LMU Munich, Munich, Germany
-<sup>3</sup>Munich Leukemia Laboratory, Munich, Germany
-<sup>4</sup>German Cancer Consortium (DKTK), Heidelberg, Germany
-<sup>5</sup>German Cancer Research Center (DKFZ), Heidelberg, Germany
+<sup>1</sup>Institute of AI for Health, Helmholtz Zentrum München – German Research Center for Environmental Health, Neuherberg, Germany
+<sup>2</sup>Institute of Computational Biology, Helmholtz Zentrum München – German Research Center for Environmental Health, Neuherberg, Germany
+<sup>3</sup>Laboratory of Leukemia Diagnostics, Department of Medicine III, University Hospital, LMU Munich, Munich, Germany
+<sup>4</sup>Munich Leukemia Laboratory, Munich, Germany
+<sup>5</sup>German Cancer Consortium (DKTK), Heidelberg, Germany
+<sup>6</sup>German Cancer Research Center (DKFZ), Heidelberg, Germany
 <sup>+</sup>Corresponding authors
 
-The code was authored by M.H, supported by A.S.
 
 
 # 4. Acknowledgements
