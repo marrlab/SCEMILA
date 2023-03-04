@@ -19,8 +19,8 @@ from model_train import *   # model training function
 
 
 # 1: Setup. Source Folder is parent folder for both mll_data_master and the /data folder
-TARGET_FOLDER = 'result_directory'       # results will be stored here
-SOURCE_FOLDER = 'data_directory'         # path to dataset
+TARGET_FOLDER = '/storage/groups/qscd01/projects/aml_mil_hehr/final_results/pub_unfiltered'       # results will be stored here
+SOURCE_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/'                             # path to dataset
 
 # get arguments from parser, set up folder
 ##### parse arguments
@@ -37,11 +37,11 @@ parser.add_argument('--multi_att', help='use multi-attention approach', required
 parser.add_argument('--prefix', help='define which set of features shall be used', required=False, default='fnl34_')        # define feature source to use (from different CNNs)
 parser.add_argument('--filter_diff', help='Filters AML patients with less than this perc. of MYB.', default=20)             # pass -1, if no filtering acc to peripheral blood differential count should be done
 parser.add_argument('--filter_mediocre_quality', help='Filters patients with sub-standard sample quality', default=0)       # Leave out some more samples, if we have enough without them. Quality of these is not good, but if data is short, still ok.
-parser.add_argument('--bootstrap_idx', help='Remove one specific patient at pos X', default=-1)                              # Remove specific patient to see effect on classification
+parser.add_argument('--bootstrap_idx', help='Remove one specific patient at pos X', default=-1)                             # Remove specific patient to see effect on classification
 
 ########## Output parameters
 parser.add_argument('--result_folder', help='store folder with custom name', required=True)                                 # custom output folder name
-parser.add_argument('--save_model', help='choose wether model should be saved', required=False, default=1)                  # store model parameters if 1
+parser.add_argument('--save_model', help='choose wether model should be saved', required=False, default=0)                  # store model parameters if 1
 args = parser.parse_args()
 
 # store results in target folder
@@ -113,7 +113,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 ngpu = torch.cuda.device_count()
 print("Found device: ", ngpu, "x ", device)
 
-model = SCEMILA(class_count=class_count, multi_attention=int(args.multi_att), device=device)
+model = AMiL(class_count=class_count, multicolumn=int(args.multi_att), device=device)
 
 if(ngpu > 1):
     model = torch.nn.DataParallel(model)
