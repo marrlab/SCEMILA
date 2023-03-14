@@ -32,7 +32,7 @@ def map_images_to_dataframe(df):
             patient_basepath = os.path.dirname(df.loc[row_idx].im_path)
 
             patient_images_path = os.path.join(
-                patient_basepath, 'processed', 'stacked_images.npy')
+                patient_basepath, 'stacked_images.npy')
             patient_images = np.load(patient_images_path)
             current_pat_id = pat_id
 

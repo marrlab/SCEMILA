@@ -12,11 +12,6 @@ import os
 import time
 import argparse as ap
 
-# strange workaround for bug: libgcc_s.so.1 must be installed for
-# pthread_cancel to work
-import ctypes
-libgcc_s = ctypes.CDLL('libgcc_s.so.1')
-
 torch.multiprocessing.set_sharing_strategy('file_system')
 
 # import from other, own modules
@@ -25,9 +20,9 @@ torch.multiprocessing.set_sharing_strategy('file_system')
 # 1: Setup. Source Folder is parent folder for both mll_data_master and
 # the /data folder
 # results will be stored here
-TARGET_FOLDER = '/storage/groups/qscd01/projects/aml_mil_hehr/final_results/pub_unfiltered'
+TARGET_FOLDER = r'C:\Science\TCIA Data\output'
 # path to dataset
-SOURCE_FOLDER = '/storage/groups/qscd01/datasets/210526_mll_mil_pseudonymized/'
+SOURCE_FOLDER = r'C:\Science\TCIA Data\TCIA_data_prepared'
 
 # get arguments from parser, set up folder
 # parse arguments
@@ -93,7 +88,7 @@ parser.add_argument(
     '--save_model',
     help='choose wether model should be saved',
     required=False,
-    default=0)                  # store model parameters if 1
+    default=1)                  # store model parameters if 1
 args = parser.parse_args()
 
 # store results in target folder
@@ -174,12 +169,10 @@ sampler_train = WeightedRandomSampler(
 
 dataloaders['train'] = DataLoader(
     datasets['train'],
-    num_workers=1,
     sampler=sampler_train)
 dataloaders['val'] = DataLoader(
-    datasets['val'],
-    num_workers=1)  # , sampler=sampler_val)
-dataloaders['test'] = DataLoader(datasets['test'], num_workers=1)
+    datasets['val'])  # , sampler=sampler_val)
+dataloaders['test'] = DataLoader(datasets['test'])
 print("")
 
 

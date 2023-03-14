@@ -11,8 +11,6 @@ def entropy_plot(dataframe):
     ax = sns.swarmplot(ax=ax, data=df_tmp, x="classification", y="entropy")
     ax.set(ylabel="Entropy")
     ax.set(xlabel="Classification")
-    ax.legend(title='Percent of acceptable images',
-              bbox_to_anchor=(1, 0., 0.5, 1), loc=10)
 
 
 def entropy_vs_myb(dataframe):
@@ -29,5 +27,5 @@ def entropy_vs_myb(dataframe):
         label='False prediction')
     ax.set(ylabel="Entropy")
     ax.set(xlabel="Myeloblast percentage")
-    ax.legend(title='Percent of acceptable images',
+    ax.legend(title='Percent of myeloblasts in differential blood count',
               bbox_to_anchor=(1, 0., 0.5, 1), loc=10)

@@ -1,6 +1,6 @@
 from bokeh.plotting import figure, show, save, output_notebook, output_file
 from bokeh.models import HoverTool, ColumnDataSource, CategoricalColorMapper, ColorBar, LinearColorMapper
-from bokeh.models import FuncTickFormatter, FixedTicker, Legend, BasicTickFormatter, Panel, Tabs
+from bokeh.models import FuncTickFormatter, FixedTicker, Legend, BasicTickFormatter, TabPanel, Tabs
 from bokeh.palettes import Turbo256 as palette_umap
 from bokeh.transform import linear_cmap
 import matplotlib.colors as mpt_colors
@@ -93,8 +93,8 @@ def swarmplot(df, xlim, ylim, title="Swarmplot", legend_header="", **kwargs):
     df['edgecolor'] = df['color_values'].apply(col_edge_get)
     size = 6
 
-    plot_figure = figure(title=title, plot_width=900,
-                         plot_height=500, tools=(''),
+    plot_figure = figure(title=title, width=900,
+                         height=500, tools=(''),
                          x_axis_type="log", x_range=xlim, y_range=ylim,
                          x_axis_label='Single cell attention')
     plot_figure.add_tools(HoverTool(tooltips="""
@@ -151,7 +151,7 @@ def multi_swarmplot(df, xlim, ylim, title, path_save=None, **kwargs):
         title,
         legend_header="Annotated cell type",
         **kwargs)
-    tab1 = Panel(child=swarm_regular, title="Full annotation")
+    tab1 = TabPanel(child=swarm_regular, title="Full annotation")
 
     df_simplified = df.copy()
     df_simplified['color_values'] = df_simplified['color_values'].apply(
@@ -163,7 +163,7 @@ def multi_swarmplot(df, xlim, ylim, title, path_save=None, **kwargs):
         title,
         legend_header="Annotated cell group",
         **kwargs)
-    tab2 = Panel(child=swarm_simplified, title="Reduced annotation")
+    tab2 = TabPanel(child=swarm_simplified, title="Reduced annotation")
 
     if path_save is None:
         # if no path_save is given, show
@@ -197,7 +197,7 @@ def export_swarmplot(
     ax.set_xscale('log')
     yrange = ylim[0] - ylim[1]
     ax.set_xlim(xlim[0], xlim[1])
-    ax.set_ylim(ylim[1], yrange - ylim[1])
+    ax.set_ylim(ylim[1]*0.5, ylim[0]*0.5)
     ax.spines['top'].set_visible(False)
     ax.spines['left'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -279,74 +279,74 @@ def export_swarmplot(
         fontsize=FONTSIZE)
     leg._legend_box.align = "left"
 
-    # plot in highlighted images
-    # draw out lines and plot images
-    if highlight_idx is not None:
-        im_buffer = {}
-        for identifier in highlight_idx:
-            cell = df.loc[df['im_id'] == identifier].iloc[0]
-            x, y = cell.x, cell.y
-            class_lbl = cell.color_values
-            ax2.plot([x, x], [y, y + yrange], c='lightgray', zorder=5)
+    # # plot in highlighted images
+    # # draw out lines and plot images
+    # if highlight_idx is not None:
+    #     im_buffer = {}
+    #     for identifier in highlight_idx:
+    #         cell = df.loc[df['im_id'] == identifier].iloc[0]
+    #         x, y = cell.x, cell.y
+    #         class_lbl = cell.color_values
+    #         ax2.plot([x, x], [y, y + yrange], c='lightgray', zorder=5)
 
-            # load and display image
-            im = Image.open(cell.im_path)
-            im_buffer[x] = im
+    #         # load and display image
+    #         im = Image.open(cell.im_path)
+    #         im_buffer[x] = im
 
-            ax2.scatter(
-                x,
-                y,
-                color=col_get(class_lbl),
-                linewidth=0.5,
-                s=dotsize,
-                zorder=10,
-                marker=shape_get_matplotlib(class_lbl),
-                edgecolors=col_edge_get(class_lbl))
+    #         ax2.scatter(
+    #             x,
+    #             y,
+    #             color=col_get(class_lbl),
+    #             linewidth=0.5,
+    #             s=dotsize,
+    #             zorder=10,
+    #             marker=shape_get_matplotlib(class_lbl),
+    #             edgecolors=col_edge_get(class_lbl))
 
-            class_lbl = cell.color_values_pooled
-            ax2.scatter(
-                x,
-                y + yrange,
-                color=col_get(class_lbl),
-                linewidth=0.5,
-                s=dotsize,
-                zorder=10,
-                marker=shape_get_matplotlib(class_lbl),
-                edgecolors=col_edge_get(class_lbl))
+    #         class_lbl = cell.color_values_pooled
+    #         ax2.scatter(
+    #             x,
+    #             y + yrange,
+    #             color=col_get(class_lbl),
+    #             linewidth=0.5,
+    #             s=dotsize,
+    #             zorder=10,
+    #             marker=shape_get_matplotlib(class_lbl),
+    #             edgecolors=col_edge_get(class_lbl))
 
-        # shift images a little bit to improve optics
-        global xpoints
-        xpoints = sorted(im_buffer.keys())
+    #     # shift images a little bit to improve optics
+    #     global xpoints
+    #     xpoints = sorted(im_buffer.keys())
 
-        def log_x_dist(x1, x2):
-            if min(x1, x2) <= 0:
-                return 10000
-            return math.log10(max(x1, x2) / min(x1, x2))
+    #     def log_x_dist(x1, x2):
+    #         if min(x1, x2) <= 0:
+    #             return 10000
+    #         return math.log10(max(x1, x2) / min(x1, x2))
 
-        def f_positions(shifts):
-            global xpoints
+    #     def f_positions(shifts):
+    #         global xpoints
 
-            # calculate distances to close points
-            xpoints_shifted = [xpoints[x] * shifts[x]
-                               for x in range(len(xpoints))]
-            el_dists = np.array([log_x_dist(
-                xpoints_shifted[x], xpoints_shifted[x + 1]) for x in range(len(xpoints) - 1)])
-            mean_dist = np.mean(el_dists)
-            dist_loss = np.sum(np.square(el_dists - mean_dist))
+    #         # calculate distances to close points
+    #         xpoints_shifted = [xpoints[x] * shifts[x]
+    #                            for x in range(len(xpoints))]
+    #         el_dists = np.array([log_x_dist(
+    #             xpoints_shifted[x], xpoints_shifted[x + 1]) for x in range(len(xpoints) - 1)])
+    #         mean_dist = np.mean(el_dists)
+    #         dist_loss = np.sum(np.square(el_dists - mean_dist))
 
-            return dist_loss
+    #         return dist_loss
 
-        # calculate coordinates
-        shift_images = fmin(f_positions, np.array([1] * len(xpoints)))
+    #     # calculate coordinates
+    #     shift_images = fmin(f_positions, np.array([1] * len(xpoints)))
 
-        # add images
-        for x in xpoints:
-            im = im_buffer[x]
-            ab = AnnotationBbox(OffsetImage(im, zoom=0.5), (x *
-                                                            shift_images[xpoints.index(x)], yrange +
-                                                            ylim[1]), frameon=True, pad=0.0)
-            ab.set_zorder(10)
-            ax2.add_artist(ab)
+    #     # add images
+    #     for x in xpoints:
+    #         im = im_buffer[x]
+    #         ab = AnnotationBbox(OffsetImage(im, zoom=0.5), (x *
+    #                                                         shift_images[xpoints.index(x)], yrange +
+    #                                                         ylim[1]), frameon=True, pad=0.0)
+    #         ab.set_zorder(10)
+    #         ax2.add_artist(ab)
 
     ax.text(
         x=0.01,
@@ -597,8 +597,8 @@ def umap(
     df['info'] = df[data_column]
     size = 8
 
-    plot_figure = figure(title=title, plot_width=900,
-                         plot_height=700, tools=('pan, wheel_zoom, reset'),
+    plot_figure = figure(title=title, width=900,
+                         height=700, tools=('pan, wheel_zoom, reset'),
                          aspect_scale=2)
 
     #     plot_figure.yaxis.visible = False

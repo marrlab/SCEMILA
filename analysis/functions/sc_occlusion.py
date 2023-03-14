@@ -59,7 +59,6 @@ def calculate_change_on_occlusion(
             patient_feature_path = os.path.join(
                 os.path.dirname(
                     cell.im_path),
-                'processed',
                 prefix +
                 'bn_features_layer_7.npy')
             patient_feature_array = np.load(patient_feature_path)

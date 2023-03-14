@@ -67,7 +67,7 @@ def define_dataset(
 
     # load patient data
     df_data_master = pd.read_csv(
-        '{}/mll_data_master_pseudo.csv'.format(path_data)).set_index('pseudonym')
+        '{}/metadata.csv'.format(path_data)).set_index('patient_id')
 
     print("")
     print("Filtering the dataset...")
@@ -85,28 +85,28 @@ def define_dataset(
             'pb_myelocyte']
         annotation_count = sum(row[annotations_exclude_by])
         if annotation_count < filter_diff_count and (
-                not row['bag_label'] == 'SCD'):
+                not row['bag_label'] == 'control'):
             print("Not enough malign cells, exclude: ", row.name,
                   " with ", annotation_count, " malign cells ")
             continue
 
-        # filter if manual assessment revealed major flaws. If this cell
-        # contains N/A, then we don't exclude
-        keep_row = pd.isnull(row['examine_exclude'])
+        # # filter if manual assessment revealed major flaws. If this cell
+        # # contains N/A, then we don't exclude
+        # keep_row = pd.isnull(row['examine_exclude'])
 
-        # filter if the patient has known bad sample quality
-        if not keep_row and filter_quality_major_assessment:
-            print("Major flaws in slide quality, exclude: ", row.name, " ")
-            continue
+        # # filter if the patient has known bad sample quality
+        # if not keep_row and filter_quality_major_assessment:
+        #     print("Major flaws in slide quality, exclude: ", row.name, " ")
+        #     continue
 
-        # filter if manual assessment revealed *minor* flaws. If this cell
-        # contains N/A, then we don't exclude
-        keep_row = pd.isnull(row['examine_optional_exclude'])
+        # # filter if manual assessment revealed *minor* flaws. If this cell
+        # # contains N/A, then we don't exclude
+        # keep_row = pd.isnull(row['examine_optional_exclude'])
 
-        # filter if the patient has known bad sample quality
-        if not keep_row and filter_quality_minor_assessment:
-            print("Minor flaws in slide quality, exclude: ", row.name, " ")
-            continue
+        # # filter if the patient has known bad sample quality
+        # if not keep_row and filter_quality_minor_assessment:
+        #     print("Minor flaws in slide quality, exclude: ", row.name, " ")
+        #     continue
 
         # enter patient into label converter
         label = process_label(row)
@@ -190,7 +190,6 @@ class MllDataset(Dataset):
             bag = np.load(
                 os.path.join(
                     path,
-                    'processed',
                     prefix +
                     'bn_features_layer_7.npy'))
             self.features_loaded[path] = bag

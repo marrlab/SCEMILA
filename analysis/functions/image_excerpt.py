@@ -24,7 +24,6 @@ def plot(
     im_path = os.path.join(
         os.path.dirname(
             sc_df.iloc[0].im_path),
-        'processed',
         'stacked_images.npy')
     im_ar = np.load(im_path)
 

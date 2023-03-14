@@ -14,15 +14,15 @@ def beeswarm_coordinates(
         prefix=''):
     '''small hack: don't show image, but use seaborn to calculate coordinates.
     Could not find a solution performing as well as the seaborn implementation'''
+    df = df.sort_values(by=val_col, ascending=True)
     fig, ax = plt.subplots(figsize=figsize)
     ax.set(xscale=xscale)
     fig = sns.swarmplot(data=df, x=val_col, size=pointsize)
     # get precise data coordinates
     x, y = np.array(ax.collections[0].get_offsets()).T
-    df = df.sort_values(by=val_col, ascending=True)
     df[prefix + 'x'] = x
     df[prefix + 'y'] = y
-    xlim = ax.get_xlim()
-    ylim = ax.get_ylim()
+    xlim = min(df[prefix + 'x'])*0.95, max(df[prefix + 'x'])*1.05
+    ylim = min(df[prefix + 'y'])*0.95, max(df[prefix + 'y'])*0.95
     plt.close('all')
     return df, xlim, ylim

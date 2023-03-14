@@ -37,7 +37,7 @@ def load_dataframes(
         path_preload=os.path.join(
             basepath, folder_list[0], 'class_conversion.csv'))
     patient_master_dataframe = pd.read_csv(
-        '{}/mll_data_master_pseudo.csv'.format(folder_dataset)).set_index('pseudonym')
+        '{}/metadata.csv'.format(folder_dataset)).set_index('patient_id')
 
     datapoints = []
     temporary_data_cache = {}
@@ -74,8 +74,7 @@ def load_dataframes(
                 pat_entropy = entropy(
                     pat_prediction_vector,
                     base=len(pat_prediction_vector))
-                pat_quality_category = patient_master_dataframe.loc[pat_id,
-                                                                    'examine_category_quality']
+                
                 pat_myb_share = patient_master_dataframe.loc[pat_id,
                                                              'pb_myeloblast']
                 pat_pmc_share = patient_master_dataframe.loc[pat_id,
@@ -89,7 +88,6 @@ def load_dataframes(
                                  lbl_conv_obj[int(pat_prediction_argmax)],
                                  pat_loss,
                                  pat_entropy,
-                                 pat_quality_category,
                                  pat_myb_share,
                                  pat_myb_share + pat_pmc_share + pat_myc_share]
                 pat_datapoint.extend(pat_prediction_vector)
@@ -111,7 +109,6 @@ def load_dataframes(
         'pred_lbl',
         'MIL loss',
         'entropy',
-        'quality_category',
         'myb_annotated',
         'filter_annotation']
     columns_df.extend(['mil_prediction_' + lbl_conv_obj[x]
@@ -175,7 +172,7 @@ def load_dataframes(
             pat_features = np.load(
                 os.path.join(
                     pat_path,
-                    'processed/{}bn_features_layer_7.npy'.format(prefix)))
+                    '{}bn_features_layer_7.npy'.format(prefix)))
             ft_dims = pat_features.shape
             pat_features_flattened = pat_features.reshape(
                 (ft_dims[0], ft_dims[1] * ft_dims[2] * ft_dims[3]))            # keeps image dimension
