@@ -1191,17 +1191,17 @@ def init_sol_plot(data):
 def sol_att_bar_plot(data, ax):
     '''plot a cumulative barh plot, optional stacked indicators for attention'''
 
-    pred_columns = ['mil_prediction_AML-RUNX1-RUNX1T1',
-                    'mil_prediction_AML-CBFB-MYH11',
-                    'mil_prediction_AML-PML-RARA',
-                    'mil_prediction_AML-NPM1',
-                    'mil_prediction_SCD']
+    pred_columns = ['mil_prediction_RUNX1_RUNX1T1',
+                    'mil_prediction_CBFB_MYH11',
+                    'mil_prediction_PML_RARA',
+                    'mil_prediction_NPM1',
+                    'mil_prediction_control']
 
-    CLASS_COLORS = {'solitary_softmax_AML-PML-RARA': ((1.0, 127 / 255, 14 / 255), 0),
-                    'solitary_softmax_AML-NPM1': ('red', 1),
-                    'solitary_softmax_AML-CBFB-MYH11': ('sienna', 2),
-                    'solitary_softmax_AML-RUNX1-RUNX1T1': ('dodgerblue', 3),
-                    'solitary_softmax_SCD': ('limegreen', 4)}
+    CLASS_COLORS = {'solitary_softmax_PML_RARA': ((1.0, 127 / 255, 14 / 255), 0),
+                    'solitary_softmax_NPM1': ('red', 1),
+                    'solitary_softmax_CBFB_MYH11': ('sienna', 2),
+                    'solitary_softmax_RUNX1_RUNX1T1': ('dodgerblue', 3),
+                    'solitary_softmax_control': ('limegreen', 4)}
 
     def col_transform(x): return CLASS_COLORS[x][0]
     def order_transform(x): return CLASS_COLORS[x][1]

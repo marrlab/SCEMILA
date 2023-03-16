@@ -1,6 +1,6 @@
 # SCEMILA - README
 
-Welcome to the Github repository supplementing the publication "Predicting AML genetic subtypes and diagnostic cells with attention augmented multiple instance learning" (Hehr et al., 2021, currently under review). 
+Welcome to the Github repository supplementing the publication "Explainable AI identifies diagnostic cells of genetic AML subtypes." (Hehr M, Sadafi A, Matek C, Lienemann P, Pohlkamp C, et al. (2023) PLOS Digital Health 2(3): e0000187. https://doi.org/10.1371/journal.pdig.0000187). 
 
 ## Table of contents
 1. Description
@@ -24,7 +24,7 @@ Welcome to the Github repository supplementing the publication "Predicting AML g
 
 # 1. Description
 ## About
-This Repo contains both the machine learning algorithm and the necessary functions to analyze and plot the figures published in the paper "Predicting AML genetic subtypes and diagnostic cells with attention augmented multiple instance learning" (Hehr et al., 2021, currently under review).
+This Repository contains both the machine learning algorithm and the necessary functions to analyze and plot the figures published in the paper "Explainable AI identifies diagnostic cells of genetic AML subtypes." (Hehr M, Sadafi A, Matek C, Lienemann P, Pohlkamp C, et al. (2023) PLOS Digital Health 2(3): e0000187. https://doi.org/10.1371/journal.pdig.0000187).
 
 ## Contact
 For questions and issues regarding the code, feel free to contact [Matthias Hehr](https://www.linkedin.com/in/matthias-hehr/). Otherwise, please reach out to the corresponding authors.  
@@ -32,7 +32,8 @@ For questions and issues regarding the code, feel free to contact [Matthias Hehr
 # 2. Getting started
 
 ## 2.1 Data
-The data will be published and available for download soon. To reproduce results, download the data and unzip it.
+To reproduce results, download the data and unzip it. The publication of our dataset is currently in progress, the data will be available at [The Cancer Imaging Archive (TCIA):](https://www.cancerimagingarchive.net/) https://doi.org/10.7937/6ppe-4020
+
 
 ## 2.2 Dependencies
 The pipeline and corresponding analysis requires a python environment with various packages. The [requirements file](requirements.txt) will be of help to build a functioning python environment. 
@@ -72,19 +73,21 @@ This will create a new folder in your directory `TARGET_FOLDER` called `result_f
 To analyze the data generated and take a look at various visualizations, use the [analysis notebook](analysis/analysis_notebook.ipynb) and adjust the corresponding paths as mentioned in 2.3 (Code Setup).
 
 The notebook is designed to simplify analysis of the results generated with the pipeline, by automated plotting of most of the figures published in the paper. These figures are then exported directly into the [output folder](analysis/output).
+The last sections of our notebook require large amounts of RAM (we recommend 32GB), otherwise the pythonkernel might crash. 
 
 # 3. Authors
 Major contributions were made by the following people:
 
-Matthias Hehr<sup>1,2,3</sup>, Ario Sadafi<sup>1,2</sup>, Christian Matek<sup>1,2,3</sup>, Christian Pohlkamp<sup>4</sup>, Torsten Haferlach<sup>4</sup>, Karsten Spiekermann<sup>3,5,6,+</sup> and Carsten Marr<sup>1,2,+</sup>
+Matthias Hehr<sup>1,2,3</sup>, Ario Sadafi<sup>1,2,4</sup>, Christian Matek<sup>1,2,3</sup>, Peter Lienemann<sup>1,3</sup>, Christian Pohlkamp<sup>5</sup>, Torsten Haferlach<sup>5</sup>, Karsten Spiekermann<sup>3,6,7</sup> and Carsten Marr<sup>1,2,*</sup>
 
 <sup>1</sup>Institute of AI for Health, Helmholtz Zentrum München – German Research Center for Environmental Health, Neuherberg, Germany
 <sup>2</sup>Institute of Computational Biology, Helmholtz Zentrum München – German Research Center for Environmental Health, Neuherberg, Germany
 <sup>3</sup>Laboratory of Leukemia Diagnostics, Department of Medicine III, University Hospital, LMU Munich, Munich, Germany
-<sup>4</sup>Munich Leukemia Laboratory, Munich, Germany
-<sup>5</sup>German Cancer Consortium (DKTK), Heidelberg, Germany
-<sup>6</sup>German Cancer Research Center (DKFZ), Heidelberg, Germany
-<sup>+</sup>Corresponding authors
+<sup>4</sup>Computer Aided Medical Procedures, Technical University of Munich, Munich, Germany
+<sup>5</sup>Munich Leukemia Laboratory, Munich, Germany
+<sup>6</sup>German Cancer Consortium (DKTK), Heidelberg, Germany
+<sup>7</sup>German Cancer Research Center (DKFZ), Heidelberg, Germany
+<sup>*</sup>Corresponding author: carsten.marr@helmholtz-muenchen.de
 
 
 
@@ -92,4 +95,6 @@ Matthias Hehr<sup>1,2,3</sup>, Ario Sadafi<sup>1,2</sup>, Christian Matek<sup>1,
 M.H. was supported by a José-Carreras-DGHO-Promotionsstipendium. C.M. has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (Grant agreement No. 866411)
 
 # 5. License
-[See the license](LICENSE). If you use this code, please cite our original paper (further information about the citation will follow).
+[See the license](LICENSE). If you use this code, please cite our original paper:
+
+Hehr M, Sadafi A, Matek C, Lienemann P, Pohlkamp C, et al. (2023) Explainable AI identifies diagnostic cells of genetic AML subtypes. PLOS Digital Health 2(3): e0000187. https://doi.org/10.1371/journal.pdig.0000187

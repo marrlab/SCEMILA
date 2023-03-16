@@ -42,7 +42,7 @@ def select_embedding(sc_dataframe, fillup_unmatched=True):
                 PATH_EMBEDDINGS, name_new + '.pkl'))
 
 
-def generate_embedding(sc_dataframe, path_target, save=True):
+def generate_embedding(sc_dataframe, path_target="", save=True):
     global scaler, reducer
 
     # create scalers and reducer
@@ -51,7 +51,7 @@ def generate_embedding(sc_dataframe, path_target, save=True):
     cell_data = sc_dataframe_embedding[FEATURES].values
     umap_scaler = StandardScaler().fit(cell_data)
     scaled_cell_data = umap_scaler.transform(cell_data)
-    umap_reducer = umap.UMAP(verbose=True).fit(scaled_cell_data)
+    umap_reducer = umap.UMAP(verbose=False).fit(scaled_cell_data)
     embedding = umap_reducer.transform(scaled_cell_data)
 
     sc_dataframe['x'] = embedding[..., 0]
